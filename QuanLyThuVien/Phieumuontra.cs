@@ -45,18 +45,18 @@ namespace QuanLyThuVien
                      };
             dgvpmt.DataSource = pmt;
 
-            cbomanv_pmt.DataSource = db.NHANVIENs;
-            cbomanv_pmt.ValueMember = "MANV";
-            cbomanv_pmt.DisplayMember = "MANV";
+            cboManv_pmt.DataSource = db.NHANVIENs;
+            cboManv_pmt.ValueMember = "MANV";
+            cboManv_pmt.DisplayMember = "MANV";
 
-            cbomatdg_pmt.DataSource = db.THEDOCGIAs;
-            cbomatdg_pmt.ValueMember = "MATHE";
-            cbomatdg_pmt.DisplayMember = "MATHE";
+            cboMatdg_pmt.DataSource = db.THEDOCGIAs;
+            cboMatdg_pmt.ValueMember = "MATHE";
+            cboMatdg_pmt.DisplayMember = "MATHE";
 
-            var madg = db.THEDOCGIAs.FirstOrDefault(k => k.MATHE == cbomatdg_pmt.Text);
+            var madg = db.THEDOCGIAs.FirstOrDefault(k => k.MATHE == cboMatdg_pmt.Text);
             if (madg != null)
             {
-                txtmadg_pmt.Text = madg.MADOCGIA.ToString();
+                txtMadg_pmt.Text = madg.MADOCGIA.ToString();
             }
 
 
@@ -119,11 +119,11 @@ namespace QuanLyThuVien
             try
             {
                 PHIEUMUONTRA pmt = new PHIEUMUONTRA();
-                pmt.MAPHIEUMUON = txtmapmt.Text;
-                pmt.MANV = cbomanv_pmt.SelectedValue.ToString();
-                pmt.MATHE = cbomatdg_pmt.SelectedValue.ToString();
-                pmt.MADOCGIA = txtmadg_pmt.Text;
-                pmt.NGAYLAP = Convert.ToDateTime(dtmpmt.Value);
+                pmt.MAPHIEUMUON = txtMaphieu_pmt.Text;
+                pmt.MANV = cboManv_pmt.SelectedValue.ToString();
+                pmt.MATHE = cboMatdg_pmt.SelectedValue.ToString();
+                pmt.MADOCGIA = txtMadg_pmt.Text;
+                pmt.NGAYLAP = Convert.ToDateTime(dtmngaylap_pmt.Value);
 
                 var tests = db.PHIEUMUONTRAs.FirstOrDefault(p => p.MAPHIEUMUON == pmt.MAPHIEUMUON);
                 if (tests == null)
@@ -132,19 +132,19 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     loadpmt();
-                    txtmapmt.Clear();
+                    txtMaphieu_pmt.Clear();
 
 
                 }
                 else
                 {
-                    tests.MANV = cbomanv_pmt.SelectedValue.ToString();
-                    tests.MATHE = cbomatdg_pmt.SelectedValue.ToString();
-                    tests.NGAYLAP = Convert.ToDateTime(dtmpmt.Value);
+                    tests.MANV = cboManv_pmt.SelectedValue.ToString();
+                    tests.MATHE = cboMatdg_pmt.SelectedValue.ToString();
+                    tests.NGAYLAP = Convert.ToDateTime(dtmngaylap_pmt.Value);
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     db.SubmitChanges();
                     loadpmt();
-                    txtmapmt.Clear();
+                    txtMaphieu_pmt.Clear();
 
                 }
 
@@ -172,7 +172,7 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     loadpmt();
                     MessageBox.Show("Xoá Thành Công", "Thông Báo", MessageBoxButtons.OK);
-                    txtmapmt.Clear();
+                    txtMaphieu_pmt.Clear();
                 }
         }
 
@@ -200,7 +200,7 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     loadctpm();
-                    txtmapmt.Clear();
+                    txtMaphieu_pmt.Clear();
 
 
                 }
@@ -216,7 +216,7 @@ namespace QuanLyThuVien
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     db.SubmitChanges();
                     loadctpm();
-                    txtmapmt.Clear();
+                    txtMaphieu_pmt.Clear();
 
                 }
 
@@ -243,7 +243,7 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     loadctpm();
                     MessageBox.Show("Xoá Thành Công", "Thông Báo", MessageBoxButtons.OK);
-                    txtmapmt.Clear();
+                    txtMaphieu_pmt.Clear();
                 }
         }
 
@@ -275,7 +275,7 @@ namespace QuanLyThuVien
             MessageBox.Show("Trả sách thành công", "Thông báo", MessageBoxButtons.OK);
             db.SubmitChanges();
             loadctpm();
-            txtmapmt.Clear();
+            txtMaphieu_pmt.Clear();
             }
         }
 
@@ -292,7 +292,7 @@ namespace QuanLyThuVien
                 MessageBox.Show("Gia hạn thành công", "Thông báo", MessageBoxButtons.OK);
                 db.SubmitChanges();
                 loadctpm();
-                txtmapmt.Clear();
+                txtMaphieu_pmt.Clear();
             }
         }
     }
