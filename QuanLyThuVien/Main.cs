@@ -151,11 +151,7 @@ namespace QuanLyThuVien
             TabCreating(this.xtraTabControl1, "Đầu Sách", dausach);
         }
 
-        private void btnlienhe_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmLienhe lienhe = new frmLienhe();
-            TabCreating(this.xtraTabControl1, "Liên Hệ", lienhe);
-        }
+     
 
         private void btnnhanvien_ItemClick(object sender, ItemClickEventArgs e)
         {

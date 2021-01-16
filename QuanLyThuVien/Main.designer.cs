@@ -255,7 +255,6 @@
             this.btnlienhe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnlienhe.ImageOptions.Image")));
             this.btnlienhe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnlienhe.ImageOptions.LargeImage")));
             this.btnlienhe.Name = "btnlienhe";
-            this.btnlienhe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnlienhe_ItemClick);
             // 
             // btnnhanvien
             // 

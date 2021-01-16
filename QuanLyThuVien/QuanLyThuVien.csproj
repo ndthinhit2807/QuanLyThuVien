@@ -117,12 +117,6 @@
     <Compile Include="Nhanvien.designer.cs">
       <DependentUpon>Nhanvien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lienhe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lienhe.Designer.cs">
-      <DependentUpon>Lienhe.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,9 +190,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Nhanvien.resx">
       <DependentUpon>Nhanvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lienhe.resx">
-      <DependentUpon>Lienhe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
