@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyThuVien" Class="QuanLyThuVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True" SettingsObjectName="QuanLyThuVien.Properties.Settings" SettingsPropertyName="QuanLyThuVienConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CTPM" Member="CTPMs">
+    <Type Name="CTPM">
+      <Column Name="MASACH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAPHIEUMUON" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SOLUONG" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HANTRA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NGAYTRA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DAUSACH_CTPM" Member="DAUSACH" ThisKey="MASACH" OtherKey="MASACH" Type="DAUSACH" IsForeignKey="true" />
+      <Association Name="PHIEUMUONTRA_CTPM" Member="PHIEUMUONTRA" ThisKey="MAPHIEUMUON" OtherKey="MAPHIEUMUON" Type="PHIEUMUONTRA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THELOAI" Member="THELOAIs">
+    <Type Name="THELOAI">
+      <Column Name="MATHELOAI" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENTHELOAI" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="THELOAI_DAUSACH" Member="DAUSACHes" ThisKey="MATHELOAI" OtherKey="MATHELOAI" Type="DAUSACH" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DAUSACH" Member="DAUSACHes">
+    <Type Name="DAUSACH">
+      <Column Name="MASACH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENSACH" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NAMXUATBAN" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="MATHELOAI" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MANXB" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MATACGIA" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="DAUSACH_CTPM" Member="CTPMs" ThisKey="MASACH" OtherKey="MASACH" Type="CTPM" />
+      <Association Name="THELOAI_DAUSACH" Member="THELOAI" ThisKey="MATHELOAI" OtherKey="MATHELOAI" Type="THELOAI" IsForeignKey="true" />
+      <Association Name="NHAXUATBAN_DAUSACH" Member="NHAXUATBAN" ThisKey="MANXB" OtherKey="MANXB" Type="NHAXUATBAN" IsForeignKey="true" />
+      <Association Name="TACGIA_DAUSACH" Member="TACGIA" ThisKey="MATACGIA" OtherKey="MATACGIA" Type="TACGIA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DOCGIA" Member="DOCGIAs">
+    <Type Name="DOCGIA">
+      <Column Name="MADOCGIA" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENDOCGIA" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SDTDOCGIA" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="DOCGIA_THEDOCGIA" Member="THEDOCGIAs" ThisKey="MADOCGIA" OtherKey="MADOCGIA" Type="THEDOCGIA" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHANVIEN" Member="NHANVIENs">
+    <Type Name="NHANVIEN">
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HOTENNV" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GIOITINHNV" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NGAYSINHNV" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DIACHINV" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="DIENTHOAINV" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="EMAILNV" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="NHANVIEN_PHIEUMUONTRA" Member="PHIEUMUONTRAs" ThisKey="MANV" OtherKey="MANV" Type="PHIEUMUONTRA" />
+      <Association Name="NHANVIEN_THEDOCGIA" Member="THEDOCGIAs" ThisKey="MANV" OtherKey="MANV" Type="THEDOCGIA" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHAXUATBAN" Member="NHAXUATBANs">
+    <Type Name="NHAXUATBAN">
+      <Column Name="MANXB" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENNXB" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DIACHINXB" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="DIENTHOAIXB" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="NHAXUATBAN_DAUSACH" Member="DAUSACHes" ThisKey="MANXB" OtherKey="MANXB" Type="DAUSACH" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUMUONTRA" Member="PHIEUMUONTRAs">
+    <Type Name="PHIEUMUONTRA">
+      <Column Name="MAPHIEUMUON" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NGAYLAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MATHE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MADOCGIA" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="PHIEUMUONTRA_CTPM" Member="CTPMs" ThisKey="MAPHIEUMUON" OtherKey="MAPHIEUMUON" Type="CTPM" />
+      <Association Name="NHANVIEN_PHIEUMUONTRA" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+      <Association Name="THEDOCGIA_PHIEUMUONTRA" Member="THEDOCGIA" ThisKey="MATHE,MADOCGIA" OtherKey="MATHE,MADOCGIA" Type="THEDOCGIA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TACGIA" Member="TACGIAs">
+    <Type Name="TACGIA">
+      <Column Name="MATACGIA" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENTACGIA" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="TACGIA_DAUSACH" Member="DAUSACHes" ThisKey="MATACGIA" OtherKey="MATACGIA" Type="DAUSACH" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="TENTAIKHOAN" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATKHAU" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THEDOCGIA" Member="THEDOCGIAs">
+    <Type Name="THEDOCGIA">
+      <Column Name="MANV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MATHE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NGAYLAP" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NGAYHETHAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MADOCGIA" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="THEDOCGIA_PHIEUMUONTRA" Member="PHIEUMUONTRAs" ThisKey="MATHE,MADOCGIA" OtherKey="MATHE,MADOCGIA" Type="PHIEUMUONTRA" />
+      <Association Name="DOCGIA_THEDOCGIA" Member="DOCGIA" ThisKey="MADOCGIA" OtherKey="MADOCGIA" Type="DOCGIA" IsForeignKey="true" />
+      <Association Name="NHANVIEN_THEDOCGIA" Member="NHANVIEN" ThisKey="MANV" OtherKey="MANV" Type="NHANVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
