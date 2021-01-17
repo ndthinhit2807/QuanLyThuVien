@@ -19,31 +19,32 @@ namespace QuanLyThuVien
         private void btnThem_Click(object sender, EventArgs e)
         {
             NHAXUATBAN nxb = new NHAXUATBAN();
-            nxb.MANXB = masknxb.Text.Trim();
-            nxb.TENNXB = txtTenNXB.Text.Trim();
-            nxb.DIACHINXB = txtDiachi.Text.Trim();
-            nxb.DIENTHOAIXB = txtSDT.Text.Trim();
+            nxb.MANXB = mskMa_nxb.Text.Trim();
+            nxb.TENNXB = txtTen_nxb.Text.Trim();
+            nxb.DIACHINXB = txtDiachi_nxb.Text.Trim();
+            nxb.DIENTHOAIXB = txtSdt_nxb.Text.Trim();
             try
             {
                 var testNXb = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == nxb.MANXB);
                 if (testNXb == null)
                 {
                     db.NHAXUATBANs.InsertOnSubmit(nxb);
-                    MessageBox.Show("Thêm và Lưu thành công!!!");
-                    masknxb.Clear();
-                    txtTenNXB.Clear();
-                    txtDiachi.Clear();
-                    txtSDT.Clear();
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                    mskMa_nxb.Clear();
+                    txtTen_nxb.Clear();
+                    txtDiachi_nxb.Clear();
+                    txtSdt_nxb.Clear();
                 }
                 else
                 {
-                    testNXb.TENNXB = txtTenNXB.Text.Trim();
-                    testNXb.DIACHINXB = txtDiachi.Text.Trim();
-                    testNXb.DIENTHOAIXB = txtSDT.Text.Trim();
-                    masknxb.Clear();
-                    txtTenNXB.Clear();
-                    txtDiachi.Clear();
-                    txtSDT.Clear();
+                    testNXb.TENNXB = txtTen_nxb.Text.Trim();
+                    testNXb.DIACHINXB = txtDiachi_nxb.Text.Trim();
+                    testNXb.DIENTHOAIXB = txtSdt_nxb.Text.Trim();
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                    mskMa_nxb.Clear();
+                    txtTen_nxb.Clear();
+                    txtDiachi_nxb.Clear();
+                    txtSdt_nxb.Clear();
                 }
                 db.SubmitChanges();
                 DataGridView();
@@ -59,7 +60,7 @@ namespace QuanLyThuVien
         {
             var show = db.NHAXUATBANs.ToList();
             dgvnhaxuatban.DataSource = show;
-            cbotimnxb.SelectedIndex = 0;
+            cboTim_nxb.SelectedIndex = 0;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -69,17 +70,17 @@ namespace QuanLyThuVien
                 if (MessageBox.Show("Bạn có muốn xoá?", "Thông Báo",
                  MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var nhaxuatban = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == masknxb.Text);
+                    var nhaxuatban = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == mskMa_nxb.Text);
                     if (nhaxuatban != null)
                     {
                         db.NHAXUATBANs.DeleteOnSubmit(nhaxuatban);
                         MessageBox.Show("Bạn đã xóa thành công!!!");
                         db.SubmitChanges();
                         DataGridView();
-                        masknxb.Clear();
-                        txtTenNXB.Clear();
-                        txtDiachi.Clear();
-                        txtSDT.Clear();
+                        mskMa_nxb.Clear();
+                        txtTen_nxb.Clear();
+                        txtDiachi_nxb.Clear();
+                        txtSdt_nxb.Clear();
                     }
                     else
                     {
@@ -93,54 +94,29 @@ namespace QuanLyThuVien
         {
             int numrow;
             numrow = e.RowIndex;
-            masknxb.Text = dgvnhaxuatban.Rows[numrow].Cells[0].Value.ToString();
-            txtTenNXB.Text = dgvnhaxuatban.Rows[numrow].Cells[1].Value.ToString();
-            txtDiachi.Text = dgvnhaxuatban.Rows[numrow].Cells[2].Value.ToString();
-            txtSDT.Text = dgvnhaxuatban.Rows[numrow].Cells[3].Value.ToString();
-
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTimkiemnxb_KeyUp(object sender, KeyEventArgs e)
-        {
+            mskMa_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[0].Value.ToString();
+            txtTen_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[1].Value.ToString();
+            txtDiachi_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[2].Value.ToString();
+            txtSdt_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[3].Value.ToString();
 
         }
 
         private void cbotimds_KeyUp(object sender, KeyEventArgs e)
         {
-            if (cbotimnxb.Text == "Tên")
+            if (cboTim_nxb.Text == "Tên")
             {
                 var findtennxb = (from s in db.NHAXUATBANs
-                                where s.TENNXB.Contains(txtTimkiemnxb.Text)
+                                where s.TENNXB.Contains(txtTim_nxb.Text)
                                 select s).ToList();
                 dgvnhaxuatban.DataSource = findtennxb;
-            }
-            else if (cbotimnxb.Text == "Địa Chỉ")
-            {
-                var finddiachinxb = (from s in db.NHAXUATBANs
-                                    where s.DIACHINXB.Contains(txtTimkiemnxb.Text)
-                                 select s).ToList();
-                dgvnhaxuatban.DataSource = finddiachinxb;
-            }
-            else if(cbotimnxb.Text == "SĐT")
-            {
-                var findsdtnxb = (from s in db.NHAXUATBANs
-                                  where s.DIENTHOAIXB.Contains(txtTimkiemnxb.Text)
-                                      select s).ToList();
-                dgvnhaxuatban.DataSource = findsdtnxb;
             }
             else
             {
                 var findmanxb = (from s in db.NHAXUATBANs
-                                  where s.MANXB.Contains(txtTimkiemnxb.Text)
+                                  where s.MANXB.Contains(txtTim_nxb.Text)
                                   select s).ToList();
                 dgvnhaxuatban.DataSource = findmanxb;
             }
-
         }
     }
 }

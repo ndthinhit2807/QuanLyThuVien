@@ -62,64 +62,13 @@ namespace QuanLyThuVien
 
         }
 
-        void loadctpm()
-        {
-            var ctpm = from s in db.CTPMs
-
-                       
-                       //join d in db.PHIEUMUONTRAs on s.MAPHIEUMUON equals d.MAPHIEUMUON
-                       //join a in db.NHANVIENs on d.MANV equals a.MANV
-                       // join b in db.THEDOCGIAs on a.MANV equals b.MANV
-                       
-
-                     
-                       select new
-                       {
-                           s.PHIEUMUONTRA.MAPHIEUMUON,
-                           s.PHIEUMUONTRA.MANV,
-                           s.PHIEUMUONTRA.NHANVIEN.HOTENNV,
-                           s.PHIEUMUONTRA.MATHE,
-                           s.PHIEUMUONTRA.THEDOCGIA.DOCGIA.TENDOCGIA,
-                           s.DAUSACH.MASACH,
-                           s.DAUSACH.TENSACH,
-                           s.TINHTRANG,
-                           s.SOLUONG,
-                           s.PHIEUMUONTRA.NGAYLAP,
-                           s.HANTRA,
-                           s.NGAYTRA
-                          
-                           
-                           
-
-                       };
-
-            dgvctpm.DataSource = ctpm.ToList();
-
-            cbomapmt_ctpm.DataSource = db.PHIEUMUONTRAs;
-            cbomapmt_ctpm.DisplayMember = "MAPHIEUMUON";
-            cbomapmt_ctpm.ValueMember = "MAPHIEUMUON";
-
-            cbomasach_ctpm.DataSource = db.DAUSACHes;
-            cbomasach_ctpm.DisplayMember = "TENSACH";
-            cbomasach_ctpm.ValueMember = "MASACH";
-
-       
-
-         
-
-            cbotinhtrang.SelectedIndex = 0;
-
-
-
-
-        }
 
         private void btnthemsuapmt_Click(object sender, EventArgs e)
         {
             try
             {
                 PHIEUMUONTRA pmt = new PHIEUMUONTRA();
-                pmt.MAPHIEUMUON = txtMaphieu_pmt.Text;
+                pmt.MAPHIEUMUON = mskMa_phieumuontra.Text;
                 pmt.MANV = cboManv_pmt.SelectedValue.ToString();
                 pmt.MATHE = cboMatdg_pmt.SelectedValue.ToString();
                 pmt.MADOCGIA = txtMadg_pmt.Text;
@@ -132,7 +81,7 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     loadpmt();
-                    txtMaphieu_pmt.Clear();
+                    mskMa_phieumuontra.Clear();
 
 
                 }
@@ -144,7 +93,7 @@ namespace QuanLyThuVien
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     db.SubmitChanges();
                     loadpmt();
-                    txtMaphieu_pmt.Clear();
+                    mskMa_phieumuontra.Clear();
 
                 }
 
@@ -172,10 +121,41 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     loadpmt();
                     MessageBox.Show("Xoá Thành Công", "Thông Báo", MessageBoxButtons.OK);
-                    txtMaphieu_pmt.Clear();
+                    mskMa_phieumuontra.Clear();
                 }
         }
 
+        void loadctpm()
+        {
+            var ctpm = from s in db.CTPMs     
+                       select new
+                       {
+                           s.PHIEUMUONTRA.MAPHIEUMUON,
+                           s.PHIEUMUONTRA.MANV,
+                           s.PHIEUMUONTRA.NHANVIEN.HOTENNV,
+                           s.PHIEUMUONTRA.MATHE,
+                           s.PHIEUMUONTRA.THEDOCGIA.DOCGIA.TENDOCGIA,
+                           s.DAUSACH.MASACH,
+                           s.DAUSACH.TENSACH,
+                           s.TINHTRANG,
+                           s.SOLUONG,
+                           s.PHIEUMUONTRA.NGAYLAP,
+                           s.HANTRA,
+                           s.NGAYTRA
+                       };
+
+            dgvctpm.DataSource = ctpm.ToList();
+
+            cbomapmt_ctpm.DataSource = db.PHIEUMUONTRAs;
+            cbomapmt_ctpm.DisplayMember = "MAPHIEUMUON";
+            cbomapmt_ctpm.ValueMember = "MAPHIEUMUON";
+
+            cbomasach_ctpm.DataSource = db.DAUSACHes;
+            cbomasach_ctpm.DisplayMember = "TENSACH";
+            cbomasach_ctpm.ValueMember = "MASACH";
+
+            cbotinhtrang.SelectedIndex = 0;
+        }
         private void btnthemsua_ctpm_Click(object sender, EventArgs e)
         {
 
@@ -200,7 +180,7 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     loadctpm();
-                    txtMaphieu_pmt.Clear();
+                    mskMa_phieumuontra.Clear();
 
 
                 }
@@ -216,7 +196,7 @@ namespace QuanLyThuVien
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     db.SubmitChanges();
                     loadctpm();
-                    txtMaphieu_pmt.Clear();
+                    mskMa_phieumuontra.Clear();
 
                 }
 
@@ -243,7 +223,7 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     loadctpm();
                     MessageBox.Show("Xoá Thành Công", "Thông Báo", MessageBoxButtons.OK);
-                    txtMaphieu_pmt.Clear();
+                    mskMa_phieumuontra.Clear();
                 }
         }
 
@@ -275,7 +255,7 @@ namespace QuanLyThuVien
             MessageBox.Show("Trả sách thành công", "Thông báo", MessageBoxButtons.OK);
             db.SubmitChanges();
             loadctpm();
-            txtMaphieu_pmt.Clear();
+            mskMa_phieumuontra.Clear();
             }
         }
 
@@ -292,8 +272,13 @@ namespace QuanLyThuVien
                 MessageBox.Show("Gia hạn thành công", "Thông báo", MessageBoxButtons.OK);
                 db.SubmitChanges();
                 loadctpm();
-                txtMaphieu_pmt.Clear();
+                 mskMa_phieumuontra.Clear();
             }
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

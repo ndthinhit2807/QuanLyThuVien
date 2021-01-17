@@ -24,20 +24,13 @@ namespace QuanLyThuVien
 
         QuanLyThuVienDataContext db = new QuanLyThuVienDataContext();
        
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnfrmdangnhap_Click(object sender, EventArgs e)
         {
-
-            var dangnhap = db.TAIKHOANs.Where(x => x.TENTAIKHOAN == txtId.Text).ToList().Where(x=> x.MATKHAU == txtpass.Text).FirstOrDefault();
-            if (txtId.Text.Trim() == "" || txtpass.Text.Trim() == "")
+            var dangnhap = db.TAIKHOANs.Where(x => x.TENTAIKHOAN == txtId_dangnhap.Text).ToList().Where(x=> x.MATKHAU == txtPass_dangnhap.Text).FirstOrDefault();
+            if (txtId_dangnhap.Text.Trim() == "" || txtPass_dangnhap.Text.Trim() == "")
             {
                 MessageBox.Show("Vui Lòng Nhập Mật khẩu và tài khoản");
             }
-
 
             else
             {
@@ -60,8 +53,7 @@ namespace QuanLyThuVien
                     
 
                 }
-            }
-            
+            }          
         }
 
         private void btnthoat_Click (object sender, EventArgs e)
@@ -77,17 +69,6 @@ namespace QuanLyThuVien
             }
         }
 
-
-        private void txtId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void pictureEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmDangnhap_Load(object sender, EventArgs e)
         {
          
@@ -100,7 +81,5 @@ namespace QuanLyThuVien
             DevExpress.LookAndFeel.DefaultLookAndFeel themes = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             themes.LookAndFeel.SkinName = "Summer 2008";
         }
-
-
     }
 }

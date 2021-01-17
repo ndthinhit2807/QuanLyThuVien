@@ -44,19 +44,19 @@ namespace QuanLyThuVien
                                  };
                 dgvds.DataSource = loadds;
 
-                cbotimds.SelectedIndex = 0;
+                cboTim_dausach.SelectedIndex = 0;
 
-                cbonxb.DataSource = db.NHAXUATBANs;
-                cbonxb.ValueMember = "MANXB";
-                cbonxb.DisplayMember = "TENNXB";
+                cboNxb_dausach.DataSource = db.NHAXUATBANs;
+                cboNxb_dausach.ValueMember = "MANXB";
+                cboNxb_dausach.DisplayMember = "TENNXB";
 
-                cbotg.DataSource = db.TACGIAs;
-                cbotg.ValueMember = "MATACGIA";
-                cbotg.DisplayMember = "TENTACGIA";
+                cboTacgia_dausach.DataSource = db.TACGIAs;
+                cboTacgia_dausach.ValueMember = "MATACGIA";
+                cboTacgia_dausach.DisplayMember = "TENTACGIA";
 
-                cbotl.DataSource = db.THELOAIs;
-                cbotl.ValueMember = "MATHELOAI";
-                cbotl.DisplayMember = "TENTHELOAI";
+                cboTheloai_dausach.DataSource = db.THELOAIs;
+                cboTheloai_dausach.ValueMember = "MATHELOAI";
+                cboTheloai_dausach.DisplayMember = "TENTHELOAI";
             
         }
 
@@ -65,33 +65,33 @@ namespace QuanLyThuVien
             try
             {
                 DAUSACH ds = new DAUSACH();
-                ds.MASACH = maskds.Text.Trim();
-                ds.MANXB = cbonxb.SelectedValue.ToString();
-                ds.TENSACH = txttends.Text.Trim();
-                ds.MATHELOAI = cbotl.SelectedValue.ToString();
-                ds.NAMXUATBAN = txtnamxb.Text.Trim();
-                ds.MATACGIA = cbotg.SelectedValue.ToString();
-                var testds = db.DAUSACHes.FirstOrDefault(p => p.MASACH == ds.MASACH);
-                if (testds == null)
+                ds.MASACH = mskMa_dausach.Text.Trim();
+                ds.MANXB = cboNxb_dausach.SelectedValue.ToString();
+                ds.TENSACH = txtTen_dausach.Text.Trim();
+                ds.MATHELOAI = cboTheloai_dausach.SelectedValue.ToString();
+                ds.NAMXUATBAN = txtNamxb_dausach.Text.Trim();
+                ds.MATACGIA = cboTacgia_dausach.SelectedValue.ToString();
+                var test_ds = db.DAUSACHes.FirstOrDefault(p => p.MASACH == ds.MASACH);
+                if (test_ds == null)
                 {
                     db.DAUSACHes.InsertOnSubmit(ds);
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                    maskds.Clear();
-                    txtnamxb.Clear();
-                    txttends.Clear();
+                    mskMa_dausach.Clear();
+                    txtNamxb_dausach.Clear();
+                    txtTen_dausach.Clear();
                 }
                 else
                 {
-                    ds = db.DAUSACHes.Where(p => p.MASACH == maskds.Text).Single();
-                    ds.MANXB = cbonxb.SelectedValue.ToString();
-                    ds.TENSACH = txttends.Text.Trim();
-                    ds.MATHELOAI = cbotl.SelectedValue.ToString();
-                    ds.NAMXUATBAN = txtnamxb.Text.Trim();
-                    ds.MATACGIA = cbotg.SelectedValue.ToString();
+                    ds = db.DAUSACHes.Where(p => p.MASACH == mskMa_dausach.Text).Single();
+                    test_ds.MANXB = cboNxb_dausach.SelectedValue.ToString();
+                    test_ds.TENSACH = txtTen_dausach.Text.Trim();
+                    test_ds.MATHELOAI = cboTheloai_dausach.SelectedValue.ToString();
+                    test_ds.NAMXUATBAN = txtNamxb_dausach.Text.Trim();
+                    test_ds.MATACGIA = cboTacgia_dausach.SelectedValue.ToString();
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                    maskds.Clear();
-                    txtnamxb.Clear();
-                    txttends.Clear();
+                    mskMa_dausach.Clear();
+                    txtNamxb_dausach.Clear();
+                    txtTen_dausach.Clear();
                 }
                 db.SubmitChanges();
                 loaddausach();
@@ -118,15 +118,15 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     loaddausach();
                     MessageBox.Show("Xoá Thành Công", "Thông Báo", MessageBoxButtons.OK);
-                    maskds.Clear();
-                    txtnamxb.Clear();
-                    txttends.Clear();
+                    mskMa_dausach.Clear();
+                    txtNamxb_dausach.Clear();
+                    txtTen_dausach.Clear();
                 }
         }
 
         private void txttimds_KeyUp(object sender, KeyEventArgs e)
         {
-            if (cbotimds.Text == "Tên")
+            if (cboTim_dausach.Text == "Tên")
             {
                 var findtensach = from s in db.DAUSACHes
                                   join d in db.TACGIAs
@@ -135,7 +135,7 @@ namespace QuanLyThuVien
                                   on s.MATHELOAI equals t.MATHELOAI
                                   join v in db.NHAXUATBANs
                                   on s.MANXB equals v.MANXB
-                                  where s.TENSACH.Contains(txttimds.Text)
+                                  where s.TENSACH.Contains(txtTim_dausach.Text)
                                   select new
                                   {
                                       s.MASACH,
@@ -147,70 +147,7 @@ namespace QuanLyThuVien
                                   };
                 dgvds.DataSource = findtensach;
             }
-            else if (cbotimds.Text == "Thể Loại")
-            {
-                var findtheloai = from s in db.DAUSACHes
-                                  join d in db.TACGIAs
-                                  on s.MATACGIA equals d.MATACGIA
-                                  join t in db.THELOAIs
-                                  on s.MATHELOAI equals t.MATHELOAI
-                                  join v in db.NHAXUATBANs
-                                  on s.MANXB equals v.MANXB
-                                  where t.TENTHELOAI.Contains(txttimds.Text)
-                                  select new
-                                  {
-                                      s.MASACH,
-                                      s.TENSACH,
-                                      s.NAMXUATBAN,
-                                      t.TENTHELOAI,
-                                      d.TENTACGIA,
-                                      v.TENNXB
-                                  };
-                dgvds.DataSource = findtheloai;
-
-            }
-            else if (cbotimds.Text == "Tác Giả")
-            {
-                var findtacgia = from s in db.DAUSACHes
-                                 join d in db.TACGIAs
-                                 on s.MATACGIA equals d.MATACGIA
-                                 join t in db.THELOAIs
-                                 on s.MATHELOAI equals t.MATHELOAI
-                                 join v in db.NHAXUATBANs
-                                 on s.MANXB equals v.MANXB
-                                 where d.TENTACGIA.Contains(txttimds.Text)
-                                 select new
-                                 {
-                                     s.MASACH,
-                                     s.TENSACH,
-                                     s.NAMXUATBAN,
-                                     t.TENTHELOAI,
-                                     d.TENTACGIA,
-                                     v.TENNXB
-                                 };
-                dgvds.DataSource = findtacgia;
-            }
-            else if(cbotimds.Text == "Thể Loại")
-            {
-                var findnxb = from s in db.DAUSACHes
-                              join d in db.TACGIAs
-                              on s.MATACGIA equals d.MATACGIA
-                              join t in db.THELOAIs
-                              on s.MATHELOAI equals t.MATHELOAI
-                              join v in db.NHAXUATBANs
-                              on s.MANXB equals v.MANXB
-                              where v.TENNXB.Contains(txttimds.Text)
-                              select new
-                              {
-                                  s.MASACH,
-                                  s.TENSACH,
-                                  s.NAMXUATBAN,
-                                  t.TENTHELOAI,
-                                  d.TENTACGIA,
-                                  v.TENNXB
-                              };
-                dgvds.DataSource = findnxb;
-            }
+            
             else
             {
                 var findmads = from s in db.DAUSACHes
@@ -220,7 +157,7 @@ namespace QuanLyThuVien
                               on s.MATHELOAI equals t.MATHELOAI
                               join v in db.NHAXUATBANs
                               on s.MANXB equals v.MANXB
-                              where s.MASACH.Contains(txttimds.Text)
+                              where s.MASACH.Contains(txtTim_dausach.Text)
                               select new
                               {
                                   s.MASACH,
@@ -236,18 +173,12 @@ namespace QuanLyThuVien
 
         private void dgvds_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            maskds.Text = dgvds.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txttends.Text = dgvds.Rows[e.RowIndex].Cells[1].Value.ToString();
-          txtnamxb.Text = dgvds.Rows[e.RowIndex].Cells[2].Value.ToString();
-            cbotl.Text = dgvds.Rows[e.RowIndex].Cells[3].Value.ToString();
-            cbotg.Text = dgvds.Rows[e.RowIndex].Cells[4].Value.ToString();
-            cbonxb.Text = dgvds.Rows[e.RowIndex].Cells[5].Value.ToString();
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+            mskMa_dausach.Text = dgvds.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtTen_dausach.Text = dgvds.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtNamxb_dausach.Text = dgvds.Rows[e.RowIndex].Cells[2].Value.ToString();
+            cboTheloai_dausach.Text = dgvds.Rows[e.RowIndex].Cells[3].Value.ToString();
+            cboTacgia_dausach.Text = dgvds.Rows[e.RowIndex].Cells[4].Value.ToString();
+            cboNxb_dausach.Text = dgvds.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
     }
 }

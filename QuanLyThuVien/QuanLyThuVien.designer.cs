@@ -30,12 +30,12 @@ namespace QuanLyThuVien
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCTPM(CTPM instance);
-    partial void UpdateCTPM(CTPM instance);
-    partial void DeleteCTPM(CTPM instance);
     partial void InsertTHELOAI(THELOAI instance);
     partial void UpdateTHELOAI(THELOAI instance);
     partial void DeleteTHELOAI(THELOAI instance);
+    partial void InsertCTPM(CTPM instance);
+    partial void UpdateCTPM(CTPM instance);
+    partial void DeleteCTPM(CTPM instance);
     partial void InsertDAUSACH(DAUSACH instance);
     partial void UpdateDAUSACH(DAUSACH instance);
     partial void DeleteDAUSACH(DAUSACH instance);
@@ -92,19 +92,19 @@ namespace QuanLyThuVien
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<CTPM> CTPMs
-		{
-			get
-			{
-				return this.GetTable<CTPM>();
-			}
-		}
-		
 		public System.Data.Linq.Table<THELOAI> THELOAIs
 		{
 			get
 			{
 				return this.GetTable<THELOAI>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CTPM> CTPMs
+		{
+			get
+			{
+				return this.GetTable<CTPM>();
 			}
 		}
 		
@@ -170,6 +170,127 @@ namespace QuanLyThuVien
 			{
 				return this.GetTable<THEDOCGIA>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.procSachDuocMuonNhieu")]
+		public ISingleResult<procSachDuocMuonNhieuResult> procSachDuocMuonNhieu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgayBatDau", DbType="VarChar(50)")] string ngayBatDau, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgayKetThuc", DbType="VarChar(50)")] string ngayKetThuc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ngayBatDau, ngayKetThuc);
+			return ((ISingleResult<procSachDuocMuonNhieuResult>)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THELOAI")]
+	public partial class THELOAI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MATHELOAI;
+		
+		private string _TENTHELOAI;
+		
+		private EntitySet<DAUSACH> _DAUSACHes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMATHELOAIChanging(string value);
+    partial void OnMATHELOAIChanged();
+    partial void OnTENTHELOAIChanging(string value);
+    partial void OnTENTHELOAIChanged();
+    #endregion
+		
+		public THELOAI()
+		{
+			this._DAUSACHes = new EntitySet<DAUSACH>(new Action<DAUSACH>(this.attach_DAUSACHes), new Action<DAUSACH>(this.detach_DAUSACHes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHELOAI", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MATHELOAI
+		{
+			get
+			{
+				return this._MATHELOAI;
+			}
+			set
+			{
+				if ((this._MATHELOAI != value))
+				{
+					this.OnMATHELOAIChanging(value);
+					this.SendPropertyChanging();
+					this._MATHELOAI = value;
+					this.SendPropertyChanged("MATHELOAI");
+					this.OnMATHELOAIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENTHELOAI", DbType="NVarChar(30)")]
+		public string TENTHELOAI
+		{
+			get
+			{
+				return this._TENTHELOAI;
+			}
+			set
+			{
+				if ((this._TENTHELOAI != value))
+				{
+					this.OnTENTHELOAIChanging(value);
+					this.SendPropertyChanging();
+					this._TENTHELOAI = value;
+					this.SendPropertyChanged("TENTHELOAI");
+					this.OnTENTHELOAIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THELOAI_DAUSACH", Storage="_DAUSACHes", ThisKey="MATHELOAI", OtherKey="MATHELOAI")]
+		public EntitySet<DAUSACH> DAUSACHes
+		{
+			get
+			{
+				return this._DAUSACHes;
+			}
+			set
+			{
+				this._DAUSACHes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DAUSACHes(DAUSACH entity)
+		{
+			this.SendPropertyChanging();
+			entity.THELOAI = this;
+		}
+		
+		private void detach_DAUSACHes(DAUSACH entity)
+		{
+			this.SendPropertyChanging();
+			entity.THELOAI = null;
 		}
 	}
 	
@@ -434,120 +555,6 @@ namespace QuanLyThuVien
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THELOAI")]
-	public partial class THELOAI : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MATHELOAI;
-		
-		private string _TENTHELOAI;
-		
-		private EntitySet<DAUSACH> _DAUSACHes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMATHELOAIChanging(string value);
-    partial void OnMATHELOAIChanged();
-    partial void OnTENTHELOAIChanging(string value);
-    partial void OnTENTHELOAIChanged();
-    #endregion
-		
-		public THELOAI()
-		{
-			this._DAUSACHes = new EntitySet<DAUSACH>(new Action<DAUSACH>(this.attach_DAUSACHes), new Action<DAUSACH>(this.detach_DAUSACHes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHELOAI", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MATHELOAI
-		{
-			get
-			{
-				return this._MATHELOAI;
-			}
-			set
-			{
-				if ((this._MATHELOAI != value))
-				{
-					this.OnMATHELOAIChanging(value);
-					this.SendPropertyChanging();
-					this._MATHELOAI = value;
-					this.SendPropertyChanged("MATHELOAI");
-					this.OnMATHELOAIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENTHELOAI", DbType="NVarChar(30)")]
-		public string TENTHELOAI
-		{
-			get
-			{
-				return this._TENTHELOAI;
-			}
-			set
-			{
-				if ((this._TENTHELOAI != value))
-				{
-					this.OnTENTHELOAIChanging(value);
-					this.SendPropertyChanging();
-					this._TENTHELOAI = value;
-					this.SendPropertyChanged("TENTHELOAI");
-					this.OnTENTHELOAIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THELOAI_DAUSACH", Storage="_DAUSACHes", ThisKey="MATHELOAI", OtherKey="MATHELOAI")]
-		public EntitySet<DAUSACH> DAUSACHes
-		{
-			get
-			{
-				return this._DAUSACHes;
-			}
-			set
-			{
-				this._DAUSACHes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DAUSACHes(DAUSACH entity)
-		{
-			this.SendPropertyChanging();
-			entity.THELOAI = this;
-		}
-		
-		private void detach_DAUSACHes(DAUSACH entity)
-		{
-			this.SendPropertyChanging();
-			entity.THELOAI = null;
 		}
 	}
 	
@@ -898,6 +905,8 @@ namespace QuanLyThuVien
 		
 		private string _SDTDOCGIA;
 		
+		private string _EMAIL;
+		
 		private EntitySet<THEDOCGIA> _THEDOCGIAs;
 		
     #region Extensibility Method Definitions
@@ -912,6 +921,8 @@ namespace QuanLyThuVien
     partial void OnDIACHIChanged();
     partial void OnSDTDOCGIAChanging(string value);
     partial void OnSDTDOCGIAChanged();
+    partial void OnEMAILChanging(string value);
+    partial void OnEMAILChanged();
     #endregion
 		
 		public DOCGIA()
@@ -960,7 +971,7 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI", DbType="NVarChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI", DbType="NVarChar(100)")]
 		public string DIACHI
 		{
 			get
@@ -996,6 +1007,26 @@ namespace QuanLyThuVien
 					this._SDTDOCGIA = value;
 					this.SendPropertyChanged("SDTDOCGIA");
 					this.OnSDTDOCGIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="NVarChar(50)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this.OnEMAILChanging(value);
+					this.SendPropertyChanging();
+					this._EMAIL = value;
+					this.SendPropertyChanged("EMAIL");
+					this.OnEMAILChanged();
 				}
 			}
 		}
@@ -1177,7 +1208,7 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHINV", DbType="NVarChar(40)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHINV", DbType="NVarChar(100)")]
 		public string DIACHINV
 		{
 			get
@@ -1217,7 +1248,7 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAILNV", DbType="VarChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAILNV", DbType="NVarChar(50)")]
 		public string EMAILNV
 		{
 			get
@@ -2209,6 +2240,140 @@ namespace QuanLyThuVien
 		{
 			this.SendPropertyChanging();
 			entity.THEDOCGIA = null;
+		}
+	}
+	
+	public partial class procSachDuocMuonNhieuResult
+	{
+		
+		private string _MASACH;
+		
+		private string _TENSACH;
+		
+		private string _NAMXUATBAN;
+		
+		private string _MATHELOAI;
+		
+		private string _MANXB;
+		
+		private string _MATACGIA;
+		
+		private System.Nullable<int> _maxMaSachCnt;
+		
+		public procSachDuocMuonNhieuResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASACH", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MASACH
+		{
+			get
+			{
+				return this._MASACH;
+			}
+			set
+			{
+				if ((this._MASACH != value))
+				{
+					this._MASACH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENSACH", DbType="NVarChar(30)")]
+		public string TENSACH
+		{
+			get
+			{
+				return this._TENSACH;
+			}
+			set
+			{
+				if ((this._TENSACH != value))
+				{
+					this._TENSACH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMXUATBAN", DbType="Char(5)")]
+		public string NAMXUATBAN
+		{
+			get
+			{
+				return this._NAMXUATBAN;
+			}
+			set
+			{
+				if ((this._NAMXUATBAN != value))
+				{
+					this._NAMXUATBAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHELOAI", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MATHELOAI
+		{
+			get
+			{
+				return this._MATHELOAI;
+			}
+			set
+			{
+				if ((this._MATHELOAI != value))
+				{
+					this._MATHELOAI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANXB", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MANXB
+		{
+			get
+			{
+				return this._MANXB;
+			}
+			set
+			{
+				if ((this._MANXB != value))
+				{
+					this._MANXB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATACGIA", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MATACGIA
+		{
+			get
+			{
+				return this._MATACGIA;
+			}
+			set
+			{
+				if ((this._MATACGIA != value))
+				{
+					this._MATACGIA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maxMaSachCnt", DbType="Int")]
+		public System.Nullable<int> maxMaSachCnt
+		{
+			get
+			{
+				return this._maxMaSachCnt;
+			}
+			set
+			{
+				if ((this._maxMaSachCnt != value))
+				{
+					this._maxMaSachCnt = value;
+				}
+			}
 		}
 	}
 }

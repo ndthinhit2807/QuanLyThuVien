@@ -170,5 +170,11 @@ namespace QuanLyThuVien
             frmTheDocGia thedg = new frmTheDocGia();
             TabCreating(this.xtraTabControl1, "Thẻ Độc Giả", thedg);
         }
+
+        private void btntrogiup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmTrogiup trogiup = new frmTrogiup();
+            TabCreating(this.xtraTabControl1, "Trợ Giúp", trogiup);
+        }
     }
 }

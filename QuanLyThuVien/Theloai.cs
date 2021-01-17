@@ -33,14 +33,14 @@ namespace QuanLyThuVien
                 if(testTheloai == null)
                 {
                     db.THELOAIs.InsertOnSubmit(theloai);
-                    MessageBox.Show("Thêm và Lưu thành công!!!");
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     masktl.Clear();
                     txtTentheloai.Clear();
                 }
                 else
                 {
                     testTheloai.TENTHELOAI = theloai.TENTHELOAI;
-                    MessageBox.Show("Sửa và Lưu thành công!!!");
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     masktl.Clear();
                     txtTentheloai.Clear();
                 }

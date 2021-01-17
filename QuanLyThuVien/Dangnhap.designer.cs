@@ -33,14 +33,14 @@ namespace QuanLyThuVien
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnthoat = new System.Windows.Forms.Button();
             this.btnfrmdangnhap = new System.Windows.Forms.Button();
-            this.txtpass = new DevExpress.XtraEditors.TextEdit();
-            this.txtId = new DevExpress.XtraEditors.TextEdit();
+            this.txtPass_dangnhap = new DevExpress.XtraEditors.TextEdit();
+            this.txtId_dangnhap = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtpass.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPass_dangnhap.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId_dangnhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,8 +49,8 @@ namespace QuanLyThuVien
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.btnthoat);
             this.groupBox1.Controls.Add(this.btnfrmdangnhap);
-            this.groupBox1.Controls.Add(this.txtpass);
-            this.groupBox1.Controls.Add(this.txtId);
+            this.groupBox1.Controls.Add(this.txtPass_dangnhap);
+            this.groupBox1.Controls.Add(this.txtId_dangnhap);
             this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,7 +70,7 @@ namespace QuanLyThuVien
             this.btnthoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnthoat.Location = new System.Drawing.Point(278, 160);
             this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(113, 39);
+            this.btnthoat.Size = new System.Drawing.Size(113, 46);
             this.btnthoat.TabIndex = 4;
             this.btnthoat.Text = "Thoát";
             this.btnthoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -86,34 +86,33 @@ namespace QuanLyThuVien
             this.btnfrmdangnhap.Location = new System.Drawing.Point(77, 160);
             this.btnfrmdangnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfrmdangnhap.Name = "btnfrmdangnhap";
-            this.btnfrmdangnhap.Size = new System.Drawing.Size(160, 39);
+            this.btnfrmdangnhap.Size = new System.Drawing.Size(160, 46);
             this.btnfrmdangnhap.TabIndex = 3;
             this.btnfrmdangnhap.Text = "Đăng Nhập";
             this.btnfrmdangnhap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnfrmdangnhap.UseVisualStyleBackColor = true;
             this.btnfrmdangnhap.Click += new System.EventHandler(this.btnfrmdangnhap_Click);
             // 
-            // txtpass
+            // txtPass_dangnhap
             // 
-            this.txtpass.Location = new System.Drawing.Point(189, 112);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtpass.Name = "txtpass";
-            this.txtpass.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.Properties.Appearance.Options.UseFont = true;
-            this.txtpass.Properties.UseSystemPasswordChar = true;
-            this.txtpass.Size = new System.Drawing.Size(267, 36);
-            this.txtpass.TabIndex = 2;
+            this.txtPass_dangnhap.Location = new System.Drawing.Point(189, 112);
+            this.txtPass_dangnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPass_dangnhap.Name = "txtPass_dangnhap";
+            this.txtPass_dangnhap.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass_dangnhap.Properties.Appearance.Options.UseFont = true;
+            this.txtPass_dangnhap.Properties.UseSystemPasswordChar = true;
+            this.txtPass_dangnhap.Size = new System.Drawing.Size(267, 36);
+            this.txtPass_dangnhap.TabIndex = 2;
             // 
-            // txtId
+            // txtId_dangnhap
             // 
-            this.txtId.Location = new System.Drawing.Point(189, 66);
-            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtId.Name = "txtId";
-            this.txtId.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Properties.Appearance.Options.UseFont = true;
-            this.txtId.Size = new System.Drawing.Size(267, 36);
-            this.txtId.TabIndex = 1;
-            this.txtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtId_KeyPress);
+            this.txtId_dangnhap.Location = new System.Drawing.Point(189, 66);
+            this.txtId_dangnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtId_dangnhap.Name = "txtId_dangnhap";
+            this.txtId_dangnhap.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId_dangnhap.Properties.Appearance.Options.UseFont = true;
+            this.txtId_dangnhap.Size = new System.Drawing.Size(267, 36);
+            this.txtId_dangnhap.TabIndex = 1;
             // 
             // labelControl2
             // 
@@ -149,7 +148,6 @@ namespace QuanLyThuVien
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(537, 279);
             this.pictureEdit1.TabIndex = 3;
-            this.pictureEdit1.EditValueChanged += new System.EventHandler(this.pictureEdit1_EditValueChanged);
             // 
             // frmDangnhap
             // 
@@ -166,8 +164,8 @@ namespace QuanLyThuVien
             this.Load += new System.EventHandler(this.frmDangnhap_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtpass.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPass_dangnhap.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId_dangnhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -177,8 +175,8 @@ namespace QuanLyThuVien
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit txtpass;
-        private DevExpress.XtraEditors.TextEdit txtId;
+        private DevExpress.XtraEditors.TextEdit txtPass_dangnhap;
+        private DevExpress.XtraEditors.TextEdit txtId_dangnhap;
         private System.Windows.Forms.Button btnfrmdangnhap;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private System.Windows.Forms.Button btnthoat;

@@ -29,76 +29,135 @@ namespace QuanLyThuVien
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTheDocGia));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtmNgayLap = new System.Windows.Forms.DateTimePicker();
+            this.mskMa_thedocgia = new System.Windows.Forms.MaskedTextBox();
+            this.btnLammoi_thedocgia = new System.Windows.Forms.Button();
+            this.btnXoa_thedocgia = new System.Windows.Forms.Button();
+            this.btnThemsua_thedocgia = new System.Windows.Forms.Button();
+            this.dtmNgaylap_thedocgia = new System.Windows.Forms.DateTimePicker();
             this.lblMaNV = new System.Windows.Forms.Label();
             this.lblMaDocGia = new System.Windows.Forms.Label();
-            this.txtMaThe = new System.Windows.Forms.TextBox();
-            this.cboMaNV1 = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.cboManv_thedocgia = new System.Windows.Forms.ComboBox();
             this.lblNgayLap = new System.Windows.Forms.Label();
-            this.cboMaDocGia = new System.Windows.Forms.ComboBox();
+            this.cboMadocgia_thedocgia = new System.Windows.Forms.ComboBox();
             this.lblNgayHetHan = new System.Windows.Forms.Label();
             this.lblMathe = new System.Windows.Forms.Label();
-            this.dtmNgayHetHan = new System.Windows.Forms.DateTimePicker();
+            this.dtmHethan_thedocgia = new System.Windows.Forms.DateTimePicker();
             this.dgvTheDocGia = new System.Windows.Forms.DataGridView();
-            this.maphieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayhethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.lblDemdong = new System.Windows.Forms.Label();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cboTimKiem1 = new System.Windows.Forms.ComboBox();
-            this.txtTimKiemTheDocGia = new System.Windows.Forms.TextBox();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnHuy = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTheDocGia = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTim_thedocgia = new System.Windows.Forms.TextBox();
+            this.cboTim_thedocgia = new System.Windows.Forms.ComboBox();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.ngaytra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngaymuon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maphieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngayhethan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTheDocGia)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTheDocGia)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.Controls.Add(this.dtmNgayLap);
+            this.groupBox2.Controls.Add(this.mskMa_thedocgia);
+            this.groupBox2.Controls.Add(this.btnLammoi_thedocgia);
+            this.groupBox2.Controls.Add(this.btnXoa_thedocgia);
+            this.groupBox2.Controls.Add(this.btnThemsua_thedocgia);
+            this.groupBox2.Controls.Add(this.dtmNgaylap_thedocgia);
             this.groupBox2.Controls.Add(this.lblMaNV);
             this.groupBox2.Controls.Add(this.lblMaDocGia);
-            this.groupBox2.Controls.Add(this.txtMaThe);
-            this.groupBox2.Controls.Add(this.cboMaNV1);
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.cboManv_thedocgia);
             this.groupBox2.Controls.Add(this.lblNgayLap);
-            this.groupBox2.Controls.Add(this.cboMaDocGia);
+            this.groupBox2.Controls.Add(this.cboMadocgia_thedocgia);
             this.groupBox2.Controls.Add(this.lblNgayHetHan);
             this.groupBox2.Controls.Add(this.lblMathe);
-            this.groupBox2.Controls.Add(this.dtmNgayHetHan);
+            this.groupBox2.Controls.Add(this.dtmHethan_thedocgia);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(216, 73);
+            this.groupBox2.Location = new System.Drawing.Point(1286, 103);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(592, 338);
+            this.groupBox2.Size = new System.Drawing.Size(622, 727);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nhập Thông Tin";
             // 
-            // dtmNgayLap
+            // mskMa_thedocgia
             // 
-            this.dtmNgayLap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtmNgayLap.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtmNgayLap.Location = new System.Drawing.Point(211, 224);
-            this.dtmNgayLap.Name = "dtmNgayLap";
-            this.dtmNgayLap.Size = new System.Drawing.Size(324, 35);
-            this.dtmNgayLap.TabIndex = 1;
+            this.mskMa_thedocgia.Location = new System.Drawing.Point(276, 210);
+            this.mskMa_thedocgia.Mask = "TDG0000";
+            this.mskMa_thedocgia.Name = "mskMa_thedocgia";
+            this.mskMa_thedocgia.Size = new System.Drawing.Size(137, 35);
+            this.mskMa_thedocgia.TabIndex = 23;
+            // 
+            // btnLammoi_thedocgia
+            // 
+            this.btnLammoi_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_thedocgia.Image")));
+            this.btnLammoi_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_thedocgia.Location = new System.Drawing.Point(401, 651);
+            this.btnLammoi_thedocgia.Name = "btnLammoi_thedocgia";
+            this.btnLammoi_thedocgia.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_thedocgia.TabIndex = 22;
+            this.btnLammoi_thedocgia.Text = "Làm Mới";
+            this.btnLammoi_thedocgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_thedocgia.UseVisualStyleBackColor = true;
+            this.btnLammoi_thedocgia.Click += new System.EventHandler(this.btnLammoi_thedocgia_Click);
+            // 
+            // btnXoa_thedocgia
+            // 
+            this.btnXoa_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa_thedocgia.Image")));
+            this.btnXoa_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa_thedocgia.Location = new System.Drawing.Point(273, 651);
+            this.btnXoa_thedocgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoa_thedocgia.Name = "btnXoa_thedocgia";
+            this.btnXoa_thedocgia.Size = new System.Drawing.Size(91, 52);
+            this.btnXoa_thedocgia.TabIndex = 21;
+            this.btnXoa_thedocgia.Text = "Xoá";
+            this.btnXoa_thedocgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa_thedocgia.UseVisualStyleBackColor = true;
+            this.btnXoa_thedocgia.Click += new System.EventHandler(this.btnXoa_thedocgia_Click);
+            // 
+            // btnThemsua_thedocgia
+            // 
+            this.btnThemsua_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnThemsua_thedocgia.Image")));
+            this.btnThemsua_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThemsua_thedocgia.Location = new System.Drawing.Point(73, 651);
+            this.btnThemsua_thedocgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemsua_thedocgia.Name = "btnThemsua_thedocgia";
+            this.btnThemsua_thedocgia.Size = new System.Drawing.Size(165, 52);
+            this.btnThemsua_thedocgia.TabIndex = 20;
+            this.btnThemsua_thedocgia.Text = "Thêm / Sửa";
+            this.btnThemsua_thedocgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThemsua_thedocgia.UseVisualStyleBackColor = true;
+            this.btnThemsua_thedocgia.Click += new System.EventHandler(this.btnthemsua_thedocgia_Click);
+            // 
+            // dtmNgaylap_thedocgia
+            // 
+            this.dtmNgaylap_thedocgia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtmNgaylap_thedocgia.CustomFormat = "dd/MM/yyyy";
+            this.dtmNgaylap_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtmNgaylap_thedocgia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtmNgaylap_thedocgia.Location = new System.Drawing.Point(276, 394);
+            this.dtmNgaylap_thedocgia.Name = "dtmNgaylap_thedocgia";
+            this.dtmNgaylap_thedocgia.Size = new System.Drawing.Size(259, 35);
+            this.dtmNgaylap_thedocgia.TabIndex = 1;
             // 
             // lblMaNV
             // 
             this.lblMaNV.AutoSize = true;
             this.lblMaNV.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaNV.Location = new System.Drawing.Point(49, 101);
+            this.lblMaNV.Location = new System.Drawing.Point(108, 274);
             this.lblMaNV.Name = "lblMaNV";
             this.lblMaNV.Size = new System.Drawing.Size(147, 30);
             this.lblMaNV.TabIndex = 10;
@@ -109,57 +168,119 @@ namespace QuanLyThuVien
             // 
             this.lblMaDocGia.AutoSize = true;
             this.lblMaDocGia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaDocGia.Location = new System.Drawing.Point(74, 38);
+            this.lblMaDocGia.Location = new System.Drawing.Point(133, 333);
             this.lblMaDocGia.Name = "lblMaDocGia";
             this.lblMaDocGia.Size = new System.Drawing.Size(122, 30);
             this.lblMaDocGia.TabIndex = 10;
             this.lblMaDocGia.Text = "Mã Độc Giả";
             this.lblMaDocGia.UseWaitCursor = true;
             // 
-            // txtMaThe
+            // groupBox1
             // 
-            this.txtMaThe.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMaThe.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaThe.Location = new System.Drawing.Point(211, 164);
-            this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Size = new System.Drawing.Size(324, 35);
-            this.txtMaThe.TabIndex = 0;
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnHuy);
+            this.groupBox1.Controls.Add(this.btnLuu);
+            this.groupBox1.Controls.Add(this.btnThem);
+            this.groupBox1.Controls.Add(this.btnXoa);
+            this.groupBox1.Controls.Add(this.btnSua);
+            this.groupBox1.Location = new System.Drawing.Point(33, 561);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(517, 79);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
             // 
-            // cboMaNV1
+            // btnHuy
             // 
-            this.cboMaNV1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cboMaNV1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboMaNV1.FormattingEnabled = true;
-            this.cboMaNV1.Location = new System.Drawing.Point(211, 101);
-            this.cboMaNV1.Name = "cboMaNV1";
-            this.cboMaNV1.Size = new System.Drawing.Size(324, 38);
-            this.cboMaNV1.TabIndex = 3;
+            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(329, 23);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(79, 40);
+            this.btnHuy.TabIndex = 7;
+            this.btnHuy.Text = "Huỷ";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Location = new System.Drawing.Point(122, 23);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(82, 40);
+            this.btnLuu.TabIndex = 5;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Location = new System.Drawing.Point(16, 23);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(90, 40);
+            this.btnThem.TabIndex = 4;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Location = new System.Drawing.Point(426, 23);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(76, 40);
+            this.btnXoa.TabIndex = 8;
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Location = new System.Drawing.Point(220, 23);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(89, 40);
+            this.btnSua.TabIndex = 6;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            // 
+            // cboManv_thedocgia
+            // 
+            this.cboManv_thedocgia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboManv_thedocgia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboManv_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboManv_thedocgia.FormattingEnabled = true;
+            this.cboManv_thedocgia.Location = new System.Drawing.Point(276, 271);
+            this.cboManv_thedocgia.Name = "cboManv_thedocgia";
+            this.cboManv_thedocgia.Size = new System.Drawing.Size(259, 38);
+            this.cboManv_thedocgia.TabIndex = 3;
             // 
             // lblNgayLap
             // 
             this.lblNgayLap.AutoSize = true;
             this.lblNgayLap.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayLap.Location = new System.Drawing.Point(95, 227);
+            this.lblNgayLap.Location = new System.Drawing.Point(154, 400);
             this.lblNgayLap.Name = "lblNgayLap";
             this.lblNgayLap.Size = new System.Drawing.Size(101, 30);
             this.lblNgayLap.TabIndex = 11;
             this.lblNgayLap.Text = "Ngày Lập";
             // 
-            // cboMaDocGia
+            // cboMadocgia_thedocgia
             // 
-            this.cboMaDocGia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cboMaDocGia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboMaDocGia.FormattingEnabled = true;
-            this.cboMaDocGia.Location = new System.Drawing.Point(211, 38);
-            this.cboMaDocGia.Name = "cboMaDocGia";
-            this.cboMaDocGia.Size = new System.Drawing.Size(324, 38);
-            this.cboMaDocGia.TabIndex = 3;
+            this.cboMadocgia_thedocgia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboMadocgia_thedocgia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMadocgia_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMadocgia_thedocgia.FormattingEnabled = true;
+            this.cboMadocgia_thedocgia.Location = new System.Drawing.Point(276, 330);
+            this.cboMadocgia_thedocgia.Name = "cboMadocgia_thedocgia";
+            this.cboMadocgia_thedocgia.Size = new System.Drawing.Size(259, 38);
+            this.cboMadocgia_thedocgia.TabIndex = 3;
             // 
             // lblNgayHetHan
             // 
             this.lblNgayHetHan.AutoSize = true;
             this.lblNgayHetHan.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayHetHan.Location = new System.Drawing.Point(51, 290);
+            this.lblNgayHetHan.Location = new System.Drawing.Point(110, 463);
             this.lblNgayHetHan.Name = "lblNgayHetHan";
             this.lblNgayHetHan.Size = new System.Drawing.Size(145, 30);
             this.lblNgayHetHan.TabIndex = 13;
@@ -169,75 +290,42 @@ namespace QuanLyThuVien
             // 
             this.lblMathe.AutoSize = true;
             this.lblMathe.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMathe.Location = new System.Drawing.Point(113, 164);
+            this.lblMathe.Location = new System.Drawing.Point(172, 213);
             this.lblMathe.Name = "lblMathe";
             this.lblMathe.Size = new System.Drawing.Size(83, 30);
             this.lblMathe.TabIndex = 12;
             this.lblMathe.Text = "Mã Thẻ";
             // 
-            // dtmNgayHetHan
+            // dtmHethan_thedocgia
             // 
-            this.dtmNgayHetHan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtmNgayHetHan.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtmNgayHetHan.Location = new System.Drawing.Point(211, 284);
-            this.dtmNgayHetHan.Name = "dtmNgayHetHan";
-            this.dtmNgayHetHan.Size = new System.Drawing.Size(324, 35);
-            this.dtmNgayHetHan.TabIndex = 2;
+            this.dtmHethan_thedocgia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtmHethan_thedocgia.CustomFormat = "dd/MM/yyyy";
+            this.dtmHethan_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtmHethan_thedocgia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtmHethan_thedocgia.Location = new System.Drawing.Point(276, 454);
+            this.dtmHethan_thedocgia.Name = "dtmHethan_thedocgia";
+            this.dtmHethan_thedocgia.Size = new System.Drawing.Size(259, 35);
+            this.dtmHethan_thedocgia.TabIndex = 2;
             // 
             // dgvTheDocGia
             // 
+            this.dgvTheDocGia.AllowUserToAddRows = false;
             this.dgvTheDocGia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTheDocGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTheDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTheDocGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maphieu,
-            this.ngaymuon,
             this.ngaytra,
+            this.ngaymuon,
+            this.maphieu,
             this.manv,
             this.ngayhethan});
-            this.dgvTheDocGia.Location = new System.Drawing.Point(216, 417);
+            this.dgvTheDocGia.Location = new System.Drawing.Point(6, 99);
             this.dgvTheDocGia.Name = "dgvTheDocGia";
             this.dgvTheDocGia.ReadOnly = true;
             this.dgvTheDocGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTheDocGia.Size = new System.Drawing.Size(1115, 448);
+            this.dgvTheDocGia.Size = new System.Drawing.Size(1256, 622);
             this.dgvTheDocGia.TabIndex = 18;
-            this.dgvTheDocGia.SelectionChanged += new System.EventHandler(this.dgvTheDocGia_SelectionChanged);
-            this.dgvTheDocGia.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvTheDocGia_MouseClick);
-            // 
-            // maphieu
-            // 
-            this.maphieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.maphieu.DataPropertyName = "MADOCGIA";
-            this.maphieu.HeaderText = "Mã Độc Giả";
-            this.maphieu.Name = "maphieu";
-            // 
-            // ngaymuon
-            // 
-            this.ngaymuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngaymuon.DataPropertyName = "MANV";
-            this.ngaymuon.HeaderText = "Mã Nhân Viên";
-            this.ngaymuon.Name = "ngaymuon";
-            // 
-            // ngaytra
-            // 
-            this.ngaytra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngaytra.DataPropertyName = "MATHE";
-            this.ngaytra.HeaderText = "Mã Thẻ";
-            this.ngaytra.Name = "ngaytra";
-            // 
-            // manv
-            // 
-            this.manv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.manv.DataPropertyName = "NGAYLAP";
-            this.manv.HeaderText = "Ngày Lập";
-            this.manv.Name = "manv";
-            // 
-            // ngayhethan
-            // 
-            this.ngayhethan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ngayhethan.DataPropertyName = "NGAYHETHAN";
-            this.ngayhethan.HeaderText = "Ngày Hết Hạn";
-            this.ngayhethan.Name = "ngayhethan";
+            this.dgvTheDocGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTheDocGia_CellClick);
             // 
             // xtraScrollableControl1
             // 
@@ -250,155 +338,122 @@ namespace QuanLyThuVien
             // 
             this.lblDemdong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDemdong.AutoSize = true;
-            this.lblDemdong.Location = new System.Drawing.Point(1312, 868);
+            this.lblDemdong.Location = new System.Drawing.Point(1505, 808);
             this.lblDemdong.Name = "lblDemdong";
             this.lblDemdong.Size = new System.Drawing.Size(19, 13);
             this.lblDemdong.TabIndex = 0;
             this.lblDemdong.Text = "...";
             // 
-            // btnSua
+            // groupBox4
             // 
-            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSua.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(220, 23);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(89, 40);
-            this.btnSua.TabIndex = 6;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox4.Controls.Add(this.txtTim_thedocgia);
+            this.groupBox4.Controls.Add(this.cboTim_thedocgia);
+            this.groupBox4.Controls.Add(this.dgvTheDocGia);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(12, 103);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1268, 727);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Tìm Kiếm";
             // 
-            // btnXoa
+            // txtTim_thedocgia
             // 
-            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(426, 23);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(76, 40);
-            this.btnXoa.TabIndex = 8;
-            this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            this.txtTim_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTim_thedocgia.Location = new System.Drawing.Point(6, 46);
+            this.txtTim_thedocgia.Name = "txtTim_thedocgia";
+            this.txtTim_thedocgia.Size = new System.Drawing.Size(343, 35);
+            this.txtTim_thedocgia.TabIndex = 3;
             // 
-            // groupBox3
+            // cboTim_thedocgia
             // 
-            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox3.Controls.Add(this.cboTimKiem1);
-            this.groupBox3.Controls.Add(this.txtTimKiemTheDocGia);
-            this.groupBox3.Location = new System.Drawing.Point(812, 317);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(517, 94);
-            this.groupBox3.TabIndex = 21;
-            this.groupBox3.TabStop = false;
+            this.cboTim_thedocgia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTim_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTim_thedocgia.FormattingEnabled = true;
+            this.cboTim_thedocgia.Items.AddRange(new object[] {
+            "Mã",
+            "Tên",
+            "Giới Tính",
+            "Địa Chỉ",
+            "SĐT",
+            "Email"});
+            this.cboTim_thedocgia.Location = new System.Drawing.Point(357, 45);
+            this.cboTim_thedocgia.Name = "cboTim_thedocgia";
+            this.cboTim_thedocgia.Size = new System.Drawing.Size(208, 38);
+            this.cboTim_thedocgia.TabIndex = 15;
             // 
-            // cboTimKiem1
+            // labelControl1
             // 
-            this.cboTimKiem1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cboTimKiem1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cboTimKiem1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTimKiem1.FormattingEnabled = true;
-            this.cboTimKiem1.Items.AddRange(new object[] {
-            "Mã Độc Giả",
-            "Mã Nhân Viên",
-            "Mã Thẻ"});
-            this.cboTimKiem1.Location = new System.Drawing.Point(347, 31);
-            this.cboTimKiem1.Name = "cboTimKiem1";
-            this.cboTimKiem1.Size = new System.Drawing.Size(164, 38);
-            this.cboTimKiem1.TabIndex = 10;
+            this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(851, 32);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(270, 65);
+            this.labelControl1.TabIndex = 20;
+            this.labelControl1.Text = "Thẻ Độc Giả";
             // 
-            // txtTimKiemTheDocGia
+            // ngaytra
             // 
-            this.txtTimKiemTheDocGia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTimKiemTheDocGia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiemTheDocGia.Location = new System.Drawing.Point(9, 34);
-            this.txtTimKiemTheDocGia.Name = "txtTimKiemTheDocGia";
-            this.txtTimKiemTheDocGia.Size = new System.Drawing.Size(325, 35);
-            this.txtTimKiemTheDocGia.TabIndex = 9;
-            this.txtTimKiemTheDocGia.TextChanged += new System.EventHandler(this.txtTimKiemTheDocGia_TextChanged);
+            this.ngaytra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngaytra.DataPropertyName = "MATHE";
+            this.ngaytra.HeaderText = "Mã Thẻ";
+            this.ngaytra.Name = "ngaytra";
+            this.ngaytra.ReadOnly = true;
             // 
-            // btnThem
+            // ngaymuon
             // 
-            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(16, 23);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(90, 40);
-            this.btnThem.TabIndex = 4;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.ngaymuon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngaymuon.DataPropertyName = "MANV";
+            this.ngaymuon.HeaderText = "Mã Nhân Viên";
+            this.ngaymuon.Name = "ngaymuon";
+            this.ngaymuon.ReadOnly = true;
             // 
-            // btnLuu
+            // maphieu
             // 
-            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(122, 23);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(82, 40);
-            this.btnLuu.TabIndex = 5;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            this.maphieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.maphieu.DataPropertyName = "MADOCGIA";
+            this.maphieu.HeaderText = "Mã Độc Giả";
+            this.maphieu.Name = "maphieu";
+            this.maphieu.ReadOnly = true;
             // 
-            // btnHuy
+            // manv
             // 
-            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.Location = new System.Drawing.Point(329, 23);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(79, 40);
-            this.btnHuy.TabIndex = 7;
-            this.btnHuy.Text = "Huỷ";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.manv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.manv.DataPropertyName = "NGAYLAP";
+            this.manv.HeaderText = "Ngày Lập";
+            this.manv.Name = "manv";
+            this.manv.ReadOnly = true;
             // 
-            // groupBox1
+            // ngayhethan
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.btnHuy);
-            this.groupBox1.Controls.Add(this.btnLuu);
-            this.groupBox1.Controls.Add(this.btnThem);
-            this.groupBox1.Controls.Add(this.btnXoa);
-            this.groupBox1.Controls.Add(this.btnSua);
-            this.groupBox1.Location = new System.Drawing.Point(812, 232);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(517, 79);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            // 
-            // lblTheDocGia
-            // 
-            this.lblTheDocGia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTheDocGia.AutoSize = true;
-            this.lblTheDocGia.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTheDocGia.Location = new System.Drawing.Point(880, 130);
-            this.lblTheDocGia.Name = "lblTheDocGia";
-            this.lblTheDocGia.Size = new System.Drawing.Size(361, 50);
-            this.lblTheDocGia.TabIndex = 23;
-            this.lblTheDocGia.Text = "Quản Lý Thẻ Độc Giả";
+            this.ngayhethan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ngayhethan.DataPropertyName = "NGAYHETHAN";
+            this.ngayhethan.HeaderText = "Ngày Hết Hạn";
+            this.ngayhethan.Name = "ngayhethan";
+            this.ngayhethan.ReadOnly = true;
             // 
             // frmTheDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1535, 960);
-            this.Controls.Add(this.lblTheDocGia);
+            this.ClientSize = new System.Drawing.Size(1920, 840);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.lblDemdong);
             this.Controls.Add(this.xtraScrollableControl1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvTheDocGia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTheDocGia";
             this.Text = "TheDocGia";
             this.Load += new System.EventHandler(this.TheDocGia_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTheDocGia)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTheDocGia)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,33 +461,36 @@ namespace QuanLyThuVien
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dtmNgayLap;
+        private System.Windows.Forms.DateTimePicker dtmNgaylap_thedocgia;
         private System.Windows.Forms.Label lblMaNV;
         private System.Windows.Forms.Label lblMaDocGia;
         private System.Windows.Forms.Label lblNgayLap;
-        private System.Windows.Forms.ComboBox cboMaDocGia;
+        private System.Windows.Forms.ComboBox cboMadocgia_thedocgia;
         private System.Windows.Forms.Label lblNgayHetHan;
         private System.Windows.Forms.Label lblMathe;
-        private System.Windows.Forms.DateTimePicker dtmNgayHetHan;
+        private System.Windows.Forms.DateTimePicker dtmHethan_thedocgia;
         private System.Windows.Forms.DataGridView dgvTheDocGia;
-        private System.Windows.Forms.TextBox txtMaThe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maphieu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaymuon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaytra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn manv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngayhethan;
-        private System.Windows.Forms.ComboBox cboMaNV1;
+        private System.Windows.Forms.ComboBox cboManv_thedocgia;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private System.Windows.Forms.Label lblDemdong;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtTimKiemTheDocGia;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cboTimKiem1;
-        private System.Windows.Forms.Label lblTheDocGia;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtTim_thedocgia;
+        private System.Windows.Forms.ComboBox cboTim_thedocgia;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Button btnLammoi_thedocgia;
+        private System.Windows.Forms.Button btnXoa_thedocgia;
+        private System.Windows.Forms.Button btnThemsua_thedocgia;
+        private System.Windows.Forms.MaskedTextBox mskMa_thedocgia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaytra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngaymuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maphieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ngayhethan;
     }
 }

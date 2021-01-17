@@ -41,7 +41,7 @@ namespace QuanLyThuVien
                 {
                     db.TACGIAs.InsertOnSubmit(tg);
 
-                    MessageBox.Show("Them thanh cong", "Thong bao", MessageBoxButtons.OK);
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     masktg.Clear();
                     txttentg.Clear();
                 }
@@ -50,7 +50,7 @@ namespace QuanLyThuVien
                     tg = db.TACGIAs.Where(p => p.MATACGIA == masktg.Text).Single();
                     tg.MATACGIA = masktg.Text.Trim();
                     tg.TENTACGIA = txttentg.Text.Trim();
-                    MessageBox.Show("Sửa thanh cong", "Thong bao", MessageBoxButtons.OK);
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     masktg.Clear();
                     txttentg.Clear();
                 }
@@ -97,17 +97,17 @@ namespace QuanLyThuVien
 
         private void txtTimkiemtg_KeyUp(object sender, KeyEventArgs e)
         {
-            if (cbotimtg.Text == "Mã")
+            if (cboTim_tacgia.Text == "Mã")
             {
                 var findmatg = (from s in db.TACGIAs
-                                  where s.MATACGIA.Contains(txtTimkiemtg.Text)
+                                  where s.MATACGIA.Contains(txtTim_tacgia.Text)
                                   select s).ToList();
                 dgvtacgia.DataSource = findmatg;
             }
             else
             {
                 var findntentg = (from s in db.TACGIAs
-                              where s.TENTACGIA.Contains(txtTimkiemtg.Text)
+                              where s.TENTACGIA.Contains(txtTim_tacgia.Text)
                               select s).ToList();
                 dgvtacgia.DataSource = findntentg;
             }

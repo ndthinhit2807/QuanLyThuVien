@@ -19,10 +19,6 @@ namespace QuanLyThuVien
             InitializeComponent();
         }
 
-        private void labelControl1_Click(object sender, EventArgs e)
-        {
-
-        }
         void DataGridView()
         {
             dgvdg.DataSource = db.DOCGIAs.ToList();
@@ -30,8 +26,9 @@ namespace QuanLyThuVien
 
         private void frmDocgia_Load(object sender, EventArgs e)
         {
+           
             dgvdg.DataSource = db.DOCGIAs;
-            cbotimdg.SelectedIndex = 0;        }
+            cboTim_docgia.SelectedIndex = 0;        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -41,46 +38,44 @@ namespace QuanLyThuVien
                 this.Close();
         }
 
-
-
-     
-
         private void btnthemsuadg_Click(object sender, EventArgs e)
         {
             try
             {
-                DOCGIA docgia = new DOCGIA();
-                docgia.MADOCGIA = maskdg.Text.Trim();
-                docgia.TENDOCGIA = txttendg.Text.Trim();
-                docgia.DIACHI = txtdiachidg.Text.Trim();
-                docgia.SDTDOCGIA = txtsdtdg.Text.Trim();
-                var test = db.DOCGIAs.FirstOrDefault(p => p.MADOCGIA == docgia.MADOCGIA);
-                if (test == null)
+                DOCGIA dg = new DOCGIA();
+                dg.MADOCGIA = mskMa_docgia.Text.Trim();
+                dg.TENDOCGIA = txtTen_docgia.Text.Trim();
+                dg.DIACHI = txtDiachi_docgia.Text.Trim();
+                dg.SDTDOCGIA = txtSdt_docgia.Text.Trim();
+                dg.EMAIL = txtEmail_docgia.Text.Trim();
+                var testdg = db.DOCGIAs.FirstOrDefault(p => p.MADOCGIA == dg.MADOCGIA);
+                if (testdg == null)
                 {
-                    db.DOCGIAs.InsertOnSubmit(docgia);
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                    db.DOCGIAs.InsertOnSubmit(dg);
                     db.SubmitChanges();
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     DataGridView();
-                    maskdg.Clear();
-                    txttendg.Clear();
-                    txtdiachidg.Clear();
-                    txtsdtdg.Clear();
-
+                    mskMa_docgia.Clear();
+                    txtTen_docgia.Clear();
+                    txtDiachi_docgia.Clear();
+                    txtSdt_docgia.Clear();
+                    txtEmail_docgia.Clear();
                 }
                 else
                 {
-                    test.TENDOCGIA = docgia.TENDOCGIA;
-                    test.DIACHI = docgia.DIACHI;
-                    test.SDTDOCGIA = docgia.SDTDOCGIA;
+                    testdg.TENDOCGIA = dg.TENDOCGIA;
+                    testdg.DIACHI = dg.DIACHI;
+                    testdg.SDTDOCGIA = dg.SDTDOCGIA;
+                    testdg.EMAIL = dg.EMAIL;
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                     db.SubmitChanges();
                     DataGridView();
-                    maskdg.Clear();
-                    txttendg.Clear();
-                    txtdiachidg.Clear();
-                    txtsdtdg.Clear();
-                }
-                
+                    mskMa_docgia.Clear();
+                    txtTen_docgia.Clear();
+                    txtDiachi_docgia.Clear();
+                    txtSdt_docgia.Clear();
+                    txtEmail_docgia.Clear();
+                }               
             }
             catch
             {
@@ -104,40 +99,27 @@ namespace QuanLyThuVien
                     db.SubmitChanges();
                     DataGridView();
                     MessageBox.Show("Xoá Thành Công", "Thông Báo", MessageBoxButtons.OK);
-                    maskdg.Clear();
-                    txttendg.Clear();
-                    txtdiachidg.Clear();
-                    txtsdtdg.Clear();
+                    mskMa_docgia.Clear();
+                    txtTen_docgia.Clear();
+                    txtDiachi_docgia.Clear();
+                    txtSdt_docgia.Clear();
                 }
         }
 
         private void txttimdg_KeyUp(object sender, KeyEventArgs e)
         {
-            if (cbotimdg.Text == "Tên")
+            if (cboTim_docgia.Text == "Tên")
             {
             var findtendg = (from s in db.DOCGIAs
-                              where s.TENDOCGIA.Contains(txttimdg.Text)
+                              where s.TENDOCGIA.Contains(txtTim_docgia.Text)
                               select s).ToList();
             dgvdg.DataSource = findtendg;
 
-            }else if (cbotimdg.Text == "Địa Chỉ")
-            {
-                var finddiachidg = (from s in db.DOCGIAs
-                                  where s.DIACHI.Contains(txttimdg.Text)
-                                  select s).ToList();
-                dgvdg.DataSource = finddiachidg;
-            }
-            else if(cbotimdg.Text == "SĐT")
-            {
-                var findsdtdg = (from s in db.DOCGIAs
-                                  where s.SDTDOCGIA.Contains(txttimdg.Text)
-                                  select s).ToList();
-                dgvdg.DataSource = findsdtdg;
             }
             else
             {
                 var findmadg = (from s in db.DOCGIAs
-                                 where s.MADOCGIA.Contains(txttimdg.Text)
+                                 where s.MADOCGIA.Contains(txtTim_docgia.Text)
                                  select s).ToList();
                 dgvdg.DataSource = findmadg;
             }
@@ -147,10 +129,11 @@ namespace QuanLyThuVien
         {
             int numrow;
             numrow = e.RowIndex;
-            maskdg.Text = dgvdg.Rows[numrow].Cells[0].Value.ToString();
-            txttendg.Text = dgvdg.Rows[numrow].Cells[1].Value.ToString();
-            txtdiachidg.Text = dgvdg.Rows[numrow].Cells[2].Value.ToString();
-            txtsdtdg.Text = dgvdg.Rows[numrow].Cells[3].Value.ToString();
+            mskMa_docgia.Text = dgvdg.Rows[numrow].Cells[0].Value.ToString();
+            txtTen_docgia.Text = dgvdg.Rows[numrow].Cells[1].Value.ToString();
+            txtDiachi_docgia.Text = dgvdg.Rows[numrow].Cells[2].Value.ToString();
+            txtSdt_docgia.Text = dgvdg.Rows[numrow].Cells[3].Value.ToString();
+            txtEmail_docgia.Text = dgvdg.Rows[numrow].Cells[4].Value.ToString();
         }
     }
 }
