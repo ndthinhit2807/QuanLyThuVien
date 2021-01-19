@@ -176,5 +176,11 @@ namespace QuanLyThuVien
             frmTrogiup trogiup = new frmTrogiup();
             TabCreating(this.xtraTabControl1, "Trợ Giúp", trogiup);
         }
+
+        private void btnthongke_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            XtraForm1 xtra = new XtraForm1();
+            TabCreating(this.xtraTabControl1, "Trợ Giúp", xtra);
+        }
     }
 }

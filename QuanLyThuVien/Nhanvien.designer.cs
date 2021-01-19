@@ -31,6 +31,8 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanvien));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi_nhanvien = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.mskMa_nhanvien = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -39,6 +41,8 @@ namespace QuanLyThuVien
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.cboGioitinh_nhanvien = new System.Windows.Forms.ComboBox();
             this.dtmNgaysinh_nhanvien = new System.Windows.Forms.DateTimePicker();
             this.txtEmail_nhanvien = new System.Windows.Forms.TextBox();
@@ -57,8 +61,6 @@ namespace QuanLyThuVien
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanvien)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -67,6 +69,8 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnLammoi_nhanvien);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.mskMa_nhanvien);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label9);
@@ -91,11 +95,33 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // btnLammoi_nhanvien
+            // 
+            this.btnLammoi_nhanvien.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_nhanvien.Image")));
+            this.btnLammoi_nhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_nhanvien.Location = new System.Drawing.Point(409, 626);
+            this.btnLammoi_nhanvien.Name = "btnLammoi_nhanvien";
+            this.btnLammoi_nhanvien.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_nhanvien.TabIndex = 21;
+            this.btnLammoi_nhanvien.Text = "Làm Mới";
+            this.btnLammoi_nhanvien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_nhanvien.UseVisualStyleBackColor = true;
+            this.btnLammoi_nhanvien.Click += new System.EventHandler(this.btnLammoi_nhanvien_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(223, 487);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 30);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "label6";
+            // 
             // mskMa_nhanvien
             // 
-            this.mskMa_nhanvien.Location = new System.Drawing.Point(228, 131);
-            this.mskMa_nhanvien.Mask = "NV0000";
+            this.mskMa_nhanvien.Location = new System.Drawing.Point(228, 51);
             this.mskMa_nhanvien.Name = "mskMa_nhanvien";
+            this.mskMa_nhanvien.ReadOnly = true;
             this.mskMa_nhanvien.Size = new System.Drawing.Size(137, 35);
             this.mskMa_nhanvien.TabIndex = 19;
             // 
@@ -129,7 +155,7 @@ namespace QuanLyThuVien
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(148, 481);
+            this.label5.Location = new System.Drawing.Point(133, 532);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 30);
             this.label5.TabIndex = 14;
@@ -138,7 +164,7 @@ namespace QuanLyThuVien
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(98, 423);
+            this.label4.Location = new System.Drawing.Point(98, 449);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 30);
             this.label4.TabIndex = 14;
@@ -147,7 +173,7 @@ namespace QuanLyThuVien
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(131, 365);
+            this.label3.Location = new System.Drawing.Point(131, 398);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 30);
             this.label3.TabIndex = 14;
@@ -156,11 +182,39 @@ namespace QuanLyThuVien
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(64, 133);
+            this.label8.Location = new System.Drawing.Point(64, 53);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 30);
             this.label8.TabIndex = 14;
             this.label8.Text = "Mã Nhân Viên";
+            // 
+            // btnThem
+            // 
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThem.Location = new System.Drawing.Point(69, 626);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(165, 52);
+            this.btnThem.TabIndex = 0;
+            this.btnThem.Text = "Thêm / Sửa";
+            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(277, 626);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(91, 52);
+            this.btnXoa.TabIndex = 1;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // cboGioitinh_nhanvien
             // 
@@ -187,21 +241,22 @@ namespace QuanLyThuVien
             // 
             // txtEmail_nhanvien
             // 
-            this.txtEmail_nhanvien.Location = new System.Drawing.Point(228, 479);
+            this.txtEmail_nhanvien.Location = new System.Drawing.Point(213, 530);
             this.txtEmail_nhanvien.Name = "txtEmail_nhanvien";
             this.txtEmail_nhanvien.Size = new System.Drawing.Size(329, 35);
             this.txtEmail_nhanvien.TabIndex = 11;
+            this.txtEmail_nhanvien.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtEmail_nhanvien_KeyUp);
             // 
             // txtSdt_nhanvien
             // 
-            this.txtSdt_nhanvien.Location = new System.Drawing.Point(228, 421);
+            this.txtSdt_nhanvien.Location = new System.Drawing.Point(228, 447);
             this.txtSdt_nhanvien.Name = "txtSdt_nhanvien";
             this.txtSdt_nhanvien.Size = new System.Drawing.Size(329, 35);
             this.txtSdt_nhanvien.TabIndex = 10;
             // 
             // txtDiachi_nhanvien
             // 
-            this.txtDiachi_nhanvien.Location = new System.Drawing.Point(228, 363);
+            this.txtDiachi_nhanvien.Location = new System.Drawing.Point(228, 396);
             this.txtDiachi_nhanvien.Name = "txtDiachi_nhanvien";
             this.txtDiachi_nhanvien.Size = new System.Drawing.Size(329, 35);
             this.txtDiachi_nhanvien.TabIndex = 9;
@@ -228,11 +283,7 @@ namespace QuanLyThuVien
             this.cbotimnv.FormattingEnabled = true;
             this.cbotimnv.Items.AddRange(new object[] {
             "Mã",
-            "Tên",
-            "Giới Tính",
-            "Địa Chỉ",
-            "SĐT",
-            "Email"});
+            "Tên"});
             this.cbotimnv.Location = new System.Drawing.Point(357, 45);
             this.cbotimnv.Name = "cbotimnv";
             this.cbotimnv.Size = new System.Drawing.Size(208, 38);
@@ -340,34 +391,6 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Nhân Viên";
             // 
-            // btnThem
-            // 
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(194, 618);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(165, 52);
-            this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm / Sửa";
-            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(402, 618);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(91, 52);
-            this.btnXoa.TabIndex = 1;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
             // frmNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,5 +444,7 @@ namespace QuanLyThuVien
         private System.Windows.Forms.MaskedTextBox mskMa_nhanvien;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnLammoi_nhanvien;
     }
 }

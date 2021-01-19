@@ -165,6 +165,11 @@
     <Compile Include="Dangnhap.designer.cs">
       <DependentUpon>Dangnhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="datasetreport1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>datasetreport1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dausach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +299,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Tacgia.resx">
       <DependentUpon>Tacgia.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +318,17 @@
     <EmbeddedResource Include="XtraForm1.resx">
       <DependentUpon>XtraForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="datasetreport1.xsc">
+      <DependentUpon>datasetreport1.xsd</DependentUpon>
+    </None>
+    <None Include="datasetreport1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>datasetreport1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="datasetreport1.xss">
+      <DependentUpon>datasetreport1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

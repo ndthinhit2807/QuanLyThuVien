@@ -30,12 +30,12 @@ namespace QuanLyThuVien
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTHELOAI(THELOAI instance);
-    partial void UpdateTHELOAI(THELOAI instance);
-    partial void DeleteTHELOAI(THELOAI instance);
     partial void InsertCTPM(CTPM instance);
     partial void UpdateCTPM(CTPM instance);
     partial void DeleteCTPM(CTPM instance);
+    partial void InsertTHEDOCGIA(THEDOCGIA instance);
+    partial void UpdateTHEDOCGIA(THEDOCGIA instance);
+    partial void DeleteTHEDOCGIA(THEDOCGIA instance);
     partial void InsertDAUSACH(DAUSACH instance);
     partial void UpdateDAUSACH(DAUSACH instance);
     partial void DeleteDAUSACH(DAUSACH instance);
@@ -57,9 +57,9 @@ namespace QuanLyThuVien
     partial void InsertTAIKHOAN(TAIKHOAN instance);
     partial void UpdateTAIKHOAN(TAIKHOAN instance);
     partial void DeleteTAIKHOAN(TAIKHOAN instance);
-    partial void InsertTHEDOCGIA(THEDOCGIA instance);
-    partial void UpdateTHEDOCGIA(THEDOCGIA instance);
-    partial void DeleteTHEDOCGIA(THEDOCGIA instance);
+    partial void InsertTHELOAI(THELOAI instance);
+    partial void UpdateTHELOAI(THELOAI instance);
+    partial void DeleteTHELOAI(THELOAI instance);
     #endregion
 		
 		public QuanLyThuVienDataContext() : 
@@ -92,19 +92,19 @@ namespace QuanLyThuVien
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<THELOAI> THELOAIs
-		{
-			get
-			{
-				return this.GetTable<THELOAI>();
-			}
-		}
-		
 		public System.Data.Linq.Table<CTPM> CTPMs
 		{
 			get
 			{
 				return this.GetTable<CTPM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<THEDOCGIA> THEDOCGIAs
+		{
+			get
+			{
+				return this.GetTable<THEDOCGIA>();
 			}
 		}
 		
@@ -164,11 +164,11 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		public System.Data.Linq.Table<THEDOCGIA> THEDOCGIAs
+		public System.Data.Linq.Table<THELOAI> THELOAIs
 		{
 			get
 			{
-				return this.GetTable<THEDOCGIA>();
+				return this.GetTable<THELOAI>();
 			}
 		}
 		
@@ -177,120 +177,6 @@ namespace QuanLyThuVien
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ngayBatDau, ngayKetThuc);
 			return ((ISingleResult<procSachDuocMuonNhieuResult>)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THELOAI")]
-	public partial class THELOAI : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MATHELOAI;
-		
-		private string _TENTHELOAI;
-		
-		private EntitySet<DAUSACH> _DAUSACHes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMATHELOAIChanging(string value);
-    partial void OnMATHELOAIChanged();
-    partial void OnTENTHELOAIChanging(string value);
-    partial void OnTENTHELOAIChanged();
-    #endregion
-		
-		public THELOAI()
-		{
-			this._DAUSACHes = new EntitySet<DAUSACH>(new Action<DAUSACH>(this.attach_DAUSACHes), new Action<DAUSACH>(this.detach_DAUSACHes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHELOAI", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MATHELOAI
-		{
-			get
-			{
-				return this._MATHELOAI;
-			}
-			set
-			{
-				if ((this._MATHELOAI != value))
-				{
-					this.OnMATHELOAIChanging(value);
-					this.SendPropertyChanging();
-					this._MATHELOAI = value;
-					this.SendPropertyChanged("MATHELOAI");
-					this.OnMATHELOAIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENTHELOAI", DbType="NVarChar(30)")]
-		public string TENTHELOAI
-		{
-			get
-			{
-				return this._TENTHELOAI;
-			}
-			set
-			{
-				if ((this._TENTHELOAI != value))
-				{
-					this.OnTENTHELOAIChanging(value);
-					this.SendPropertyChanging();
-					this._TENTHELOAI = value;
-					this.SendPropertyChanged("TENTHELOAI");
-					this.OnTENTHELOAIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THELOAI_DAUSACH", Storage="_DAUSACHes", ThisKey="MATHELOAI", OtherKey="MATHELOAI")]
-		public EntitySet<DAUSACH> DAUSACHes
-		{
-			get
-			{
-				return this._DAUSACHes;
-			}
-			set
-			{
-				this._DAUSACHes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DAUSACHes(DAUSACH entity)
-		{
-			this.SendPropertyChanging();
-			entity.THELOAI = this;
-		}
-		
-		private void detach_DAUSACHes(DAUSACH entity)
-		{
-			this.SendPropertyChanging();
-			entity.THELOAI = null;
 		}
 	}
 	
@@ -558,6 +444,274 @@ namespace QuanLyThuVien
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THEDOCGIA")]
+	public partial class THEDOCGIA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MANV;
+		
+		private string _MATHE;
+		
+		private System.Nullable<System.DateTime> _NGAYLAP;
+		
+		private System.Nullable<System.DateTime> _NGAYHETHAN;
+		
+		private string _MADOCGIA;
+		
+		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
+		
+		private EntityRef<DOCGIA> _DOCGIA;
+		
+		private EntityRef<NHANVIEN> _NHANVIEN;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMANVChanging(string value);
+    partial void OnMANVChanged();
+    partial void OnMATHEChanging(string value);
+    partial void OnMATHEChanged();
+    partial void OnNGAYLAPChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYLAPChanged();
+    partial void OnNGAYHETHANChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYHETHANChanged();
+    partial void OnMADOCGIAChanging(string value);
+    partial void OnMADOCGIAChanged();
+    #endregion
+		
+		public THEDOCGIA()
+		{
+			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
+			this._DOCGIA = default(EntityRef<DOCGIA>);
+			this._NHANVIEN = default(EntityRef<NHANVIEN>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MANV
+		{
+			get
+			{
+				return this._MANV;
+			}
+			set
+			{
+				if ((this._MANV != value))
+				{
+					if (this._NHANVIEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMANVChanging(value);
+					this.SendPropertyChanging();
+					this._MANV = value;
+					this.SendPropertyChanged("MANV");
+					this.OnMANVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHE", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MATHE
+		{
+			get
+			{
+				return this._MATHE;
+			}
+			set
+			{
+				if ((this._MATHE != value))
+				{
+					this.OnMATHEChanging(value);
+					this.SendPropertyChanging();
+					this._MATHE = value;
+					this.SendPropertyChanged("MATHE");
+					this.OnMATHEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYLAP", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYLAP
+		{
+			get
+			{
+				return this._NGAYLAP;
+			}
+			set
+			{
+				if ((this._NGAYLAP != value))
+				{
+					this.OnNGAYLAPChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYLAP = value;
+					this.SendPropertyChanged("NGAYLAP");
+					this.OnNGAYLAPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYHETHAN", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYHETHAN
+		{
+			get
+			{
+				return this._NGAYHETHAN;
+			}
+			set
+			{
+				if ((this._NGAYHETHAN != value))
+				{
+					this.OnNGAYHETHANChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYHETHAN = value;
+					this.SendPropertyChanged("NGAYHETHAN");
+					this.OnNGAYHETHANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MADOCGIA", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MADOCGIA
+		{
+			get
+			{
+				return this._MADOCGIA;
+			}
+			set
+			{
+				if ((this._MADOCGIA != value))
+				{
+					if (this._DOCGIA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMADOCGIAChanging(value);
+					this.SendPropertyChanging();
+					this._MADOCGIA = value;
+					this.SendPropertyChanged("MADOCGIA");
+					this.OnMADOCGIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THEDOCGIA_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MATHE,MADOCGIA", OtherKey="MATHE,MADOCGIA")]
+		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
+		{
+			get
+			{
+				return this._PHIEUMUONTRAs;
+			}
+			set
+			{
+				this._PHIEUMUONTRAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DOCGIA_THEDOCGIA", Storage="_DOCGIA", ThisKey="MADOCGIA", OtherKey="MADOCGIA", IsForeignKey=true)]
+		public DOCGIA DOCGIA
+		{
+			get
+			{
+				return this._DOCGIA.Entity;
+			}
+			set
+			{
+				DOCGIA previousValue = this._DOCGIA.Entity;
+				if (((previousValue != value) 
+							|| (this._DOCGIA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DOCGIA.Entity = null;
+						previousValue.THEDOCGIAs.Remove(this);
+					}
+					this._DOCGIA.Entity = value;
+					if ((value != null))
+					{
+						value.THEDOCGIAs.Add(this);
+						this._MADOCGIA = value.MADOCGIA;
+					}
+					else
+					{
+						this._MADOCGIA = default(string);
+					}
+					this.SendPropertyChanged("DOCGIA");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_THEDOCGIA", Storage="_NHANVIEN", ThisKey="MANV", OtherKey="MANV", IsForeignKey=true)]
+		public NHANVIEN NHANVIEN
+		{
+			get
+			{
+				return this._NHANVIEN.Entity;
+			}
+			set
+			{
+				NHANVIEN previousValue = this._NHANVIEN.Entity;
+				if (((previousValue != value) 
+							|| (this._NHANVIEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NHANVIEN.Entity = null;
+						previousValue.THEDOCGIAs.Remove(this);
+					}
+					this._NHANVIEN.Entity = value;
+					if ((value != null))
+					{
+						value.THEDOCGIAs.Add(this);
+						this._MANV = value.MANV;
+					}
+					else
+					{
+						this._MANV = default(string);
+					}
+					this.SendPropertyChanged("NHANVIEN");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		{
+			this.SendPropertyChanging();
+			entity.THEDOCGIA = this;
+		}
+		
+		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		{
+			this.SendPropertyChanging();
+			entity.THEDOCGIA = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DAUSACH")]
 	public partial class DAUSACH : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -578,11 +732,11 @@ namespace QuanLyThuVien
 		
 		private EntitySet<CTPM> _CTPMs;
 		
-		private EntityRef<THELOAI> _THELOAI;
-		
 		private EntityRef<NHAXUATBAN> _NHAXUATBAN;
 		
 		private EntityRef<TACGIA> _TACGIA;
+		
+		private EntityRef<THELOAI> _THELOAI;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -605,9 +759,9 @@ namespace QuanLyThuVien
 		public DAUSACH()
 		{
 			this._CTPMs = new EntitySet<CTPM>(new Action<CTPM>(this.attach_CTPMs), new Action<CTPM>(this.detach_CTPMs));
-			this._THELOAI = default(EntityRef<THELOAI>);
 			this._NHAXUATBAN = default(EntityRef<NHAXUATBAN>);
 			this._TACGIA = default(EntityRef<TACGIA>);
+			this._THELOAI = default(EntityRef<THELOAI>);
 			OnCreated();
 		}
 		
@@ -756,40 +910,6 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THELOAI_DAUSACH", Storage="_THELOAI", ThisKey="MATHELOAI", OtherKey="MATHELOAI", IsForeignKey=true)]
-		public THELOAI THELOAI
-		{
-			get
-			{
-				return this._THELOAI.Entity;
-			}
-			set
-			{
-				THELOAI previousValue = this._THELOAI.Entity;
-				if (((previousValue != value) 
-							|| (this._THELOAI.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._THELOAI.Entity = null;
-						previousValue.DAUSACHes.Remove(this);
-					}
-					this._THELOAI.Entity = value;
-					if ((value != null))
-					{
-						value.DAUSACHes.Add(this);
-						this._MATHELOAI = value.MATHELOAI;
-					}
-					else
-					{
-						this._MATHELOAI = default(string);
-					}
-					this.SendPropertyChanged("THELOAI");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAXUATBAN_DAUSACH", Storage="_NHAXUATBAN", ThisKey="MANXB", OtherKey="MANXB", IsForeignKey=true)]
 		public NHAXUATBAN NHAXUATBAN
 		{
@@ -858,6 +978,40 @@ namespace QuanLyThuVien
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THELOAI_DAUSACH", Storage="_THELOAI", ThisKey="MATHELOAI", OtherKey="MATHELOAI", IsForeignKey=true)]
+		public THELOAI THELOAI
+		{
+			get
+			{
+				return this._THELOAI.Entity;
+			}
+			set
+			{
+				THELOAI previousValue = this._THELOAI.Entity;
+				if (((previousValue != value) 
+							|| (this._THELOAI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._THELOAI.Entity = null;
+						previousValue.DAUSACHes.Remove(this);
+					}
+					this._THELOAI.Entity = value;
+					if ((value != null))
+					{
+						value.DAUSACHes.Add(this);
+						this._MATHELOAI = value.MATHELOAI;
+					}
+					else
+					{
+						this._MATHELOAI = default(string);
+					}
+					this.SendPropertyChanged("THELOAI");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -907,6 +1061,10 @@ namespace QuanLyThuVien
 		
 		private string _EMAIL;
 		
+		private System.Nullable<System.DateTime> _NGAYSINH;
+		
+		private string _GIOITINH;
+		
 		private EntitySet<THEDOCGIA> _THEDOCGIAs;
 		
     #region Extensibility Method Definitions
@@ -923,6 +1081,10 @@ namespace QuanLyThuVien
     partial void OnSDTDOCGIAChanged();
     partial void OnEMAILChanging(string value);
     partial void OnEMAILChanged();
+    partial void OnNGAYSINHChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYSINHChanged();
+    partial void OnGIOITINHChanging(string value);
+    partial void OnGIOITINHChanged();
     #endregion
 		
 		public DOCGIA()
@@ -1031,6 +1193,46 @@ namespace QuanLyThuVien
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYSINH", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYSINH
+		{
+			get
+			{
+				return this._NGAYSINH;
+			}
+			set
+			{
+				if ((this._NGAYSINH != value))
+				{
+					this.OnNGAYSINHChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYSINH = value;
+					this.SendPropertyChanged("NGAYSINH");
+					this.OnNGAYSINHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIOITINH", DbType="NVarChar(30)")]
+		public string GIOITINH
+		{
+			get
+			{
+				return this._GIOITINH;
+			}
+			set
+			{
+				if ((this._GIOITINH != value))
+				{
+					this.OnGIOITINHChanging(value);
+					this.SendPropertyChanging();
+					this._GIOITINH = value;
+					this.SendPropertyChanged("GIOITINH");
+					this.OnGIOITINHChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DOCGIA_THEDOCGIA", Storage="_THEDOCGIAs", ThisKey="MADOCGIA", OtherKey="MADOCGIA")]
 		public EntitySet<THEDOCGIA> THEDOCGIAs
 		{
@@ -1097,9 +1299,9 @@ namespace QuanLyThuVien
 		
 		private string _EMAILNV;
 		
-		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
-		
 		private EntitySet<THEDOCGIA> _THEDOCGIAs;
+		
+		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1123,8 +1325,8 @@ namespace QuanLyThuVien
 		
 		public NHANVIEN()
 		{
-			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
 			this._THEDOCGIAs = new EntitySet<THEDOCGIA>(new Action<THEDOCGIA>(this.attach_THEDOCGIAs), new Action<THEDOCGIA>(this.detach_THEDOCGIAs));
+			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
 			OnCreated();
 		}
 		
@@ -1268,19 +1470,6 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MANV", OtherKey="MANV")]
-		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
-		{
-			get
-			{
-				return this._PHIEUMUONTRAs;
-			}
-			set
-			{
-				this._PHIEUMUONTRAs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_THEDOCGIA", Storage="_THEDOCGIAs", ThisKey="MANV", OtherKey="MANV")]
 		public EntitySet<THEDOCGIA> THEDOCGIAs
 		{
@@ -1291,6 +1480,19 @@ namespace QuanLyThuVien
 			set
 			{
 				this._THEDOCGIAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MANV", OtherKey="MANV")]
+		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
+		{
+			get
+			{
+				return this._PHIEUMUONTRAs;
+			}
+			set
+			{
+				this._PHIEUMUONTRAs.Assign(value);
 			}
 		}
 		
@@ -1314,18 +1516,6 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = this;
-		}
-		
-		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = null;
-		}
-		
 		private void attach_THEDOCGIAs(THEDOCGIA entity)
 		{
 			this.SendPropertyChanging();
@@ -1333,6 +1523,18 @@ namespace QuanLyThuVien
 		}
 		
 		private void detach_THEDOCGIAs(THEDOCGIA entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHANVIEN = null;
+		}
+		
+		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHANVIEN = this;
+		}
+		
+		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
 		{
 			this.SendPropertyChanging();
 			entity.NHANVIEN = null;
@@ -1415,7 +1617,7 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHINXB", DbType="NVarChar(40)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHINXB", DbType="NVarChar(100)")]
 		public string DIACHINXB
 		{
 			get
@@ -1975,238 +2177,84 @@ namespace QuanLyThuVien
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THEDOCGIA")]
-	public partial class THEDOCGIA : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THELOAI")]
+	public partial class THELOAI : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANV;
+		private string _MATHELOAI;
 		
-		private string _MATHE;
+		private string _TENTHELOAI;
 		
-		private System.Nullable<System.DateTime> _NGAYLAP;
-		
-		private System.Nullable<System.DateTime> _NGAYHETHAN;
-		
-		private string _MADOCGIA;
-		
-		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
-		
-		private EntityRef<DOCGIA> _DOCGIA;
-		
-		private EntityRef<NHANVIEN> _NHANVIEN;
+		private EntitySet<DAUSACH> _DAUSACHes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMANVChanging(string value);
-    partial void OnMANVChanged();
-    partial void OnMATHEChanging(string value);
-    partial void OnMATHEChanged();
-    partial void OnNGAYLAPChanging(System.Nullable<System.DateTime> value);
-    partial void OnNGAYLAPChanged();
-    partial void OnNGAYHETHANChanging(System.Nullable<System.DateTime> value);
-    partial void OnNGAYHETHANChanged();
-    partial void OnMADOCGIAChanging(string value);
-    partial void OnMADOCGIAChanged();
+    partial void OnMATHELOAIChanging(string value);
+    partial void OnMATHELOAIChanged();
+    partial void OnTENTHELOAIChanging(string value);
+    partial void OnTENTHELOAIChanged();
     #endregion
 		
-		public THEDOCGIA()
+		public THELOAI()
 		{
-			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
-			this._DOCGIA = default(EntityRef<DOCGIA>);
-			this._NHANVIEN = default(EntityRef<NHANVIEN>);
+			this._DAUSACHes = new EntitySet<DAUSACH>(new Action<DAUSACH>(this.attach_DAUSACHes), new Action<DAUSACH>(this.detach_DAUSACHes));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string MANV
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHELOAI", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MATHELOAI
 		{
 			get
 			{
-				return this._MANV;
+				return this._MATHELOAI;
 			}
 			set
 			{
-				if ((this._MANV != value))
+				if ((this._MATHELOAI != value))
 				{
-					if (this._NHANVIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMANVChanging(value);
+					this.OnMATHELOAIChanging(value);
 					this.SendPropertyChanging();
-					this._MANV = value;
-					this.SendPropertyChanged("MANV");
-					this.OnMANVChanged();
+					this._MATHELOAI = value;
+					this.SendPropertyChanged("MATHELOAI");
+					this.OnMATHELOAIChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHE", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MATHE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENTHELOAI", DbType="NVarChar(30)")]
+		public string TENTHELOAI
 		{
 			get
 			{
-				return this._MATHE;
+				return this._TENTHELOAI;
 			}
 			set
 			{
-				if ((this._MATHE != value))
+				if ((this._TENTHELOAI != value))
 				{
-					this.OnMATHEChanging(value);
+					this.OnTENTHELOAIChanging(value);
 					this.SendPropertyChanging();
-					this._MATHE = value;
-					this.SendPropertyChanged("MATHE");
-					this.OnMATHEChanged();
+					this._TENTHELOAI = value;
+					this.SendPropertyChanged("TENTHELOAI");
+					this.OnTENTHELOAIChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYLAP", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NGAYLAP
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THELOAI_DAUSACH", Storage="_DAUSACHes", ThisKey="MATHELOAI", OtherKey="MATHELOAI")]
+		public EntitySet<DAUSACH> DAUSACHes
 		{
 			get
 			{
-				return this._NGAYLAP;
+				return this._DAUSACHes;
 			}
 			set
 			{
-				if ((this._NGAYLAP != value))
-				{
-					this.OnNGAYLAPChanging(value);
-					this.SendPropertyChanging();
-					this._NGAYLAP = value;
-					this.SendPropertyChanged("NGAYLAP");
-					this.OnNGAYLAPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYHETHAN", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NGAYHETHAN
-		{
-			get
-			{
-				return this._NGAYHETHAN;
-			}
-			set
-			{
-				if ((this._NGAYHETHAN != value))
-				{
-					this.OnNGAYHETHANChanging(value);
-					this.SendPropertyChanging();
-					this._NGAYHETHAN = value;
-					this.SendPropertyChanged("NGAYHETHAN");
-					this.OnNGAYHETHANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MADOCGIA", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MADOCGIA
-		{
-			get
-			{
-				return this._MADOCGIA;
-			}
-			set
-			{
-				if ((this._MADOCGIA != value))
-				{
-					if (this._DOCGIA.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMADOCGIAChanging(value);
-					this.SendPropertyChanging();
-					this._MADOCGIA = value;
-					this.SendPropertyChanged("MADOCGIA");
-					this.OnMADOCGIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THEDOCGIA_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MATHE,MADOCGIA", OtherKey="MATHE,MADOCGIA")]
-		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
-		{
-			get
-			{
-				return this._PHIEUMUONTRAs;
-			}
-			set
-			{
-				this._PHIEUMUONTRAs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DOCGIA_THEDOCGIA", Storage="_DOCGIA", ThisKey="MADOCGIA", OtherKey="MADOCGIA", IsForeignKey=true)]
-		public DOCGIA DOCGIA
-		{
-			get
-			{
-				return this._DOCGIA.Entity;
-			}
-			set
-			{
-				DOCGIA previousValue = this._DOCGIA.Entity;
-				if (((previousValue != value) 
-							|| (this._DOCGIA.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DOCGIA.Entity = null;
-						previousValue.THEDOCGIAs.Remove(this);
-					}
-					this._DOCGIA.Entity = value;
-					if ((value != null))
-					{
-						value.THEDOCGIAs.Add(this);
-						this._MADOCGIA = value.MADOCGIA;
-					}
-					else
-					{
-						this._MADOCGIA = default(string);
-					}
-					this.SendPropertyChanged("DOCGIA");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_THEDOCGIA", Storage="_NHANVIEN", ThisKey="MANV", OtherKey="MANV", IsForeignKey=true)]
-		public NHANVIEN NHANVIEN
-		{
-			get
-			{
-				return this._NHANVIEN.Entity;
-			}
-			set
-			{
-				NHANVIEN previousValue = this._NHANVIEN.Entity;
-				if (((previousValue != value) 
-							|| (this._NHANVIEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NHANVIEN.Entity = null;
-						previousValue.THEDOCGIAs.Remove(this);
-					}
-					this._NHANVIEN.Entity = value;
-					if ((value != null))
-					{
-						value.THEDOCGIAs.Add(this);
-						this._MANV = value.MANV;
-					}
-					else
-					{
-						this._MANV = default(string);
-					}
-					this.SendPropertyChanged("NHANVIEN");
-				}
+				this._DAUSACHes.Assign(value);
 			}
 		}
 		
@@ -2230,16 +2278,16 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		private void attach_DAUSACHes(DAUSACH entity)
 		{
 			this.SendPropertyChanging();
-			entity.THEDOCGIA = this;
+			entity.THELOAI = this;
 		}
 		
-		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		private void detach_DAUSACHes(DAUSACH entity)
 		{
 			this.SendPropertyChanging();
-			entity.THEDOCGIA = null;
+			entity.THELOAI = null;
 		}
 	}
 	

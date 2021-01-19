@@ -34,6 +34,7 @@ namespace QuanLyThuVien
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.mskMa_phieumuontra = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtMadg_pmt = new System.Windows.Forms.TextBox();
             this.btnxoapmt = new System.Windows.Forms.Button();
@@ -58,6 +59,7 @@ namespace QuanLyThuVien
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnLuu_ctpm = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -90,7 +92,7 @@ namespace QuanLyThuVien
             this.dtmngaytra = new System.Windows.Forms.DateTimePicker();
             this.cbotinhtrang = new System.Windows.Forms.ComboBox();
             this.dtmhantra = new System.Windows.Forms.DateTimePicker();
-            this.mskMa_phieumuontra = new System.Windows.Forms.MaskedTextBox();
+            this.btnHuy_ctpm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -162,6 +164,14 @@ namespace QuanLyThuVien
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin";
             // 
+            // mskMa_phieumuontra
+            // 
+            this.mskMa_phieumuontra.Location = new System.Drawing.Point(223, 161);
+            this.mskMa_phieumuontra.Mask = "PMT0000";
+            this.mskMa_phieumuontra.Name = "mskMa_phieumuontra";
+            this.mskMa_phieumuontra.Size = new System.Drawing.Size(329, 35);
+            this.mskMa_phieumuontra.TabIndex = 22;
+            // 
             // button2
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
@@ -230,7 +240,6 @@ namespace QuanLyThuVien
             this.cboMatdg_pmt.Name = "cboMatdg_pmt";
             this.cboMatdg_pmt.Size = new System.Drawing.Size(329, 38);
             this.cboMatdg_pmt.TabIndex = 2;
-            this.cboMatdg_pmt.SelectedIndexChanged += new System.EventHandler(this.cbomatdg_pmt_SelectedIndexChanged);
             // 
             // cboManv_pmt
             // 
@@ -390,6 +399,8 @@ namespace QuanLyThuVien
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnHuy_ctpm);
+            this.groupBox4.Controls.Add(this.btnLuu_ctpm);
             this.groupBox4.Controls.Add(this.groupBox1);
             this.groupBox4.Controls.Add(this.txtsoluong_ctpm);
             this.groupBox4.Controls.Add(this.btnthemsua_ctpm);
@@ -416,7 +427,16 @@ namespace QuanLyThuVien
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tìm Kiếm";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // btnLuu_ctpm
+            // 
+            this.btnLuu_ctpm.Location = new System.Drawing.Point(730, 270);
+            this.btnLuu_ctpm.Name = "btnLuu_ctpm";
+            this.btnLuu_ctpm.Size = new System.Drawing.Size(75, 38);
+            this.btnLuu_ctpm.TabIndex = 18;
+            this.btnLuu_ctpm.Text = "Lưu";
+            this.btnLuu_ctpm.UseVisualStyleBackColor = true;
+            this.btnLuu_ctpm.Click += new System.EventHandler(this.btnLuu_ctpm_Click);
             // 
             // groupBox1
             // 
@@ -460,7 +480,7 @@ namespace QuanLyThuVien
             // 
             // btnthemsua_ctpm
             // 
-            this.btnthemsua_ctpm.Location = new System.Drawing.Point(428, 269);
+            this.btnthemsua_ctpm.Location = new System.Drawing.Point(144, 269);
             this.btnthemsua_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnthemsua_ctpm.Name = "btnthemsua_ctpm";
             this.btnthemsua_ctpm.Size = new System.Drawing.Size(151, 38);
@@ -604,10 +624,10 @@ namespace QuanLyThuVien
             // 
             // btntrasach_ctpm
             // 
-            this.btntrasach_ctpm.Location = new System.Drawing.Point(802, 269);
+            this.btntrasach_ctpm.Location = new System.Drawing.Point(552, 267);
             this.btntrasach_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntrasach_ctpm.Name = "btntrasach_ctpm";
-            this.btntrasach_ctpm.Size = new System.Drawing.Size(64, 38);
+            this.btntrasach_ctpm.Size = new System.Drawing.Size(155, 38);
             this.btntrasach_ctpm.TabIndex = 5;
             this.btntrasach_ctpm.Text = "Trả Sách";
             this.btntrasach_ctpm.UseVisualStyleBackColor = true;
@@ -624,10 +644,10 @@ namespace QuanLyThuVien
             // 
             // btngiahan_ctpm
             // 
-            this.btngiahan_ctpm.Location = new System.Drawing.Point(698, 269);
+            this.btngiahan_ctpm.Location = new System.Drawing.Point(418, 270);
             this.btngiahan_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btngiahan_ctpm.Name = "btngiahan_ctpm";
-            this.btngiahan_ctpm.Size = new System.Drawing.Size(64, 38);
+            this.btngiahan_ctpm.Size = new System.Drawing.Size(112, 38);
             this.btngiahan_ctpm.TabIndex = 5;
             this.btngiahan_ctpm.Text = "Gia Hạn";
             this.btngiahan_ctpm.UseVisualStyleBackColor = true;
@@ -644,7 +664,7 @@ namespace QuanLyThuVien
             // 
             // btnxoa_ctpm
             // 
-            this.btnxoa_ctpm.Location = new System.Drawing.Point(596, 269);
+            this.btnxoa_ctpm.Location = new System.Drawing.Point(328, 270);
             this.btnxoa_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnxoa_ctpm.Name = "btnxoa_ctpm";
             this.btnxoa_ctpm.Size = new System.Drawing.Size(64, 38);
@@ -699,13 +719,15 @@ namespace QuanLyThuVien
             this.dtmhantra.Size = new System.Drawing.Size(329, 35);
             this.dtmhantra.TabIndex = 2;
             // 
-            // mskMa_phieumuontra
+            // btnHuy_ctpm
             // 
-            this.mskMa_phieumuontra.Location = new System.Drawing.Point(223, 161);
-            this.mskMa_phieumuontra.Mask = "PMT0000";
-            this.mskMa_phieumuontra.Name = "mskMa_phieumuontra";
-            this.mskMa_phieumuontra.Size = new System.Drawing.Size(329, 35);
-            this.mskMa_phieumuontra.TabIndex = 22;
+            this.btnHuy_ctpm.Location = new System.Drawing.Point(811, 267);
+            this.btnHuy_ctpm.Name = "btnHuy_ctpm";
+            this.btnHuy_ctpm.Size = new System.Drawing.Size(75, 38);
+            this.btnHuy_ctpm.TabIndex = 18;
+            this.btnHuy_ctpm.Text = "Huỷ";
+            this.btnHuy_ctpm.UseVisualStyleBackColor = true;
+            this.btnHuy_ctpm.Click += new System.EventHandler(this.btnHuy_ctpm_Click);
             // 
             // frmPhieumuontra
             // 
@@ -800,5 +822,7 @@ namespace QuanLyThuVien
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MaskedTextBox mskMa_phieumuontra;
+        private System.Windows.Forms.Button btnLuu_ctpm;
+        private System.Windows.Forms.Button btnHuy_ctpm;
     }
 }

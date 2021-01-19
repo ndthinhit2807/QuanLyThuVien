@@ -27,22 +27,23 @@ namespace QuanLyThuVien
 
             loadpmt();
             loadctpm();
+            btnLuu_ctpm.Enabled = false;
 
         }
 
         void loadpmt()
         {
             var pmt = from s in db.PHIEUMUONTRAs
-                     select new
-                     {
-                         s.MAPHIEUMUON,
-                         s.MANV,
-                         s.NHANVIEN.HOTENNV,
-                         s.MATHE,
-                         s.THEDOCGIA.DOCGIA.TENDOCGIA,
-                         s.NGAYLAP
-                         
-                     };
+                      select new
+                      {
+                          s.MAPHIEUMUON,
+                          s.MANV,
+                          s.NHANVIEN.HOTENNV,
+                          s.MATHE,
+                          s.THEDOCGIA.DOCGIA.TENDOCGIA,
+                          s.NGAYLAP
+
+                      };
             dgvpmt.DataSource = pmt;
 
             cboManv_pmt.DataSource = db.NHANVIENs;
@@ -127,7 +128,7 @@ namespace QuanLyThuVien
 
         void loadctpm()
         {
-            var ctpm = from s in db.CTPMs     
+            var ctpm = from s in db.CTPMs
                        select new
                        {
                            s.PHIEUMUONTRA.MAPHIEUMUON,
@@ -162,11 +163,11 @@ namespace QuanLyThuVien
             try
             {
                 CTPM ctpm = new CTPM();
-               
+
 
                 ctpm.MAPHIEUMUON = cbomapmt_ctpm.SelectedValue.ToString();
                 ctpm.MASACH = cbomasach_ctpm.SelectedValue.ToString();
-          
+
                 ctpm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
                 //ctpm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
                 ctpm.SOLUONG = txtsoluong_ctpm.Text;
@@ -186,9 +187,9 @@ namespace QuanLyThuVien
                 }
                 else
                 {
-                  //  testctpm.PHIEUMUONTRA.MANV = cbomanvtra_ctpm.SelectedValue.ToString();
+                    //  testctpm.PHIEUMUONTRA.MANV = cbomanvtra_ctpm.SelectedValue.ToString();
                     testctpm.MASACH = cbomasach_ctpm.SelectedValue.ToString();
-                    
+
                     testctpm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
                     //testctpm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
                     testctpm.SOLUONG = txtsoluong_ctpm.Text;
@@ -232,11 +233,6 @@ namespace QuanLyThuVien
             loadctpm();
         }
 
-        private void cbomatdg_pmt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-      
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             loadpmt();
@@ -244,41 +240,100 @@ namespace QuanLyThuVien
 
         private void btntrasach_ctpm_Click(object sender, EventArgs e)
         {
-            CTPM ctpm = new CTPM();
-            ctpm.MAPHIEUMUON = cbomapmt_ctpm.SelectedValue.ToString();
-            var testctpmm = db.CTPMs.FirstOrDefault(p => p.MAPHIEUMUON == ctpm.MAPHIEUMUON);
-            if(testctpmm != null)
-            {
-
-            testctpmm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
-         
-            MessageBox.Show("Trả sách thành công", "Thông báo", MessageBoxButtons.OK);
-            db.SubmitChanges();
-            loadctpm();
-            mskMa_phieumuontra.Clear();
-            }
+            locktrasach();
         }
 
         private void btngiahan_ctpm_Click(object sender, EventArgs e)
         {
-            CTPM ctpm = new CTPM();
-            ctpm.MAPHIEUMUON = cbomapmt_ctpm.SelectedValue.ToString();
-            var testctpmm = db.CTPMs.FirstOrDefault(p => p.MAPHIEUMUON == ctpm.MAPHIEUMUON);
-            if (testctpmm != null)
+            lockgiahan();
+        }
+
+        void lockgiahan()
+        {
+            cbomapmt_ctpm.Enabled = false;
+            cbotinhtrang.Enabled = false;
+            txtsoluong_ctpm.Enabled = false;
+            cbomasach_ctpm.Enabled = false;
+            dtmngaytra.Enabled = false;
+
+            btnthemsua_ctpm.Enabled = false;
+            btnxoa_ctpm.Enabled = false;
+            btntrasach_ctpm.Enabled = false;
+            btnLuu_ctpm.Enabled = true;
+        }
+
+        void locktrasach()
+        {
+            cbomapmt_ctpm.Enabled = false;
+            cbotinhtrang.Enabled = false;
+            txtsoluong_ctpm.Enabled = false;
+            cbomasach_ctpm.Enabled = false;
+            dtmhantra.Enabled = false;
+
+            btnthemsua_ctpm.Enabled = false;
+            btnxoa_ctpm.Enabled = false;
+            btngiahan_ctpm.Enabled = false;
+            btnLuu_ctpm.Enabled = true;
+        }
+
+
+        void unlock()
+        {
+            cbomapmt_ctpm.Enabled = true;
+            cbotinhtrang.Enabled = true;
+            txtsoluong_ctpm.Enabled = true;
+            cbomasach_ctpm.Enabled = true;
+            dtmhantra.Enabled = true;
+            dtmngaytra.Enabled = true;
+
+            btnthemsua_ctpm.Enabled = true;
+            btnxoa_ctpm.Enabled = true;
+            btngiahan_ctpm.Enabled = true;
+            btnLuu_ctpm.Enabled = true;
+            btntrasach_ctpm.Enabled = true;
+            btnLuu_ctpm.Enabled = false;
+        }
+
+        private void btnLuu_ctpm_Click(object sender, EventArgs e)
+        {
+            if (btngiahan_ctpm.Enabled == true)
             {
+                CTPM ctpm = new CTPM();
+                ctpm.MAPHIEUMUON = cbomapmt_ctpm.SelectedValue.ToString();
+                var testctpmm = db.CTPMs.FirstOrDefault(p => p.MAPHIEUMUON == ctpm.MAPHIEUMUON);
+                if (testctpmm != null)
+                {
 
-                testctpmm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
+                    testctpmm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
 
-                MessageBox.Show("Gia hạn thành công", "Thông báo", MessageBoxButtons.OK);
-                db.SubmitChanges();
-                loadctpm();
-                 mskMa_phieumuontra.Clear();
+                    MessageBox.Show("Gia hạn thành công", "Thông báo", MessageBoxButtons.OK);
+                    db.SubmitChanges();
+                    loadctpm();
+                    mskMa_phieumuontra.Clear();
+                    unlock();
+                }
+            }
+            else
+            {
+                CTPM ctpm = new CTPM();
+                ctpm.MAPHIEUMUON = cbomapmt_ctpm.SelectedValue.ToString();
+                var testctpmm = db.CTPMs.FirstOrDefault(p => p.MAPHIEUMUON == ctpm.MAPHIEUMUON);
+                if (testctpmm != null)
+                {
+                    testctpmm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
+
+                    MessageBox.Show("Trả sách thành công", "Thông báo", MessageBoxButtons.OK);
+                    db.SubmitChanges();
+                    loadctpm();
+                    mskMa_phieumuontra.Clear();
+                    unlock();
+                }
             }
         }
 
-        private void groupBox4_Enter(object sender, EventArgs e)
+        private void btnHuy_ctpm_Click(object sender, EventArgs e)
         {
-
+            unlock();
         }
     }
 }

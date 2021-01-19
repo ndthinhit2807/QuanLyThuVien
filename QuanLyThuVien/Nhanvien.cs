@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace QuanLyThuVien
 {
@@ -21,6 +23,7 @@ namespace QuanLyThuVien
         void DataGridView()
         {
             dgvNhanvien.DataSource = db.NHANVIENs.ToList();
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -64,6 +67,7 @@ namespace QuanLyThuVien
                 }
                 db.SubmitChanges();
                 DataGridView();
+                autotang();
             }
             catch
             {
@@ -76,6 +80,7 @@ namespace QuanLyThuVien
             cbotimnv.SelectedIndex = 0;
             cboGioitinh_nhanvien.SelectedIndex = 0;
             dgvNhanvien.DataSource = db.NHANVIENs.ToList();
+            autotang();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -97,6 +102,7 @@ namespace QuanLyThuVien
                     txtDiachi_nhanvien.Clear();
                     txtSdt_nhanvien.Clear();
                     txtEmail_nhanvien.Clear();
+                        autotang();
 
                 }
                 else
@@ -140,6 +146,57 @@ namespace QuanLyThuVien
                                  select s).ToList();
                 dgvNhanvien.DataSource = findtennv;
             }
+        }
+        
+       
+    private void txtEmail_nhanvien_KeyUp(object sender, KeyEventArgs e)
+        {
+            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+           
+                this.label6.Text = "";
+                Regex reg = new Regex(match);
+                if (reg.IsMatch(this.txtEmail_nhanvien.Text)) this.label6.Text = "email chinh xac";
+                else this.label6.Text = "email ko hop le";
+            
+        }
+
+        public void autotang()
+        {
+            string mamax = (from s in db.NHANVIENs
+                         orderby s.MANV descending
+                         select s.MANV).FirstOrDefault();
+
+
+            if(mamax == null)
+            {
+                mskMa_nhanvien.Text = "NV001".ToString();
+            }
+            else
+            {
+            int stt = int.Parse(mamax.Substring(2));
+                stt += 1;
+                if(stt < 10)
+                {
+                    mskMa_nhanvien.Text = "NV00" + stt.ToString();
+                }else if(stt < 100)
+                {
+                    mskMa_nhanvien.Text = "NV0" + stt.ToString();
+                }
+                else
+                {
+                    mskMa_nhanvien.Text = "NV" + stt.ToString();
+                }
+            }
+        }
+
+        private void btnLammoi_nhanvien_Click(object sender, EventArgs e)
+        {
+            DataGridView();
+            autotang();
+            txtTen_nhanvien.Clear();
+            txtDiachi_nhanvien.Clear();
+            txtSdt_nhanvien.Clear();
+            txtEmail_nhanvien.Clear();
         }
     }
 }

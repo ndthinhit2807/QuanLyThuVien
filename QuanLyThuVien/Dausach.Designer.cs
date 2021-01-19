@@ -35,6 +35,8 @@ namespace QuanLyThuVien
             this.cboTacgia_dausach = new System.Windows.Forms.ComboBox();
             this.cboNxb_dausach = new System.Windows.Forms.ComboBox();
             this.cboTheloai_dausach = new System.Windows.Forms.ComboBox();
+            this.btnxoads = new System.Windows.Forms.Button();
+            this.btnthemsuads = new System.Windows.Forms.Button();
             this.txtNamxb_dausach = new System.Windows.Forms.TextBox();
             this.txtTen_dausach = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,8 +56,6 @@ namespace QuanLyThuVien
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnxoads = new System.Windows.Forms.Button();
-            this.btnthemsuads = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvds)).BeginInit();
@@ -90,7 +90,6 @@ namespace QuanLyThuVien
             // mskMa_dausach
             // 
             this.mskMa_dausach.Location = new System.Drawing.Point(254, 156);
-            this.mskMa_dausach.Mask = "DS0000";
             this.mskMa_dausach.Name = "mskMa_dausach";
             this.mskMa_dausach.Size = new System.Drawing.Size(137, 35);
             this.mskMa_dausach.TabIndex = 5;
@@ -125,6 +124,32 @@ namespace QuanLyThuVien
             this.cboTheloai_dausach.Name = "cboTheloai_dausach";
             this.cboTheloai_dausach.Size = new System.Drawing.Size(329, 38);
             this.cboTheloai_dausach.TabIndex = 3;
+            // 
+            // btnxoads
+            // 
+            this.btnxoads.Image = ((System.Drawing.Image)(resources.GetObject("btnxoads.Image")));
+            this.btnxoads.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnxoads.Location = new System.Drawing.Point(402, 618);
+            this.btnxoads.Name = "btnxoads";
+            this.btnxoads.Size = new System.Drawing.Size(91, 52);
+            this.btnxoads.TabIndex = 2;
+            this.btnxoads.Text = "Xoá";
+            this.btnxoads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnxoads.UseVisualStyleBackColor = true;
+            this.btnxoads.Click += new System.EventHandler(this.btnxoads_Click);
+            // 
+            // btnthemsuads
+            // 
+            this.btnthemsuads.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuads.Image")));
+            this.btnthemsuads.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnthemsuads.Location = new System.Drawing.Point(194, 618);
+            this.btnthemsuads.Name = "btnthemsuads";
+            this.btnthemsuads.Size = new System.Drawing.Size(165, 52);
+            this.btnthemsuads.TabIndex = 2;
+            this.btnthemsuads.Text = "Thêm / Sửa";
+            this.btnthemsuads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnthemsuads.UseVisualStyleBackColor = true;
+            this.btnthemsuads.Click += new System.EventHandler(this.btnthemsuads_Click);
             // 
             // txtNamxb_dausach
             // 
@@ -309,32 +334,6 @@ namespace QuanLyThuVien
             this.labelControl1.Size = new System.Drawing.Size(208, 65);
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "Đầu Sách";
-            // 
-            // btnxoads
-            // 
-            this.btnxoads.Image = ((System.Drawing.Image)(resources.GetObject("btnxoads.Image")));
-            this.btnxoads.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxoads.Location = new System.Drawing.Point(402, 618);
-            this.btnxoads.Name = "btnxoads";
-            this.btnxoads.Size = new System.Drawing.Size(91, 52);
-            this.btnxoads.TabIndex = 2;
-            this.btnxoads.Text = "Xoá";
-            this.btnxoads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnxoads.UseVisualStyleBackColor = true;
-            this.btnxoads.Click += new System.EventHandler(this.btnxoads_Click);
-            // 
-            // btnthemsuads
-            // 
-            this.btnthemsuads.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuads.Image")));
-            this.btnthemsuads.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthemsuads.Location = new System.Drawing.Point(194, 618);
-            this.btnthemsuads.Name = "btnthemsuads";
-            this.btnthemsuads.Size = new System.Drawing.Size(165, 52);
-            this.btnthemsuads.TabIndex = 2;
-            this.btnthemsuads.Text = "Thêm / Sửa";
-            this.btnthemsuads.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnthemsuads.UseVisualStyleBackColor = true;
-            this.btnthemsuads.Click += new System.EventHandler(this.btnthemsuads_Click);
             // 
             // frmDausach
             // 

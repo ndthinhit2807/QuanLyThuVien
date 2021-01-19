@@ -191,6 +191,7 @@
             this.btnthongke.Name = "btnthongke";
             this.btnthongke.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnthongke.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnthongke_ItemClick);
             // 
             // btntrogiup
             // 

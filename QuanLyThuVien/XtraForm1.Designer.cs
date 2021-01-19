@@ -30,14 +30,33 @@ namespace QuanLyThuVien
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.procSachDuocMuonNhieuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.datasetreport1 = new QuanLyThuVien.datasetreport1();
+            this.CTPMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.CTPMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.procSachDuocMuonNhieuTableAdapter = new QuanLyThuVien.datasetreport1TableAdapters.procSachDuocMuonNhieuTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.procSachDuocMuonNhieuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetreport1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CTPMBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // procSachDuocMuonNhieuBindingSource
+            // 
+            this.procSachDuocMuonNhieuBindingSource.DataMember = "procSachDuocMuonNhieu";
+            this.procSachDuocMuonNhieuBindingSource.DataSource = this.datasetreport1;
+            // 
+            // datasetreport1
+            // 
+            this.datasetreport1.DataSetName = "datasetreport1";
+            this.datasetreport1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // CTPMBindingSource
+            // 
+            this.CTPMBindingSource.DataMember = "CTPM";
             // 
             // button1
             // 
@@ -51,6 +70,8 @@ namespace QuanLyThuVien
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(164, 13);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
@@ -58,27 +79,29 @@ namespace QuanLyThuVien
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "MM/yyyy";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(400, 13);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 21);
             this.dateTimePicker2.TabIndex = 2;
             // 
-            // CTPMBindingSource
-            // 
-            this.CTPMBindingSource.DataMember = "CTPM";
-     
-            // 
             // reportViewer1
             // 
-            reportDataSource6.Name = "DataSet1";
-            reportDataSource6.Value = this.CTPMBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource6);
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.procSachDuocMuonNhieuBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "QuanLyThuVien.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(27, 143);
+            this.reportViewer1.Location = new System.Drawing.Point(102, 130);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(698, 246);
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
             this.reportViewer1.TabIndex = 3;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
+            // 
+            // procSachDuocMuonNhieuTableAdapter
+            // 
+            this.procSachDuocMuonNhieuTableAdapter.ClearBeforeFill = true;
             // 
             // XtraForm1
             // 
@@ -92,6 +115,8 @@ namespace QuanLyThuVien
             this.Name = "XtraForm1";
             this.Text = "XtraForm1";
             this.Load += new System.EventHandler(this.XtraForm1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.procSachDuocMuonNhieuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetreport1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CTPMBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -103,6 +128,8 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.BindingSource CTPMBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-       
+        private System.Windows.Forms.BindingSource procSachDuocMuonNhieuBindingSource;
+        private datasetreport1 datasetreport1;
+        private datasetreport1TableAdapters.procSachDuocMuonNhieuTableAdapter procSachDuocMuonNhieuTableAdapter;
     }
 }
