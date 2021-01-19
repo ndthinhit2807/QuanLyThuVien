@@ -54,11 +54,11 @@ namespace QuanLyThuVien
             cboMatdg_pmt.ValueMember = "MATHE";
             cboMatdg_pmt.DisplayMember = "MATHE";
 
-            var madg = db.THEDOCGIAs.FirstOrDefault(k => k.MATHE == cboMatdg_pmt.Text);
-            if (madg != null)
-            {
-                txtMadg_pmt.Text = madg.MADOCGIA.ToString();
-            }
+            //var madg = db.THEDOCGIAs.FirstOrDefault(k => k.MATHE == cboMatdg_pmt.Text);
+            //if (madg != null)
+            //{
+            //    txtMadg_pmt.Text = madg.MADOCGIA.ToString();
+            //}
 
 
         }
@@ -334,6 +334,25 @@ namespace QuanLyThuVien
         private void btnHuy_ctpm_Click(object sender, EventArgs e)
         {
             unlock();
+        }
+
+        private void cboMatdg_pmt_KeyUp(object sender, KeyEventArgs e)
+        {
+            var madg = db.THEDOCGIAs.FirstOrDefault(k => k.MATHE == cboMatdg_pmt.Text);
+            if (madg != null)
+            {
+                label5.Text = madg.DOCGIA.TENDOCGIA.ToString();
+            }
+        }
+
+        private void cboMatdg_pmt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var madg = db.THEDOCGIAs.FirstOrDefault(k => k.MATHE == cboMatdg_pmt.Text);
+            if (madg != null)
+            {
+                label5.Text = madg.DOCGIA.TENDOCGIA.ToString();
+                txtMadg_pmt.Text = madg.MADOCGIA.ToString();
+            }
         }
     }
 }

@@ -59,6 +59,7 @@ namespace QuanLyThuVien
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnHuy_ctpm = new System.Windows.Forms.Button();
             this.btnLuu_ctpm = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -92,7 +93,7 @@ namespace QuanLyThuVien
             this.dtmngaytra = new System.Windows.Forms.DateTimePicker();
             this.cbotinhtrang = new System.Windows.Forms.ComboBox();
             this.dtmhantra = new System.Windows.Forms.DateTimePicker();
-            this.btnHuy_ctpm = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -141,6 +142,7 @@ namespace QuanLyThuVien
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.mskMa_phieumuontra);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.txtMadg_pmt);
@@ -240,6 +242,8 @@ namespace QuanLyThuVien
             this.cboMatdg_pmt.Name = "cboMatdg_pmt";
             this.cboMatdg_pmt.Size = new System.Drawing.Size(329, 38);
             this.cboMatdg_pmt.TabIndex = 2;
+            this.cboMatdg_pmt.SelectedIndexChanged += new System.EventHandler(this.cboMatdg_pmt_SelectedIndexChanged);
+            this.cboMatdg_pmt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cboMatdg_pmt_KeyUp);
             // 
             // cboManv_pmt
             // 
@@ -427,6 +431,16 @@ namespace QuanLyThuVien
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tìm Kiếm";
+            // 
+            // btnHuy_ctpm
+            // 
+            this.btnHuy_ctpm.Location = new System.Drawing.Point(811, 267);
+            this.btnHuy_ctpm.Name = "btnHuy_ctpm";
+            this.btnHuy_ctpm.Size = new System.Drawing.Size(75, 38);
+            this.btnHuy_ctpm.TabIndex = 18;
+            this.btnHuy_ctpm.Text = "Huỷ";
+            this.btnHuy_ctpm.UseVisualStyleBackColor = true;
+            this.btnHuy_ctpm.Click += new System.EventHandler(this.btnHuy_ctpm_Click);
             // 
             // btnLuu_ctpm
             // 
@@ -719,15 +733,14 @@ namespace QuanLyThuVien
             this.dtmhantra.Size = new System.Drawing.Size(329, 35);
             this.dtmhantra.TabIndex = 2;
             // 
-            // btnHuy_ctpm
+            // label5
             // 
-            this.btnHuy_ctpm.Location = new System.Drawing.Point(811, 267);
-            this.btnHuy_ctpm.Name = "btnHuy_ctpm";
-            this.btnHuy_ctpm.Size = new System.Drawing.Size(75, 38);
-            this.btnHuy_ctpm.TabIndex = 18;
-            this.btnHuy_ctpm.Text = "Huỷ";
-            this.btnHuy_ctpm.UseVisualStyleBackColor = true;
-            this.btnHuy_ctpm.Click += new System.EventHandler(this.btnHuy_ctpm_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(218, 468);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 30);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "txt";
             // 
             // frmPhieumuontra
             // 
@@ -824,5 +837,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.MaskedTextBox mskMa_phieumuontra;
         private System.Windows.Forms.Button btnLuu_ctpm;
         private System.Windows.Forms.Button btnHuy_ctpm;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -29,49 +29,56 @@ namespace QuanLyThuVien
         private void btnThem_Click(object sender, EventArgs e)
         {
             NHANVIEN nv = new NHANVIEN();
-            nv.MANV = mskMa_nhanvien.Text.Trim();
+            nv.MANV = txtMa_nhanvien.Text.Trim();
             nv.HOTENNV = txtTen_nhanvien.Text.Trim();
             nv.DIACHINV = txtDiachi_nhanvien.Text.Trim();
             nv.NGAYSINHNV = Convert.ToDateTime(dtmNgaysinh_nhanvien.Value);
             nv.GIOITINHNV = cboGioitinh_nhanvien.Text.Trim();
-            nv.DIENTHOAINV = txtSdt_nhanvien.Text.Trim();
+            nv.DIENTHOAINV = mskSdt_nhanvien.Text.Trim();
             nv.EMAILNV = txtEmail_nhanvien.Text.Trim();
-            try
+            if (txtTen_nhanvien.Text == "" || txtDiachi_nhanvien.Text == "" || txtEmail_nhanvien.Text == "" ||
+                lblEmail_nhanvien.Text != "") 
             {
-                var test = db.NHANVIENs.FirstOrDefault(p => p.MANV == nv.MANV);
-                if (test == null)
-                {
-                    db.NHANVIENs.InsertOnSubmit(nv);
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_nhanvien.Clear();
-                    txtTen_nhanvien.Clear();
-                    txtDiachi_nhanvien.Clear();
-                    txtSdt_nhanvien.Clear();
-                    txtEmail_nhanvien.Clear();
-
-                }
-                else
-                {
-                    test.HOTENNV = nv.HOTENNV;
-                    test.DIACHINV = nv.DIACHINV;
-                    test.NGAYSINHNV = nv.NGAYSINHNV;
-                    test.GIOITINHNV = nv.GIOITINHNV;
-                    test.DIENTHOAINV = nv.DIENTHOAINV;
-                    test.EMAILNV = nv.EMAILNV;
-                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_nhanvien.Clear();
-                    txtTen_nhanvien.Clear();
-                    txtDiachi_nhanvien.Clear();
-                    txtSdt_nhanvien.Clear();
-                    txtEmail_nhanvien.Clear();
-                }
-                db.SubmitChanges();
-                DataGridView();
-                autotang();
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);               
             }
-            catch
+            else
             {
-                MessageBox.Show("Nhập Đầy Đủ Thông Tin", "Thông Báo", MessageBoxButtons.OK);
+                try
+                {
+                    var test = db.NHANVIENs.FirstOrDefault(p => p.MANV == nv.MANV);
+                    if (test == null)
+                    {
+                        db.NHANVIENs.InsertOnSubmit(nv);
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        txtMa_nhanvien.Clear();
+                        txtTen_nhanvien.Clear();
+                        txtDiachi_nhanvien.Clear();
+                        mskSdt_nhanvien.Clear();
+                        txtEmail_nhanvien.Clear();
+                    }
+                    else
+                    {
+                        test.HOTENNV = nv.HOTENNV;
+                        test.DIACHINV = nv.DIACHINV;
+                        test.NGAYSINHNV = nv.NGAYSINHNV;
+                        test.GIOITINHNV = nv.GIOITINHNV;
+                        test.DIENTHOAINV = nv.DIENTHOAINV;
+                        test.EMAILNV = nv.EMAILNV;
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        txtMa_nhanvien.Clear();
+                        txtTen_nhanvien.Clear();
+                        txtDiachi_nhanvien.Clear();
+                        mskSdt_nhanvien.Clear();
+                        txtEmail_nhanvien.Clear();
+                    }
+                    db.SubmitChanges();
+                    DataGridView();
+                    autotang();
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi", "Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -81,6 +88,7 @@ namespace QuanLyThuVien
             cboGioitinh_nhanvien.SelectedIndex = 0;
             dgvNhanvien.DataSource = db.NHANVIENs.ToList();
             autotang();
+            lblEmail_nhanvien.Text = "";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -90,19 +98,19 @@ namespace QuanLyThuVien
                  MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
-                    var delete = db.NHANVIENs.FirstOrDefault(p => p.MANV == mskMa_nhanvien.Text);
+                    var delete = db.NHANVIENs.FirstOrDefault(p => p.MANV == txtMa_nhanvien.Text);
                 if( delete != null)
                 {
                     db.NHANVIENs.DeleteOnSubmit(delete);
                     db.SubmitChanges();
                     DataGridView();
                     MessageBox.Show("Xóa Thành Công !!!");
-                    mskMa_nhanvien.Clear();
+                    txtMa_nhanvien.Clear();
                     txtTen_nhanvien.Clear();
                     txtDiachi_nhanvien.Clear();
-                    txtSdt_nhanvien.Clear();
+                    mskSdt_nhanvien.Clear();
                     txtEmail_nhanvien.Clear();
-                        autotang();
+                    autotang();
 
                 }
                 else
@@ -117,12 +125,12 @@ namespace QuanLyThuVien
         {
             int numrow;
             numrow = e.RowIndex;
-            mskMa_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[0].Value.ToString();
+            txtMa_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[0].Value.ToString();
             txtTen_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[1].Value.ToString();
             cboGioitinh_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[2].Value.ToString();
             dtmNgaysinh_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[3].Value.ToString();
             txtDiachi_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[4].Value.ToString();
-            txtSdt_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[5].Value.ToString();
+            mskSdt_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[5].Value.ToString();
             txtEmail_nhanvien.Text = dgvNhanvien.Rows[numrow].Cells[6].Value.ToString();
 
 
@@ -136,8 +144,6 @@ namespace QuanLyThuVien
                                 where s.MANV.Contains(txtTimkiem.Text)
                                 select s).ToList();
                 dgvNhanvien.DataSource = findmanv;
-
-
             }
             else
             {
@@ -151,13 +157,18 @@ namespace QuanLyThuVien
        
     private void txtEmail_nhanvien_KeyUp(object sender, KeyEventArgs e)
         {
-            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
-           
-                this.label6.Text = "";
-                Regex reg = new Regex(match);
-                if (reg.IsMatch(this.txtEmail_nhanvien.Text)) this.label6.Text = "email chinh xac";
-                else this.label6.Text = "email ko hop le";
-            
+            string match = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                  @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                  @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex reg = new Regex(match);
+            if (!reg.IsMatch(this.txtEmail_nhanvien.Text))
+            {
+                this.lblEmail_nhanvien.Text = "Email không hợp lệ";
+            }
+            else
+            {
+                this.lblEmail_nhanvien.Text = "";
+            }          
         }
 
         public void autotang()
@@ -165,11 +176,9 @@ namespace QuanLyThuVien
             string mamax = (from s in db.NHANVIENs
                          orderby s.MANV descending
                          select s.MANV).FirstOrDefault();
-
-
             if(mamax == null)
             {
-                mskMa_nhanvien.Text = "NV001".ToString();
+                txtMa_nhanvien.Text = "NV001".ToString();
             }
             else
             {
@@ -177,14 +186,14 @@ namespace QuanLyThuVien
                 stt += 1;
                 if(stt < 10)
                 {
-                    mskMa_nhanvien.Text = "NV00" + stt.ToString();
+                    txtMa_nhanvien.Text = "NV00" + stt.ToString();
                 }else if(stt < 100)
                 {
-                    mskMa_nhanvien.Text = "NV0" + stt.ToString();
+                    txtMa_nhanvien.Text = "NV0" + stt.ToString();
                 }
                 else
                 {
-                    mskMa_nhanvien.Text = "NV" + stt.ToString();
+                    txtMa_nhanvien.Text = "NV" + stt.ToString();
                 }
             }
         }
@@ -195,7 +204,7 @@ namespace QuanLyThuVien
             autotang();
             txtTen_nhanvien.Clear();
             txtDiachi_nhanvien.Clear();
-            txtSdt_nhanvien.Clear();
+            txtMa_nhanvien.Clear();
             txtEmail_nhanvien.Clear();
         }
     }

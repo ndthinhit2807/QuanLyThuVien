@@ -222,11 +222,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVien.dbml</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyThuVienDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Tacgia.cs">
       <SubType>Form</SubType>
@@ -258,11 +253,11 @@
     <Compile Include="Trogiup.designer.cs">
       <DependentUpon>Trogiup.cs</DependentUpon>
     </Compile>
-    <Compile Include="XtraForm1.cs">
+    <Compile Include="Thongke.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XtraForm1.Designer.cs">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
+    <Compile Include="Thongke.Designer.cs">
+      <DependentUpon>Thongke.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dangnhap.resx">
       <DependentUpon>Dangnhap.cs</DependentUpon>
@@ -315,8 +310,8 @@
     <EmbeddedResource Include="Trogiup.resx">
       <DependentUpon>Trogiup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XtraForm1.resx">
-      <DependentUpon>XtraForm1.cs</DependentUpon>
+    <EmbeddedResource Include="Thongke.resx">
+      <DependentUpon>Thongke.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="datasetreport1.xsc">
       <DependentUpon>datasetreport1.xsd</DependentUpon>
@@ -355,17 +350,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="QuanLyThuVienDataSet.xsc">
-      <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLyThuVienDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLyThuVienDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLyThuVienDataSet.xss">
-      <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Resources\cleartablestyle_32x32.png" />
   </ItemGroup>
   <ItemGroup>

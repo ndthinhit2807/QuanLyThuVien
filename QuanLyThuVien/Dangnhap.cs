@@ -50,8 +50,6 @@ namespace QuanLyThuVien
                     MessageBox.Show("Đăng nhập thất bại !!!",
                     "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
-
                 }
             }          
         }
@@ -71,9 +69,7 @@ namespace QuanLyThuVien
 
         private void frmDangnhap_Load(object sender, EventArgs e)
         {
-         
             skin();
-
         }
 
         public void skin()

@@ -66,26 +66,24 @@ namespace QuanLyThuVien
         private void btnXoa_Click(object sender, EventArgs e)
         {
 
+            if (MessageBox.Show("Bạn có muốn xoá?", "Thông Báo",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Bạn có muốn xoá?", "Thông Báo",
-                 MessageBoxButtons.YesNo) == DialogResult.Yes)
+                var nhaxuatban = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == mskMa_nxb.Text);
+                if (nhaxuatban != null)
                 {
-                    var nhaxuatban = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == mskMa_nxb.Text);
-                    if (nhaxuatban != null)
-                    {
-                        db.NHAXUATBANs.DeleteOnSubmit(nhaxuatban);
-                        MessageBox.Show("Bạn đã xóa thành công!!!");
-                        db.SubmitChanges();
-                        DataGridView();
-                        mskMa_nxb.Clear();
-                        txtTen_nxb.Clear();
-                        txtDiachi_nxb.Clear();
-                        txtSdt_nxb.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thất bại!!!");
-                    }
+                    db.NHAXUATBANs.DeleteOnSubmit(nhaxuatban);
+                    MessageBox.Show("Bạn đã xóa thành công!!!");
+                    db.SubmitChanges();
+                    DataGridView();
+                    mskMa_nxb.Clear();
+                    txtTen_nxb.Clear();
+                    txtDiachi_nxb.Clear();
+                    txtSdt_nxb.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!!!");
                 }
             }
         }

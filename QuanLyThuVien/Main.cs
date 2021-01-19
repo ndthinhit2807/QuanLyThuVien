@@ -179,7 +179,7 @@ namespace QuanLyThuVien
 
         private void btnthongke_ItemClick(object sender, ItemClickEventArgs e)
         {
-            XtraForm1 xtra = new XtraForm1();
+            Thongke xtra = new Thongke();
             TabCreating(this.xtraTabControl1, "Trợ Giúp", xtra);
         }
     }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace QuanLyThuVien
 {
@@ -22,15 +23,15 @@ namespace QuanLyThuVien
         void DataGridView()
         {
             dgvdg.DataSource = db.DOCGIAs.ToList();
+            cboTim_docgia.SelectedIndex = 0;
+            cboGioitinh_docgia.SelectedIndex = 0;
+            autotang();
+            lblEmail_docgia.Text = "";
         }
 
         private void frmDocgia_Load(object sender, EventArgs e)
         {
-           
-            dgvdg.DataSource = db.DOCGIAs;
-            cboTim_docgia.SelectedIndex = 0;
-            cboGioitinh_docgia.SelectedIndex = 0;
-            autotang();
+            DataGridView();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -43,22 +44,22 @@ namespace QuanLyThuVien
 
         private void btnthemsuadg_Click(object sender, EventArgs e)
         {
-            if(mskMa_docgia.Text == "DG")
+            if (txtTen_docgia.Text == "" || txtDiachi_docgia.Text == "" || txtEmail_docgia.Text == "" ||
+                lblEmail_docgia.Text != "")
             {
-                MessageBox.Show("Nhap du");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
             }
             else
             {
-
                 try
                 {
                     DOCGIA dg = new DOCGIA();
                     dg.MADOCGIA = mskMa_docgia.Text.Trim();
                     dg.TENDOCGIA = txtTen_docgia.Text.Trim();
                     dg.DIACHI = txtDiachi_docgia.Text.Trim();
-                    dg.SDTDOCGIA = txtSdt_docgia.Text.Trim();
+                    dg.SDTDOCGIA = mskSdt_docgia.Text.Trim();
                     dg.EMAIL = txtEmail_docgia.Text.Trim();
-                    dg.NGAYSINH = Convert.ToDateTime(dtmNgaysinh_docgia.Value);
+                    dg.NGAYSINH = Convert.ToDateTime(dtmNgaysinh_docgia.Value.ToString("dd - MMM - yyyy"));
                     dg.GIOITINH = cboGioitinh_docgia.Text;
                     var testdg = db.DOCGIAs.FirstOrDefault(p => p.MADOCGIA == dg.MADOCGIA);
                     if (testdg == null)
@@ -70,7 +71,7 @@ namespace QuanLyThuVien
                         mskMa_docgia.Clear();
                         txtTen_docgia.Clear();
                         txtDiachi_docgia.Clear();
-                        txtSdt_docgia.Clear();
+                        mskSdt_docgia.Clear();
                         txtEmail_docgia.Clear();
                     }
                     else
@@ -87,7 +88,7 @@ namespace QuanLyThuVien
                         mskMa_docgia.Clear();
                         txtTen_docgia.Clear();
                         txtDiachi_docgia.Clear();
-                        txtSdt_docgia.Clear();
+                        mskSdt_docgia.Clear();
                         txtEmail_docgia.Clear();
                     }
                     autotang();
@@ -118,7 +119,7 @@ namespace QuanLyThuVien
                     mskMa_docgia.Clear();
                     txtTen_docgia.Clear();
                     txtDiachi_docgia.Clear();
-                    txtSdt_docgia.Clear();
+                    mskSdt_docgia.Clear();
                     autotang();
                 }
         }
@@ -151,7 +152,7 @@ namespace QuanLyThuVien
             cboGioitinh_docgia.Text = dgvdg.Rows[numrow].Cells[6].Value.ToString();
             dtmNgaysinh_docgia.Text = dgvdg.Rows[numrow].Cells[5].Value.ToString();
             txtDiachi_docgia.Text = dgvdg.Rows[numrow].Cells[2].Value.ToString();
-            txtSdt_docgia.Text = dgvdg.Rows[numrow].Cells[3].Value.ToString();
+            mskSdt_docgia.Text = dgvdg.Rows[numrow].Cells[3].Value.ToString();
             txtEmail_docgia.Text = dgvdg.Rows[numrow].Cells[4].Value.ToString();
         }
 
@@ -182,6 +183,32 @@ namespace QuanLyThuVien
                 {
                     mskMa_docgia.Text = "DG" + stt.ToString();
                 }
+            }
+        }
+
+        private void btnLammoi_nhanvien_Click(object sender, EventArgs e)
+        {
+            DataGridView();
+            autotang();
+            txtTen_docgia.Clear();
+            txtDiachi_docgia.Clear();
+            mskSdt_docgia.Clear();
+            txtEmail_docgia.Clear();
+        }
+
+        private void txtEmail_docgia_KeyUp(object sender, KeyEventArgs e)
+        {
+            string match = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                  @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                  @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+            Regex reg = new Regex(match);
+            if (!reg.IsMatch(this.txtEmail_docgia.Text))
+            {
+                this.lblEmail_docgia.Text = "Email không hợp lệ";
+            }
+            else
+            {
+                this.lblEmail_docgia.Text = "";
             }
         }
     }

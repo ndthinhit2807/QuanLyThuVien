@@ -48,9 +48,6 @@ namespace QuanLyThuVien
                 cboMadocgia_thedocgia.DataSource = db.DOCGIAs;
                 cboMadocgia_thedocgia.ValueMember = "MADOCGIA";
                 cboMadocgia_thedocgia.DisplayMember = "MADOCGIA";
-
-               // dtmNgaylap_thedocgia.MinDate = DateTime.Now;
-               // dtmHethan_thedocgia.Value = DateTime.Now.AddYears(1);
             }
         }
 
@@ -186,6 +183,24 @@ namespace QuanLyThuVien
         private void btnLammoi_thedocgia_Click(object sender, EventArgs e)
         {
             loadtdg();
+        }
+
+        private void cboManv_thedocgia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var intennv = db.NHANVIENs.FirstOrDefault(k => k.MANV == cboManv_thedocgia.Text);
+            if (intennv != null)
+            {
+                label2.Text = intennv.HOTENNV.ToString();
+            }
+        }
+
+        private void cboMadocgia_thedocgia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var intendg = db.DOCGIAs.FirstOrDefault(k => k.MADOCGIA == cboMadocgia_thedocgia.Text);
+            if (intendg != null)
+            {
+                label1.Text = intendg.TENDOCGIA.ToString();
+            }
         }
     }
 }

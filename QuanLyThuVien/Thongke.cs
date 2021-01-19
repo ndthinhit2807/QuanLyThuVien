@@ -6,19 +6,17 @@ using System.Linq;
 
 namespace QuanLyThuVien
 {
-    public partial class XtraForm1 : DevExpress.XtraEditors.XtraForm
+    public partial class Thongke : DevExpress.XtraEditors.XtraForm
     {
         QuanLyThuVienDataContext db = new QuanLyThuVienDataContext();
 
-        public XtraForm1()
+        public Thongke()
         {
             InitializeComponent();
         }
 
         private void XtraForm1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'datasetreport1.procSachDuocMuonNhieu' table. You can move, or remove it, as needed.
-            //this.procSachDuocMuonNhieuTableAdapter.Fill(this.datasetreport1.procSachDuocMuonNhieu, dateTimePicker1.Value.ToString(), dateTimePicker2.Value.ToString());
+        { 
 
             string month1 = dateTimePicker1.Value.Month.ToString().Length < 2 ? "0" + dateTimePicker1.Value.Month.ToString() : dateTimePicker1.Value.Month.ToString();
             string fromdate = dateTimePicker1.Value.Year.ToString() + "-" + month1;
@@ -26,16 +24,9 @@ namespace QuanLyThuVien
             string todate = dateTimePicker2.Value.Year.ToString() + "-" + month2;
             
             this.procSachDuocMuonNhieuTableAdapter.Fill(this.datasetreport1.procSachDuocMuonNhieu, fromdate, todate);
-           
-            //// TODO: This line of code loads data into the 'QuanLyThuVienDataSet.CTPM' table. You can move, or remove it, as needed.
-
-            //this.reportViewer1.LocalReport.ReportPath = "Report1.rdlc";
-            // var result = db.procSachDuocMuonNhieu(dateTimePicker1.Value.ToString(),dateTimePicker2.Value.ToString()).ToArray();
-            //  var reportdata = new ReportDataSource("QuanLyThuVienDataSet", result);
-            //  this.reportViewer1.LocalReport.DataSources.Add(reportdata);
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport();
-
+           
             
         }
 
@@ -52,9 +43,6 @@ namespace QuanLyThuVien
 
         }
 
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
