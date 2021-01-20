@@ -24,6 +24,7 @@ namespace QuanLyThuVien
         void loadtacgia()
         {
             dgvtacgia.DataSource = db.TACGIAs.ToList();
+            autotang();
         }
 
 
@@ -32,8 +33,8 @@ namespace QuanLyThuVien
         {
             TACGIA tg = new TACGIA();
 
-            tg.MATACGIA = masktg.Text.Trim();
-            tg.TENTACGIA = txttentg.Text.Trim();
+            tg.MATACGIA = mskMa_tacgia.Text.Trim();
+            tg.TENTACGIA = txtTen_tacgia.Text.Trim();
             try
             {
                 var tacgia = db.TACGIAs.FirstOrDefault(p => p.MATACGIA == tg.MATACGIA);
@@ -41,21 +42,22 @@ namespace QuanLyThuVien
                 {
                     db.TACGIAs.InsertOnSubmit(tg);
 
-                    MessageBox.Show("Them thanh cong", "Thong bao", MessageBoxButtons.OK);
-                    masktg.Clear();
-                    txttentg.Clear();
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                    mskMa_tacgia.Clear();
+                    txtTen_tacgia.Clear();
                 }
                 else
                 {
-                    tg = db.TACGIAs.Where(p => p.MATACGIA == masktg.Text).Single();
-                    tg.MATACGIA = masktg.Text.Trim();
-                    tg.TENTACGIA = txttentg.Text.Trim();
-                    MessageBox.Show("Sửa thanh cong", "Thong bao", MessageBoxButtons.OK);
-                    masktg.Clear();
-                    txttentg.Clear();
+                    tg = db.TACGIAs.Where(p => p.MATACGIA == mskMa_tacgia.Text).Single();
+                    tg.MATACGIA = mskMa_tacgia.Text.Trim();
+                    tg.TENTACGIA = txtTen_tacgia.Text.Trim();
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                    mskMa_tacgia.Clear();
+                    txtTen_tacgia.Clear();
                 }
                 db.SubmitChanges();
                 loadtacgia();
+                autotang();
             }
             catch
             {
@@ -83,33 +85,62 @@ namespace QuanLyThuVien
                     }
                     db.SubmitChanges();
                     loadtacgia();
+                    autotang();
                     MessageBox.Show("Xoá Thành Công", "Thông Báo", MessageBoxButtons.OK);
-                    masktg.Clear();
-                    txttentg.Clear();
+                    mskMa_tacgia.Clear();
+                    txtTen_tacgia.Clear();
                 }
         }
 
         private void dgvtacgia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            masktg.Text = dgvtacgia.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txttentg.Text = dgvtacgia.Rows[e.RowIndex].Cells[1].Value.ToString();
+            mskMa_tacgia.Text = dgvtacgia.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtTen_tacgia.Text = dgvtacgia.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
         private void txtTimkiemtg_KeyUp(object sender, KeyEventArgs e)
         {
-            if (cbotimtg.Text == "Mã")
+            if (cboTim_tacgia.Text == "Mã")
             {
                 var findmatg = (from s in db.TACGIAs
-                                  where s.MATACGIA.Contains(txtTimkiemtg.Text)
+                                  where s.MATACGIA.Contains(txtTim_tacgia.Text)
                                   select s).ToList();
                 dgvtacgia.DataSource = findmatg;
             }
             else
             {
                 var findntentg = (from s in db.TACGIAs
-                              where s.TENTACGIA.Contains(txtTimkiemtg.Text)
+                              where s.TENTACGIA.Contains(txtTim_tacgia.Text)
                               select s).ToList();
                 dgvtacgia.DataSource = findntentg;
+            }
+        }
+
+        public void autotang()
+        {
+            string mamax = (from s in db.TACGIAs
+                            orderby s.MATACGIA descending
+                            select s.MATACGIA).FirstOrDefault();
+            if (mamax == null)
+            {
+                mskMa_tacgia.Text = "TG001".ToString();
+            }
+            else
+            {
+                int stt = int.Parse(mamax.Substring(2));
+                stt += 1;
+                if (stt < 10)
+                {
+                    mskMa_tacgia.Text = "TG00" + stt.ToString();
+                }
+                else if (stt < 100)
+                {
+                    mskMa_tacgia.Text = "TG0" + stt.ToString();
+                }
+                else
+                {
+                    mskMa_tacgia.Text = "TG" + stt.ToString();
+                }
             }
         }
     }

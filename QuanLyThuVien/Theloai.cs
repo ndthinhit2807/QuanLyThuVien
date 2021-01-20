@@ -21,31 +21,34 @@ namespace QuanLyThuVien
         void DataGridView()
         {
             dgvTheloai.DataSource = db.THELOAIs.ToList();
+            autotang();
+            cbotimds.SelectedIndex = 0;
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
             THELOAI theloai = new THELOAI();
-            theloai.MATHELOAI = masktl.Text.Trim();
-            theloai.TENTHELOAI = txtTentheloai.Text.Trim();
+            theloai.MATHELOAI = mskMa_theloai.Text.Trim();
+            theloai.TENTHELOAI = txtTen_theloai.Text.Trim();
             try
             {
                 var testTheloai = db.THELOAIs.FirstOrDefault(p => p.MATHELOAI == theloai.MATHELOAI);
                 if(testTheloai == null)
                 {
                     db.THELOAIs.InsertOnSubmit(theloai);
-                    MessageBox.Show("Thêm và Lưu thành công!!!");
-                    masktl.Clear();
-                    txtTentheloai.Clear();
+                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                    mskMa_theloai.Clear();
+                    txtTen_theloai.Clear();
                 }
                 else
                 {
                     testTheloai.TENTHELOAI = theloai.TENTHELOAI;
-                    MessageBox.Show("Sửa và Lưu thành công!!!");
-                    masktl.Clear();
-                    txtTentheloai.Clear();
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                    mskMa_theloai.Clear();
+                    txtTen_theloai.Clear();
                 }
                 db.SubmitChanges();
-                DataGridView();                       
+                DataGridView();
+                autotang();
             }
             catch (Exception ex)
             {
@@ -55,7 +58,7 @@ namespace QuanLyThuVien
 
         private void Theloai_Load(object sender, EventArgs e)
         {
-            dgvTheloai.DataSource = db.THELOAIs.ToList();
+            DataGridView();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -63,15 +66,16 @@ namespace QuanLyThuVien
             if (MessageBox.Show("Bạn có muốn xoá?", "Thông Báo",
                  MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                var test1 = db.THELOAIs.FirstOrDefault(p => p.MATHELOAI == masktl.Text);
+                var test1 = db.THELOAIs.FirstOrDefault(p => p.MATHELOAI == mskMa_theloai.Text);
                 if (test1 != null)
                 {
                     db.THELOAIs.DeleteOnSubmit(test1);
                     db.SubmitChanges();
                     DataGridView();
                     MessageBox.Show("Xóa thành công!!!");
-                masktl.Clear();
+                    mskMa_theloai.Clear();
                     txtTimtl.Clear();
+                    autotang();
                 }
                 else
                 {
@@ -85,8 +89,8 @@ namespace QuanLyThuVien
         {
             int numrow;
             numrow = e.RowIndex;
-            masktl.Text = dgvTheloai.Rows[numrow].Cells[0].Value.ToString();
-            txtTentheloai.Text = dgvTheloai.Rows[numrow].Cells[1].Value.ToString();
+            mskMa_theloai.Text = dgvTheloai.Rows[numrow].Cells[0].Value.ToString();
+            txtTen_theloai.Text = dgvTheloai.Rows[numrow].Cells[1].Value.ToString();
         }
 
         private void txtTimtl_KeyUp(object sender, KeyEventArgs e)
@@ -106,8 +110,33 @@ namespace QuanLyThuVien
                 dgvTheloai.DataSource = findmatl;
             }
         }
-    }
 
-       
-    
+        public void autotang()
+        {
+            string mamax = (from s in db.THELOAIs
+                            orderby s.MATHELOAI descending
+                            select s.MATHELOAI).FirstOrDefault();
+            if (mamax == null)
+            {
+                mskMa_theloai.Text = "TL001".ToString();
+            }
+            else
+            {
+                int stt = int.Parse(mamax.Substring(2));
+                stt += 1;
+                if (stt < 10)
+                {
+                    mskMa_theloai.Text = "TL00" + stt.ToString();
+                }
+                else if (stt < 100)
+                {
+                    mskMa_theloai.Text = "TL0" + stt.ToString();
+                }
+                else
+                {
+                    mskMa_theloai.Text = "TL" + stt.ToString();
+                }
+            }
+        }
+    }
 }

@@ -31,14 +31,14 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDausach));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.maskds = new System.Windows.Forms.MaskedTextBox();
-            this.cbotg = new System.Windows.Forms.ComboBox();
-            this.cbonxb = new System.Windows.Forms.ComboBox();
-            this.cbotl = new System.Windows.Forms.ComboBox();
+            this.mskMa_dausach = new System.Windows.Forms.MaskedTextBox();
+            this.cboTacgia_dausach = new System.Windows.Forms.ComboBox();
+            this.cboNxb_dausach = new System.Windows.Forms.ComboBox();
+            this.cboTheloai_dausach = new System.Windows.Forms.ComboBox();
             this.btnxoads = new System.Windows.Forms.Button();
             this.btnthemsuads = new System.Windows.Forms.Button();
-            this.txtnamxb = new System.Windows.Forms.TextBox();
-            this.txttends = new System.Windows.Forms.TextBox();
+            this.txtNamxb_dausach = new System.Windows.Forms.TextBox();
+            this.txtTen_dausach = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,8 +46,8 @@ namespace QuanLyThuVien
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txttimds = new System.Windows.Forms.TextBox();
-            this.cbotimds = new System.Windows.Forms.ComboBox();
+            this.txtTim_dausach = new System.Windows.Forms.TextBox();
+            this.cboTim_dausach = new System.Windows.Forms.ComboBox();
             this.dgvds = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,14 +65,14 @@ namespace QuanLyThuVien
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.maskds);
-            this.groupBox1.Controls.Add(this.cbotg);
-            this.groupBox1.Controls.Add(this.cbonxb);
-            this.groupBox1.Controls.Add(this.cbotl);
+            this.groupBox1.Controls.Add(this.mskMa_dausach);
+            this.groupBox1.Controls.Add(this.cboTacgia_dausach);
+            this.groupBox1.Controls.Add(this.cboNxb_dausach);
+            this.groupBox1.Controls.Add(this.cboTheloai_dausach);
             this.groupBox1.Controls.Add(this.btnxoads);
             this.groupBox1.Controls.Add(this.btnthemsuads);
-            this.groupBox1.Controls.Add(this.txtnamxb);
-            this.groupBox1.Controls.Add(this.txttends);
+            this.groupBox1.Controls.Add(this.txtNamxb_dausach);
+            this.groupBox1.Controls.Add(this.txtTen_dausach);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -86,46 +86,44 @@ namespace QuanLyThuVien
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // maskds
+            // mskMa_dausach
             // 
-            this.maskds.Location = new System.Drawing.Point(254, 156);
-            this.maskds.Mask = "DS0000";
-            this.maskds.Name = "maskds";
-            this.maskds.Size = new System.Drawing.Size(137, 35);
-            this.maskds.TabIndex = 5;
+            this.mskMa_dausach.Location = new System.Drawing.Point(254, 156);
+            this.mskMa_dausach.Name = "mskMa_dausach";
+            this.mskMa_dausach.Size = new System.Drawing.Size(137, 35);
+            this.mskMa_dausach.TabIndex = 5;
             // 
-            // cbotg
+            // cboTacgia_dausach
             // 
-            this.cbotg.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbotg.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cbotg.FormattingEnabled = true;
-            this.cbotg.Location = new System.Drawing.Point(252, 272);
-            this.cbotg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbotg.Name = "cbotg";
-            this.cbotg.Size = new System.Drawing.Size(329, 38);
-            this.cbotg.TabIndex = 3;
+            this.cboTacgia_dausach.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboTacgia_dausach.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cboTacgia_dausach.FormattingEnabled = true;
+            this.cboTacgia_dausach.Location = new System.Drawing.Point(252, 272);
+            this.cboTacgia_dausach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboTacgia_dausach.Name = "cboTacgia_dausach";
+            this.cboTacgia_dausach.Size = new System.Drawing.Size(329, 38);
+            this.cboTacgia_dausach.TabIndex = 3;
             // 
-            // cbonxb
+            // cboNxb_dausach
             // 
-            this.cbonxb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbonxb.FormattingEnabled = true;
-            this.cbonxb.Location = new System.Drawing.Point(252, 449);
-            this.cbonxb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbonxb.Name = "cbonxb";
-            this.cbonxb.Size = new System.Drawing.Size(329, 38);
-            this.cbonxb.TabIndex = 3;
+            this.cboNxb_dausach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNxb_dausach.FormattingEnabled = true;
+            this.cboNxb_dausach.Location = new System.Drawing.Point(252, 330);
+            this.cboNxb_dausach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboNxb_dausach.Name = "cboNxb_dausach";
+            this.cboNxb_dausach.Size = new System.Drawing.Size(329, 38);
+            this.cboNxb_dausach.TabIndex = 3;
             // 
-            // cbotl
+            // cboTheloai_dausach
             // 
-            this.cbotl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbotl.FormattingEnabled = true;
-            this.cbotl.Location = new System.Drawing.Point(252, 390);
-            this.cbotl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbotl.Name = "cbotl";
-            this.cbotl.Size = new System.Drawing.Size(329, 38);
-            this.cbotl.TabIndex = 3;
+            this.cboTheloai_dausach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTheloai_dausach.FormattingEnabled = true;
+            this.cboTheloai_dausach.Location = new System.Drawing.Point(252, 390);
+            this.cboTheloai_dausach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboTheloai_dausach.Name = "cboTheloai_dausach";
+            this.cboTheloai_dausach.Size = new System.Drawing.Size(329, 38);
+            this.cboTheloai_dausach.TabIndex = 3;
             // 
             // btnxoads
             // 
@@ -153,24 +151,24 @@ namespace QuanLyThuVien
             this.btnthemsuads.UseVisualStyleBackColor = true;
             this.btnthemsuads.Click += new System.EventHandler(this.btnthemsuads_Click);
             // 
-            // txtnamxb
+            // txtNamxb_dausach
             // 
-            this.txtnamxb.Location = new System.Drawing.Point(252, 333);
-            this.txtnamxb.Name = "txtnamxb";
-            this.txtnamxb.Size = new System.Drawing.Size(137, 35);
-            this.txtnamxb.TabIndex = 1;
+            this.txtNamxb_dausach.Location = new System.Drawing.Point(254, 454);
+            this.txtNamxb_dausach.Name = "txtNamxb_dausach";
+            this.txtNamxb_dausach.Size = new System.Drawing.Size(137, 35);
+            this.txtNamxb_dausach.TabIndex = 1;
             // 
-            // txttends
+            // txtTen_dausach
             // 
-            this.txttends.Location = new System.Drawing.Point(252, 215);
-            this.txttends.Name = "txttends";
-            this.txttends.Size = new System.Drawing.Size(329, 35);
-            this.txttends.TabIndex = 1;
+            this.txtTen_dausach.Location = new System.Drawing.Point(252, 215);
+            this.txtTen_dausach.Name = "txtTen_dausach";
+            this.txtTen_dausach.Size = new System.Drawing.Size(329, 35);
+            this.txtTen_dausach.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(71, 335);
+            this.label6.Location = new System.Drawing.Point(73, 456);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(147, 30);
             this.label6.TabIndex = 0;
@@ -188,7 +186,7 @@ namespace QuanLyThuVien
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(79, 453);
+            this.label5.Location = new System.Drawing.Point(79, 334);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(141, 30);
             this.label5.TabIndex = 0;
@@ -224,8 +222,8 @@ namespace QuanLyThuVien
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.Controls.Add(this.txttimds);
-            this.groupBox2.Controls.Add(this.cbotimds);
+            this.groupBox2.Controls.Add(this.txtTim_dausach);
+            this.groupBox2.Controls.Add(this.cboTim_dausach);
             this.groupBox2.Controls.Add(this.dgvds);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 103);
@@ -235,29 +233,26 @@ namespace QuanLyThuVien
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm Kiếm";
             // 
-            // txttimds
+            // txtTim_dausach
             // 
-            this.txttimds.Location = new System.Drawing.Point(6, 46);
-            this.txttimds.Name = "txttimds";
-            this.txttimds.Size = new System.Drawing.Size(343, 35);
-            this.txttimds.TabIndex = 1;
-            this.txttimds.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txttimds_KeyUp);
+            this.txtTim_dausach.Location = new System.Drawing.Point(6, 46);
+            this.txtTim_dausach.Name = "txtTim_dausach";
+            this.txtTim_dausach.Size = new System.Drawing.Size(343, 35);
+            this.txtTim_dausach.TabIndex = 1;
+            this.txtTim_dausach.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txttimds_KeyUp);
             // 
-            // cbotimds
+            // cboTim_dausach
             // 
-            this.cbotimds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbotimds.FormattingEnabled = true;
-            this.cbotimds.Items.AddRange(new object[] {
+            this.cboTim_dausach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTim_dausach.FormattingEnabled = true;
+            this.cboTim_dausach.Items.AddRange(new object[] {
             "Mã",
-            "Tên",
-            "Thể Loại",
-            "Tác Giả",
-            "Nhà Xuất Bản"});
-            this.cbotimds.Location = new System.Drawing.Point(357, 45);
-            this.cbotimds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbotimds.Name = "cbotimds";
-            this.cbotimds.Size = new System.Drawing.Size(208, 38);
-            this.cbotimds.TabIndex = 3;
+            "Tên"});
+            this.cboTim_dausach.Location = new System.Drawing.Point(357, 45);
+            this.cboTim_dausach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboTim_dausach.Name = "cboTim_dausach";
+            this.cboTim_dausach.Size = new System.Drawing.Size(208, 38);
+            this.cboTim_dausach.TabIndex = 3;
             // 
             // dgvds
             // 
@@ -369,15 +364,15 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridView dgvds;
         private System.Windows.Forms.Button btnxoads;
         private System.Windows.Forms.Button btnthemsuads;
-        private System.Windows.Forms.TextBox txttimds;
-        private System.Windows.Forms.TextBox txttends;
+        private System.Windows.Forms.TextBox txtTim_dausach;
+        private System.Windows.Forms.TextBox txtTen_dausach;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbotg;
-        private System.Windows.Forms.ComboBox cbotimds;
-        private System.Windows.Forms.ComboBox cbonxb;
-        private System.Windows.Forms.ComboBox cbotl;
-        private System.Windows.Forms.TextBox txtnamxb;
+        private System.Windows.Forms.ComboBox cboTacgia_dausach;
+        private System.Windows.Forms.ComboBox cboTim_dausach;
+        private System.Windows.Forms.ComboBox cboNxb_dausach;
+        private System.Windows.Forms.ComboBox cboTheloai_dausach;
+        private System.Windows.Forms.TextBox txtNamxb_dausach;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -389,7 +384,7 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.MaskedTextBox maskds;
+        private System.Windows.Forms.MaskedTextBox mskMa_dausach;
         private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

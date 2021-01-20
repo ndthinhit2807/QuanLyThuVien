@@ -19,72 +19,81 @@ namespace QuanLyThuVien
         private void btnThem_Click(object sender, EventArgs e)
         {
             NHAXUATBAN nxb = new NHAXUATBAN();
-            nxb.MANXB = masknxb.Text.Trim();
-            nxb.TENNXB = txtTenNXB.Text.Trim();
-            nxb.DIACHINXB = txtDiachi.Text.Trim();
-            nxb.DIENTHOAIXB = txtSDT.Text.Trim();
-            try
-            {
-                var testNXb = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == nxb.MANXB);
-                if (testNXb == null)
+            nxb.MANXB = mskMa_nxb.Text.Trim();
+            nxb.TENNXB = txtTen_nxb.Text.Trim();
+            nxb.DIACHINXB = txtDiachi_nxb.Text.Trim();
+            nxb.DIENTHOAIXB = mskSdt_nxb.Text.Trim();
+         
+                if (mskMa_nxb.Text == "" || txtDiachi_nxb.Text == "" || mskSdt_nxb.Text.Length != 10)
                 {
-                    db.NHAXUATBANs.InsertOnSubmit(nxb);
-                    MessageBox.Show("Thêm và Lưu thành công!!!");
-                    masknxb.Clear();
-                    txtTenNXB.Clear();
-                    txtDiachi.Clear();
-                    txtSDT.Clear();
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    testNXb.TENNXB = txtTenNXB.Text.Trim();
-                    testNXb.DIACHINXB = txtDiachi.Text.Trim();
-                    testNXb.DIENTHOAIXB = txtSDT.Text.Trim();
-                    masknxb.Clear();
-                    txtTenNXB.Clear();
-                    txtDiachi.Clear();
-                    txtSDT.Clear();
+                try
+                {
+                    var testNXb = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == nxb.MANXB);
+                    if (testNXb == null)
+                    {
+                        db.NHAXUATBANs.InsertOnSubmit(nxb);
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_nxb.Clear();
+                        txtTen_nxb.Clear();
+                        txtDiachi_nxb.Clear();
+                        mskSdt_nxb.Clear();
+                    }
+                    else
+                    {
+                        testNXb.TENNXB = txtTen_nxb.Text.Trim();
+                        testNXb.DIACHINXB = txtDiachi_nxb.Text.Trim();
+                        testNXb.DIENTHOAIXB = mskSdt_nxb.Text.Trim();
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_nxb.Clear();
+                        txtTen_nxb.Clear();
+                        txtDiachi_nxb.Clear();
+                        mskSdt_nxb.Clear();
+                    }
+                    db.SubmitChanges();
+                    DataGridView();
+                    autotang();
                 }
-                db.SubmitChanges();
-                DataGridView();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            
         }
-
         private void Nhaxuatban_Load(object sender, EventArgs e)
         {
             var show = db.NHAXUATBANs.ToList();
             dgvnhaxuatban.DataSource = show;
-            cbotimnxb.SelectedIndex = 0;
+            cboTim_nxb.SelectedIndex = 0;
+            autotang();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
 
+            if (MessageBox.Show("Bạn có muốn xoá?", "Thông Báo",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Bạn có muốn xoá?", "Thông Báo",
-                 MessageBoxButtons.YesNo) == DialogResult.Yes)
+                var nhaxuatban = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == mskMa_nxb.Text);
+                if (nhaxuatban != null)
                 {
-                    var nhaxuatban = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == masknxb.Text);
-                    if (nhaxuatban != null)
-                    {
-                        db.NHAXUATBANs.DeleteOnSubmit(nhaxuatban);
-                        MessageBox.Show("Bạn đã xóa thành công!!!");
-                        db.SubmitChanges();
-                        DataGridView();
-                        masknxb.Clear();
-                        txtTenNXB.Clear();
-                        txtDiachi.Clear();
-                        txtSDT.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thất bại!!!");
-                    }
+                    db.NHAXUATBANs.DeleteOnSubmit(nhaxuatban);
+                    MessageBox.Show("Bạn đã xóa thành công!!!");
+                    db.SubmitChanges();
+                    DataGridView();
+                    mskMa_nxb.Clear();
+                    txtTen_nxb.Clear();
+                    txtDiachi_nxb.Clear();
+                    mskSdt_nxb.Clear();
+                    autotang();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!!!");
                 }
             }
         }
@@ -93,54 +102,62 @@ namespace QuanLyThuVien
         {
             int numrow;
             numrow = e.RowIndex;
-            masknxb.Text = dgvnhaxuatban.Rows[numrow].Cells[0].Value.ToString();
-            txtTenNXB.Text = dgvnhaxuatban.Rows[numrow].Cells[1].Value.ToString();
-            txtDiachi.Text = dgvnhaxuatban.Rows[numrow].Cells[2].Value.ToString();
-            txtSDT.Text = dgvnhaxuatban.Rows[numrow].Cells[3].Value.ToString();
-
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTimkiemnxb_KeyUp(object sender, KeyEventArgs e)
-        {
+            mskMa_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[0].Value.ToString();
+            txtTen_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[1].Value.ToString();
+            txtDiachi_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[2].Value.ToString();
+            mskSdt_nxb.Text = dgvnhaxuatban.Rows[numrow].Cells[3].Value.ToString();
 
         }
 
         private void cbotimds_KeyUp(object sender, KeyEventArgs e)
         {
-            if (cbotimnxb.Text == "Tên")
+            if (cboTim_nxb.Text == "Tên")
             {
                 var findtennxb = (from s in db.NHAXUATBANs
-                                where s.TENNXB.Contains(txtTimkiemnxb.Text)
+                                where s.TENNXB.Contains(txtTim_nxb.Text)
                                 select s).ToList();
                 dgvnhaxuatban.DataSource = findtennxb;
-            }
-            else if (cbotimnxb.Text == "Địa Chỉ")
-            {
-                var finddiachinxb = (from s in db.NHAXUATBANs
-                                    where s.DIACHINXB.Contains(txtTimkiemnxb.Text)
-                                 select s).ToList();
-                dgvnhaxuatban.DataSource = finddiachinxb;
-            }
-            else if(cbotimnxb.Text == "SĐT")
-            {
-                var findsdtnxb = (from s in db.NHAXUATBANs
-                                  where s.DIENTHOAIXB.Contains(txtTimkiemnxb.Text)
-                                      select s).ToList();
-                dgvnhaxuatban.DataSource = findsdtnxb;
             }
             else
             {
                 var findmanxb = (from s in db.NHAXUATBANs
-                                  where s.MANXB.Contains(txtTimkiemnxb.Text)
+                                  where s.MANXB.Contains(txtTim_nxb.Text)
                                   select s).ToList();
                 dgvnhaxuatban.DataSource = findmanxb;
             }
+        }
 
+        public void autotang()
+        {
+            string mamax = (from s in db.NHAXUATBANs
+                            orderby s.MANXB descending
+                            select s.MANXB).FirstOrDefault();
+            if (mamax == null)
+            {
+                mskMa_nxb.Text = "NXB001".ToString();
+            }
+            else
+            {
+                int stt = int.Parse(mamax.Substring(3));
+                stt += 1;
+                if (stt < 10)
+                {
+                    mskMa_nxb.Text = "NXB00" + stt.ToString();
+                }
+                else if (stt < 100)
+                {
+                    mskMa_nxb.Text = "NXB0" + stt.ToString();
+                }
+                else
+                {
+                    mskMa_nxb.Text = "NXB" + stt.ToString();
+                }
+            }
+        }
+
+        private void btnLammoi_nhanvien_Click(object sender, EventArgs e)
+        {
+            DataGridView();
         }
     }
 }

@@ -24,24 +24,18 @@ namespace QuanLyThuVien
 
         QuanLyThuVienDataContext db = new QuanLyThuVienDataContext();
        
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnfrmdangnhap_Click(object sender, EventArgs e)
         {
-
-            var dangnhap = db.TAIKHOANs.Where(x => x.TENTAIKHOAN == txtId.Text).ToList().Where(x=> x.MATKHAU == txtpass.Text).FirstOrDefault();
-            if (txtId.Text.Trim() == "" || txtpass.Text.Trim() == "")
+            var tk = db.TAIKHOANs.Where(x => x.TENTAIKHOAN == txtId_dangnhap.Text).ToList().Where(x=> x.MATKHAU == txtPass_dangnhap.Text).FirstOrDefault();
+            var mk = db.TAIKHOANs.Where(x => x.MATKHAU == txtPass_dangnhap.Text).ToList().Where(x => x.TENTAIKHOAN == txtId_dangnhap.Text).FirstOrDefault();
+            if (txtId_dangnhap.Text.Trim() == "" || txtPass_dangnhap.Text.Trim() == "")
             {
                 MessageBox.Show("Vui Lòng Nhập Mật khẩu và tài khoản");
             }
 
-
             else
             {
-                if (dangnhap != null)
+                if (tk != null && mk != null)
                 {
                     MessageBox.Show("Đăng nhập thành công",
                     "Thông báo",
@@ -57,11 +51,8 @@ namespace QuanLyThuVien
                     MessageBox.Show("Đăng nhập thất bại !!!",
                     "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
-
                 }
-            }
-            
+            }          
         }
 
         private void btnthoat_Click (object sender, EventArgs e)
@@ -77,22 +68,9 @@ namespace QuanLyThuVien
             }
         }
 
-
-        private void txtId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void pictureEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmDangnhap_Load(object sender, EventArgs e)
         {
-         
             skin();
-
         }
 
         public void skin()
@@ -100,7 +78,5 @@ namespace QuanLyThuVien
             DevExpress.LookAndFeel.DefaultLookAndFeel themes = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             themes.LookAndFeel.SkinName = "Summer 2008";
         }
-
-
     }
 }

@@ -151,11 +151,7 @@ namespace QuanLyThuVien
             TabCreating(this.xtraTabControl1, "Đầu Sách", dausach);
         }
 
-        private void btnlienhe_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmLienhe lienhe = new frmLienhe();
-            TabCreating(this.xtraTabControl1, "Liên Hệ", lienhe);
-        }
+     
 
         private void btnnhanvien_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -173,6 +169,18 @@ namespace QuanLyThuVien
         {
             frmTheDocGia thedg = new frmTheDocGia();
             TabCreating(this.xtraTabControl1, "Thẻ Độc Giả", thedg);
+        }
+
+        private void btntrogiup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmTrogiup trogiup = new frmTrogiup();
+            TabCreating(this.xtraTabControl1, "Trợ Giúp", trogiup);
+        }
+
+        private void btnthongke_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Thongke xtra = new Thongke();
+            TabCreating(this.xtraTabControl1, "Trợ Giúp", xtra);
         }
     }
 }
