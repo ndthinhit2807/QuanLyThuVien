@@ -37,7 +37,7 @@ namespace QuanLyThuVien
             nv.DIENTHOAINV = mskSdt_nhanvien.Text.Trim();
             nv.EMAILNV = txtEmail_nhanvien.Text.Trim();
             if (txtTen_nhanvien.Text == "" || txtDiachi_nhanvien.Text == "" || txtEmail_nhanvien.Text == "" ||
-                lblEmail_nhanvien.Text != "") 
+                lblEmail_nhanvien.Text != "" || mskSdt_nhanvien.Text.Length != 10) 
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);               
             }

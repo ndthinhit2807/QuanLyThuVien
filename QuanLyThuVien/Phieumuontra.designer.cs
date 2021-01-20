@@ -34,12 +34,14 @@ namespace QuanLyThuVien
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.mskMa_phieumuontra = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblTennv_phieumuontra = new System.Windows.Forms.Label();
+            this.lblTendg_phieumuontra = new System.Windows.Forms.Label();
+            this.mskMa_phieumuontra = new System.Windows.Forms.MaskedTextBox();
             this.txtMadg_pmt = new System.Windows.Forms.TextBox();
             this.btnxoapmt = new System.Windows.Forms.Button();
             this.btnthemsuapmt = new System.Windows.Forms.Button();
-            this.dtmngaylap_pmt = new System.Windows.Forms.DateTimePicker();
+            this.dtmngaylap_phieumuontra = new System.Windows.Forms.DateTimePicker();
             this.cboMatdg_pmt = new System.Windows.Forms.ComboBox();
             this.cboManv_pmt = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,12 +53,6 @@ namespace QuanLyThuVien
             this.txtTim_pmt = new System.Windows.Forms.TextBox();
             this.cboTim_pmt = new System.Windows.Forms.ComboBox();
             this.dgvpmt = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnHuy_ctpm = new System.Windows.Forms.Button();
@@ -93,7 +89,10 @@ namespace QuanLyThuVien
             this.dtmngaytra = new System.Windows.Forms.DateTimePicker();
             this.cbotinhtrang = new System.Windows.Forms.ComboBox();
             this.dtmhantra = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -142,13 +141,14 @@ namespace QuanLyThuVien
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.mskMa_phieumuontra);
             this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.lblTennv_phieumuontra);
+            this.groupBox3.Controls.Add(this.lblTendg_phieumuontra);
+            this.groupBox3.Controls.Add(this.mskMa_phieumuontra);
             this.groupBox3.Controls.Add(this.txtMadg_pmt);
             this.groupBox3.Controls.Add(this.btnxoapmt);
             this.groupBox3.Controls.Add(this.btnthemsuapmt);
-            this.groupBox3.Controls.Add(this.dtmngaylap_pmt);
+            this.groupBox3.Controls.Add(this.dtmngaylap_phieumuontra);
             this.groupBox3.Controls.Add(this.cboMatdg_pmt);
             this.groupBox3.Controls.Add(this.cboManv_pmt);
             this.groupBox3.Controls.Add(this.label7);
@@ -166,40 +166,57 @@ namespace QuanLyThuVien
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông Tin";
             // 
-            // mskMa_phieumuontra
-            // 
-            this.mskMa_phieumuontra.Location = new System.Drawing.Point(223, 161);
-            this.mskMa_phieumuontra.Mask = "PMT0000";
-            this.mskMa_phieumuontra.Name = "mskMa_phieumuontra";
-            this.mskMa_phieumuontra.Size = new System.Drawing.Size(329, 35);
-            this.mskMa_phieumuontra.TabIndex = 22;
-            // 
             // button2
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(412, 563);
+            this.button2.Location = new System.Drawing.Point(414, 481);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 52);
-            this.button2.TabIndex = 8;
+            this.button2.TabIndex = 26;
             this.button2.Text = "Làm Mới";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lblTennv_phieumuontra
+            // 
+            this.lblTennv_phieumuontra.AutoSize = true;
+            this.lblTennv_phieumuontra.Location = new System.Drawing.Point(324, 153);
+            this.lblTennv_phieumuontra.Name = "lblTennv_phieumuontra";
+            this.lblTennv_phieumuontra.Size = new System.Drawing.Size(68, 30);
+            this.lblTennv_phieumuontra.TabIndex = 25;
+            this.lblTennv_phieumuontra.Text = "label5";
+            // 
+            // lblTendg_phieumuontra
+            // 
+            this.lblTendg_phieumuontra.AutoSize = true;
+            this.lblTendg_phieumuontra.Location = new System.Drawing.Point(324, 293);
+            this.lblTendg_phieumuontra.Name = "lblTendg_phieumuontra";
+            this.lblTendg_phieumuontra.Size = new System.Drawing.Size(68, 30);
+            this.lblTendg_phieumuontra.TabIndex = 25;
+            this.lblTendg_phieumuontra.Text = "label5";
+            // 
+            // mskMa_phieumuontra
+            // 
+            this.mskMa_phieumuontra.Location = new System.Drawing.Point(329, 115);
+            this.mskMa_phieumuontra.Name = "mskMa_phieumuontra";
+            this.mskMa_phieumuontra.ReadOnly = true;
+            this.mskMa_phieumuontra.Size = new System.Drawing.Size(140, 35);
+            this.mskMa_phieumuontra.TabIndex = 22;
             // 
             // txtMadg_pmt
             // 
-            this.txtMadg_pmt.Location = new System.Drawing.Point(223, 339);
+            this.txtMadg_pmt.Location = new System.Drawing.Point(329, 325);
             this.txtMadg_pmt.Name = "txtMadg_pmt";
             this.txtMadg_pmt.ReadOnly = true;
-            this.txtMadg_pmt.Size = new System.Drawing.Size(329, 35);
+            this.txtMadg_pmt.Size = new System.Drawing.Size(140, 35);
             this.txtMadg_pmt.TabIndex = 7;
             // 
             // btnxoapmt
             // 
             this.btnxoapmt.Image = ((System.Drawing.Image)(resources.GetObject("btnxoapmt.Image")));
             this.btnxoapmt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxoapmt.Location = new System.Drawing.Point(284, 563);
+            this.btnxoapmt.Location = new System.Drawing.Point(288, 481);
             this.btnxoapmt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnxoapmt.Name = "btnxoapmt";
             this.btnxoapmt.Size = new System.Drawing.Size(91, 52);
@@ -213,7 +230,7 @@ namespace QuanLyThuVien
             // 
             this.btnthemsuapmt.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuapmt.Image")));
             this.btnthemsuapmt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthemsuapmt.Location = new System.Drawing.Point(84, 563);
+            this.btnthemsuapmt.Location = new System.Drawing.Point(88, 481);
             this.btnthemsuapmt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnthemsuapmt.Name = "btnthemsuapmt";
             this.btnthemsuapmt.Size = new System.Drawing.Size(165, 52);
@@ -223,42 +240,42 @@ namespace QuanLyThuVien
             this.btnthemsuapmt.UseVisualStyleBackColor = true;
             this.btnthemsuapmt.Click += new System.EventHandler(this.btnthemsuapmt_Click);
             // 
-            // dtmngaylap_pmt
+            // dtmngaylap_phieumuontra
             // 
-            this.dtmngaylap_pmt.CustomFormat = "dd/MM/yyyy";
-            this.dtmngaylap_pmt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtmngaylap_pmt.Location = new System.Drawing.Point(223, 401);
-            this.dtmngaylap_pmt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtmngaylap_pmt.Name = "dtmngaylap_pmt";
-            this.dtmngaylap_pmt.Size = new System.Drawing.Size(329, 35);
-            this.dtmngaylap_pmt.TabIndex = 3;
+            this.dtmngaylap_phieumuontra.CustomFormat = "dd/MM/yyyy";
+            this.dtmngaylap_phieumuontra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtmngaylap_phieumuontra.Location = new System.Drawing.Point(329, 395);
+            this.dtmngaylap_phieumuontra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtmngaylap_phieumuontra.Name = "dtmngaylap_phieumuontra";
+            this.dtmngaylap_phieumuontra.Size = new System.Drawing.Size(140, 35);
+            this.dtmngaylap_phieumuontra.TabIndex = 3;
             // 
             // cboMatdg_pmt
             // 
             this.cboMatdg_pmt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMatdg_pmt.FormattingEnabled = true;
-            this.cboMatdg_pmt.Location = new System.Drawing.Point(223, 277);
+            this.cboMatdg_pmt.Location = new System.Drawing.Point(329, 253);
             this.cboMatdg_pmt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboMatdg_pmt.Name = "cboMatdg_pmt";
-            this.cboMatdg_pmt.Size = new System.Drawing.Size(329, 38);
+            this.cboMatdg_pmt.Size = new System.Drawing.Size(140, 38);
             this.cboMatdg_pmt.TabIndex = 2;
             this.cboMatdg_pmt.SelectedIndexChanged += new System.EventHandler(this.cboMatdg_pmt_SelectedIndexChanged);
-            this.cboMatdg_pmt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cboMatdg_pmt_KeyUp);
             // 
             // cboManv_pmt
             // 
             this.cboManv_pmt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboManv_pmt.FormattingEnabled = true;
-            this.cboManv_pmt.Location = new System.Drawing.Point(223, 218);
+            this.cboManv_pmt.Location = new System.Drawing.Point(329, 183);
             this.cboManv_pmt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboManv_pmt.Name = "cboManv_pmt";
-            this.cboManv_pmt.Size = new System.Drawing.Size(329, 38);
+            this.cboManv_pmt.Size = new System.Drawing.Size(140, 38);
             this.cboManv_pmt.TabIndex = 2;
+            this.cboManv_pmt.SelectedIndexChanged += new System.EventHandler(this.cboManv_pmt_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(103, 400);
+            this.label7.Location = new System.Drawing.Point(209, 397);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 30);
             this.label7.TabIndex = 0;
@@ -268,7 +285,7 @@ namespace QuanLyThuVien
             // 
             this.label12.AutoSize = true;
             this.label12.Cursor = System.Windows.Forms.Cursors.No;
-            this.label12.Location = new System.Drawing.Point(82, 341);
+            this.label12.Location = new System.Drawing.Point(188, 327);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 30);
             this.label12.TabIndex = 0;
@@ -277,7 +294,7 @@ namespace QuanLyThuVien
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(42, 282);
+            this.label10.Location = new System.Drawing.Point(148, 257);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(162, 30);
             this.label10.TabIndex = 0;
@@ -286,7 +303,7 @@ namespace QuanLyThuVien
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(57, 223);
+            this.label8.Location = new System.Drawing.Point(163, 187);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 30);
             this.label8.TabIndex = 0;
@@ -295,7 +312,7 @@ namespace QuanLyThuVien
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(103, 164);
+            this.label9.Location = new System.Drawing.Point(209, 117);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 30);
             this.label9.TabIndex = 0;
@@ -321,14 +338,16 @@ namespace QuanLyThuVien
             this.txtTim_pmt.Name = "txtTim_pmt";
             this.txtTim_pmt.Size = new System.Drawing.Size(343, 35);
             this.txtTim_pmt.TabIndex = 15;
+            this.txtTim_pmt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTim_pmt_KeyUp);
             // 
             // cboTim_pmt
             // 
             this.cboTim_pmt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTim_pmt.FormattingEnabled = true;
             this.cboTim_pmt.Items.AddRange(new object[] {
-            "Mã",
-            "Tên"});
+            "Mã Phiếu",
+            "Mã Nhân Viên",
+            "Mã Độc Giả"});
             this.cboTim_pmt.Location = new System.Drawing.Point(357, 45);
             this.cboTim_pmt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboTim_pmt.Name = "cboTim_pmt";
@@ -342,9 +361,7 @@ namespace QuanLyThuVien
             this.dgvpmt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3,
             this.Column15,
-            this.Column5,
             this.Column6});
             this.dgvpmt.Location = new System.Drawing.Point(6, 99);
             this.dgvpmt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -354,44 +371,6 @@ namespace QuanLyThuVien
             this.dgvpmt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvpmt.Size = new System.Drawing.Size(1256, 603);
             this.dgvpmt.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MAPHIEUMUON";
-            this.Column1.HeaderText = "Mã Phiếu Mượn Trả";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MANV";
-            this.Column2.FillWeight = 80F;
-            this.Column2.HeaderText = "Mã Nhân Viên";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "HOTENNV";
-            this.Column3.HeaderText = "Họ Tên Nhân Viên";
-            this.Column3.Name = "Column3";
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "MATHE";
-            this.Column15.FillWeight = 65F;
-            this.Column15.HeaderText = "Mã Thẻ";
-            this.Column15.Name = "Column15";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "TENDOCGIA";
-            this.Column5.HeaderText = "Họ Tên Độc Giả";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "NGAYLAP";
-            this.Column6.HeaderText = "Ngày Lập";
-            this.Column6.Name = "Column6";
             // 
             // xtraTabPage2
             // 
@@ -733,14 +712,31 @@ namespace QuanLyThuVien
             this.dtmhantra.Size = new System.Drawing.Size(329, 35);
             this.dtmhantra.TabIndex = 2;
             // 
-            // label5
+            // Column1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(218, 468);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 30);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "txt";
+            this.Column1.DataPropertyName = "MAPHIEUMUON";
+            this.Column1.HeaderText = "Mã Phiếu Mượn Trả";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MANV";
+            this.Column2.FillWeight = 80F;
+            this.Column2.HeaderText = "Mã Nhân Viên";
+            this.Column2.Name = "Column2";
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "MATHE";
+            this.Column15.FillWeight = 65F;
+            this.Column15.HeaderText = "Mã Thẻ";
+            this.Column15.Name = "Column15";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "NGAYLAP";
+            this.Column6.HeaderText = "Ngày Lập";
+            this.Column6.Name = "Column6";
             // 
             // frmPhieumuontra
             // 
@@ -779,7 +775,7 @@ namespace QuanLyThuVien
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvpmt;
-        private System.Windows.Forms.DateTimePicker dtmngaylap_pmt;
+        private System.Windows.Forms.DateTimePicker dtmngaylap_phieumuontra;
         private System.Windows.Forms.ComboBox cboManv_pmt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -807,7 +803,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtMadg_pmt;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
@@ -824,12 +819,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.TextBox txtTim_pmt;
         private System.Windows.Forms.ComboBox cboTim_pmt;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -837,6 +826,12 @@ namespace QuanLyThuVien
         private System.Windows.Forms.MaskedTextBox mskMa_phieumuontra;
         private System.Windows.Forms.Button btnLuu_ctpm;
         private System.Windows.Forms.Button btnHuy_ctpm;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTennv_phieumuontra;
+        private System.Windows.Forms.Label lblTendg_phieumuontra;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

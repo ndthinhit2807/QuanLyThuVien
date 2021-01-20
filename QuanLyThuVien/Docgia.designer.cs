@@ -39,6 +39,8 @@ namespace QuanLyThuVien
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mskSdt_docgia = new System.Windows.Forms.MaskedTextBox();
+            this.lblEmail_docgia = new System.Windows.Forms.Label();
             this.dtmNgaysinh_docgia = new System.Windows.Forms.DateTimePicker();
             this.cboGioitinh_docgia = new System.Windows.Forms.ComboBox();
             this.mskMa_docgia = new System.Windows.Forms.MaskedTextBox();
@@ -58,9 +60,6 @@ namespace QuanLyThuVien
             this.cboTim_docgia = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnLammoi_nhanvien = new System.Windows.Forms.Button();
-            this.lblEmail_docgia = new System.Windows.Forms.Label();
-            this.mskSdt_docgia = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdg)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -146,7 +145,6 @@ namespace QuanLyThuVien
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.mskSdt_docgia);
             this.groupBox1.Controls.Add(this.lblEmail_docgia);
-            this.groupBox1.Controls.Add(this.btnLammoi_nhanvien);
             this.groupBox1.Controls.Add(this.dtmNgaysinh_docgia);
             this.groupBox1.Controls.Add(this.cboGioitinh_docgia);
             this.groupBox1.Controls.Add(this.mskMa_docgia);
@@ -170,13 +168,31 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // mskSdt_docgia
+            // 
+            this.mskSdt_docgia.Location = new System.Drawing.Point(225, 447);
+            this.mskSdt_docgia.Mask = "000000000";
+            this.mskSdt_docgia.Name = "mskSdt_docgia";
+            this.mskSdt_docgia.Size = new System.Drawing.Size(140, 35);
+            this.mskSdt_docgia.TabIndex = 22;
+            // 
+            // lblEmail_docgia
+            // 
+            this.lblEmail_docgia.AutoSize = true;
+            this.lblEmail_docgia.ForeColor = System.Drawing.Color.Red;
+            this.lblEmail_docgia.Location = new System.Drawing.Point(220, 485);
+            this.lblEmail_docgia.Name = "lblEmail_docgia";
+            this.lblEmail_docgia.Size = new System.Drawing.Size(68, 30);
+            this.lblEmail_docgia.TabIndex = 21;
+            this.lblEmail_docgia.Text = "label6";
+            // 
             // dtmNgaysinh_docgia
             // 
             this.dtmNgaysinh_docgia.CustomFormat = "dd/MM/yyyy";
             this.dtmNgaysinh_docgia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtmNgaysinh_docgia.Location = new System.Drawing.Point(254, 343);
+            this.dtmNgaysinh_docgia.Location = new System.Drawing.Point(225, 307);
             this.dtmNgaysinh_docgia.Name = "dtmNgaysinh_docgia";
-            this.dtmNgaysinh_docgia.Size = new System.Drawing.Size(329, 35);
+            this.dtmNgaysinh_docgia.Size = new System.Drawing.Size(140, 35);
             this.dtmNgaysinh_docgia.TabIndex = 3;
             // 
             // cboGioitinh_docgia
@@ -186,24 +202,24 @@ namespace QuanLyThuVien
             this.cboGioitinh_docgia.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cboGioitinh_docgia.Location = new System.Drawing.Point(254, 271);
+            this.cboGioitinh_docgia.Location = new System.Drawing.Point(225, 235);
             this.cboGioitinh_docgia.Name = "cboGioitinh_docgia";
-            this.cboGioitinh_docgia.Size = new System.Drawing.Size(121, 38);
+            this.cboGioitinh_docgia.Size = new System.Drawing.Size(140, 38);
             this.cboGioitinh_docgia.TabIndex = 2;
             // 
             // mskMa_docgia
             // 
-            this.mskMa_docgia.Location = new System.Drawing.Point(254, 133);
+            this.mskMa_docgia.Location = new System.Drawing.Point(225, 97);
             this.mskMa_docgia.Name = "mskMa_docgia";
             this.mskMa_docgia.ReadOnly = true;
-            this.mskMa_docgia.Size = new System.Drawing.Size(137, 35);
+            this.mskMa_docgia.Size = new System.Drawing.Size(140, 35);
             this.mskMa_docgia.TabIndex = 0;
             // 
             // btnxoadg
             // 
             this.btnxoadg.Image = ((System.Drawing.Image)(resources.GetObject("btnxoadg.Image")));
             this.btnxoadg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxoadg.Location = new System.Drawing.Point(284, 628);
+            this.btnxoadg.Location = new System.Drawing.Point(384, 596);
             this.btnxoadg.Name = "btnxoadg";
             this.btnxoadg.Size = new System.Drawing.Size(91, 52);
             this.btnxoadg.TabIndex = 8;
@@ -216,7 +232,7 @@ namespace QuanLyThuVien
             // 
             this.btnthemsuadg.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuadg.Image")));
             this.btnthemsuadg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthemsuadg.Location = new System.Drawing.Point(97, 628);
+            this.btnthemsuadg.Location = new System.Drawing.Point(197, 596);
             this.btnthemsuadg.Name = "btnthemsuadg";
             this.btnthemsuadg.Size = new System.Drawing.Size(165, 52);
             this.btnthemsuadg.TabIndex = 7;
@@ -227,7 +243,7 @@ namespace QuanLyThuVien
             // 
             // txtEmail_docgia
             // 
-            this.txtEmail_docgia.Location = new System.Drawing.Point(254, 553);
+            this.txtEmail_docgia.Location = new System.Drawing.Point(225, 517);
             this.txtEmail_docgia.Name = "txtEmail_docgia";
             this.txtEmail_docgia.Size = new System.Drawing.Size(329, 35);
             this.txtEmail_docgia.TabIndex = 6;
@@ -236,7 +252,7 @@ namespace QuanLyThuVien
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(170, 555);
+            this.label2.Location = new System.Drawing.Point(141, 519);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 30);
             this.label2.TabIndex = 0;
@@ -244,14 +260,14 @@ namespace QuanLyThuVien
             // 
             // txtDiachi_docgia
             // 
-            this.txtDiachi_docgia.Location = new System.Drawing.Point(254, 413);
+            this.txtDiachi_docgia.Location = new System.Drawing.Point(225, 377);
             this.txtDiachi_docgia.Name = "txtDiachi_docgia";
             this.txtDiachi_docgia.Size = new System.Drawing.Size(329, 35);
             this.txtDiachi_docgia.TabIndex = 4;
             // 
             // txtTen_docgia
             // 
-            this.txtTen_docgia.Location = new System.Drawing.Point(254, 203);
+            this.txtTen_docgia.Location = new System.Drawing.Point(225, 167);
             this.txtTen_docgia.Name = "txtTen_docgia";
             this.txtTen_docgia.Size = new System.Drawing.Size(329, 35);
             this.txtTen_docgia.TabIndex = 1;
@@ -259,7 +275,7 @@ namespace QuanLyThuVien
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(183, 485);
+            this.label6.Location = new System.Drawing.Point(154, 449);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 30);
             this.label6.TabIndex = 0;
@@ -268,7 +284,7 @@ namespace QuanLyThuVien
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(137, 275);
+            this.label7.Location = new System.Drawing.Point(108, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 30);
             this.label7.TabIndex = 0;
@@ -277,7 +293,7 @@ namespace QuanLyThuVien
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(153, 415);
+            this.label8.Location = new System.Drawing.Point(124, 379);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 30);
             this.label8.TabIndex = 0;
@@ -286,7 +302,7 @@ namespace QuanLyThuVien
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(125, 345);
+            this.label4.Location = new System.Drawing.Point(96, 309);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 30);
             this.label4.TabIndex = 0;
@@ -295,7 +311,7 @@ namespace QuanLyThuVien
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 135);
+            this.label3.Location = new System.Drawing.Point(82, 99);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 30);
             this.label3.TabIndex = 9;
@@ -304,7 +320,7 @@ namespace QuanLyThuVien
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 205);
+            this.label1.Location = new System.Drawing.Point(80, 169);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 30);
             this.label1.TabIndex = 0;
@@ -355,37 +371,6 @@ namespace QuanLyThuVien
             this.labelControl1.Size = new System.Drawing.Size(174, 65);
             this.labelControl1.TabIndex = 12;
             this.labelControl1.Text = "Độc Giả";
-            // 
-            // btnLammoi_nhanvien
-            // 
-            this.btnLammoi_nhanvien.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_nhanvien.Image")));
-            this.btnLammoi_nhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLammoi_nhanvien.Location = new System.Drawing.Point(400, 628);
-            this.btnLammoi_nhanvien.Name = "btnLammoi_nhanvien";
-            this.btnLammoi_nhanvien.Size = new System.Drawing.Size(148, 52);
-            this.btnLammoi_nhanvien.TabIndex = 9;
-            this.btnLammoi_nhanvien.Text = "Làm Mới";
-            this.btnLammoi_nhanvien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLammoi_nhanvien.UseVisualStyleBackColor = true;
-            this.btnLammoi_nhanvien.Click += new System.EventHandler(this.btnLammoi_nhanvien_Click);
-            // 
-            // lblEmail_docgia
-            // 
-            this.lblEmail_docgia.AutoSize = true;
-            this.lblEmail_docgia.ForeColor = System.Drawing.Color.Red;
-            this.lblEmail_docgia.Location = new System.Drawing.Point(249, 521);
-            this.lblEmail_docgia.Name = "lblEmail_docgia";
-            this.lblEmail_docgia.Size = new System.Drawing.Size(68, 30);
-            this.lblEmail_docgia.TabIndex = 21;
-            this.lblEmail_docgia.Text = "label6";
-            // 
-            // mskSdt_docgia
-            // 
-            this.mskSdt_docgia.Location = new System.Drawing.Point(254, 483);
-            this.mskSdt_docgia.Mask = "0000000000";
-            this.mskSdt_docgia.Name = "mskSdt_docgia";
-            this.mskSdt_docgia.Size = new System.Drawing.Size(165, 35);
-            this.mskSdt_docgia.TabIndex = 22;
             // 
             // frmDocgia
             // 
@@ -439,7 +424,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Button btnLammoi_nhanvien;
         private System.Windows.Forms.Label lblEmail_docgia;
         private System.Windows.Forms.MaskedTextBox mskSdt_docgia;
     }

@@ -48,73 +48,19 @@ namespace QuanLyThuVien
                 cboMadocgia_thedocgia.DataSource = db.DOCGIAs;
                 cboMadocgia_thedocgia.ValueMember = "MADOCGIA";
                 cboMadocgia_thedocgia.DisplayMember = "MADOCGIA";
-            }
-        }
 
-        //Tìm kiếm phần tử trong bảng DataGridView theo Mã Độc Giả, Mã Nhân Viên, Mã Thẻ
-        private void txtTimKiemTheDocGia_TextChanged(object sender, EventArgs e)
-        {
-            if (cboTim_thedocgia.Text == "Mã Độc Giả")//Tìm kiếm theo mã độc giả
-            {
-
-                THEDOCGIA tdg = new THEDOCGIA();
-                var search = from tbtdg in db.THEDOCGIAs
-                             join tbdg in db.DOCGIAs on tbtdg.MADOCGIA equals tbdg.MADOCGIA
-                             join tbnv in db.NHANVIENs on tbtdg.MANV equals tbnv.MANV
-                             where tbtdg.MADOCGIA.Contains(txtTim_thedocgia.Text)
-                             select new
-                             {
-                                 tbtdg.MATHE,
-                                 tbnv.MANV,
-                                 tbdg.MADOCGIA,
-                                 tbtdg.NGAYLAP,
-                                 tbtdg.NGAYHETHAN
-                             };
-                dgvTheDocGia.DataSource = search;//Bắt đầu tìm kiếm
-            }
-            if (cboTim_thedocgia.Text == "Mã Nhân Viên")//Tìm kiếm theo mã nhân viên
-            {
-                THEDOCGIA tdg = new THEDOCGIA();
-                var search = from tbtdg in db.THEDOCGIAs
-                             join tbdg in db.DOCGIAs on tbtdg.MADOCGIA equals tbdg.MADOCGIA
-                             join tbnv in db.NHANVIENs on tbtdg.MANV equals tbnv.MANV
-                             where tbtdg.MANV.Contains(txtTim_thedocgia.Text)
-                             select new
-                             {
-                                 tbtdg.MATHE,
-                                 tbnv.MANV,
-                                 tbdg.MADOCGIA,
-                                 tbtdg.NGAYLAP,
-                                 tbtdg.NGAYHETHAN
-                             };
-                dgvTheDocGia.DataSource = search;
-            }
-            if (cboTim_thedocgia.Text == "Mã Thẻ")//Tìm kiếm theo mã thẻ
-            {
-                THEDOCGIA tdg = new THEDOCGIA();
-                var search = from tbtdg in db.THEDOCGIAs
-                             join tbdg in db.DOCGIAs on tbtdg.MADOCGIA equals tbdg.MADOCGIA
-                             join tbnv in db.NHANVIENs on tbtdg.MANV equals tbnv.MANV
-                             where tbtdg.MATHE.Contains(txtTim_thedocgia.Text)
-                             select new
-                             {
-                                 tbtdg.MATHE,
-                                 tbnv.MANV,
-                                 tbdg.MADOCGIA,
-                                 tbtdg.NGAYLAP,
-                                 tbtdg.NGAYHETHAN
-                             };
-                dgvTheDocGia.DataSource = search;
+                autotang();
             }
         }
 
         private void dgvTheDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboMadocgia_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[0].Value.ToString();
+            mskMa_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[0].Value.ToString();
             cboManv_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[1].Value.ToString();
-            mskMa_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[2].Value.ToString();
+            cboMadocgia_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[2].Value.ToString();
             dtmNgaylap_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[3].Value.ToString();
             dtmHethan_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[4].Value.ToString();
+
         }
 
         private void btnthemsua_thedocgia_Click(object sender, EventArgs e)
@@ -132,9 +78,10 @@ namespace QuanLyThuVien
                 {
                     db.THEDOCGIAs.InsertOnSubmit(tdg);
                     db.SubmitChanges();
-                    loadtdg();
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     mskMa_thedocgia.Clear();
+                    loadtdg();
+                    autotang();
                 }
                 else
                 {
@@ -148,11 +95,14 @@ namespace QuanLyThuVien
                     mskMa_thedocgia.Clear();
                     db.SubmitChanges();
                     loadtdg();
+                    autotang();
                 }
+               
+                
             }
             catch
             {
-                MessageBox.Show("Nhập Đầy Đủ Thông Tin", "Thông Báo", MessageBoxButtons.OK);
+                MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK);
             }
         }
 
@@ -183,6 +133,8 @@ namespace QuanLyThuVien
         private void btnLammoi_thedocgia_Click(object sender, EventArgs e)
         {
             loadtdg();
+           
+
         }
 
         private void cboManv_thedocgia_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,6 +152,72 @@ namespace QuanLyThuVien
             if (intendg != null)
             {
                 label1.Text = intendg.TENDOCGIA.ToString();
+            }
+        }
+
+        public void autotang()
+        {
+            string mamax = (from s in db.THEDOCGIAs
+                            orderby s.MATHE descending
+                            select s.MATHE).FirstOrDefault();
+            if (mamax == null)
+            {
+                mskMa_thedocgia.Text = "TDG001".ToString();
+            }
+            else
+            {
+                int stt = int.Parse(mamax.Substring(3));
+                stt += 1;
+                if (stt < 10)
+                {
+                    mskMa_thedocgia.Text = "TDG00" + stt.ToString();
+                }
+                else if (stt < 100)
+                {
+                    mskMa_thedocgia.Text = "TDG0" + stt.ToString();
+                }
+                else
+                {
+                    mskMa_thedocgia.Text = "TDG" + stt.ToString();
+                }
+            }
+        }
+
+        private void txtTim_thedocgia_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (cboTim_thedocgia.Text == "Mã Nhân Viên")//Tìm kiếm theo mã nhân viên
+            {
+                THEDOCGIA tdg = new THEDOCGIA();
+                var search = from tbtdg in db.THEDOCGIAs
+                             join tbdg in db.DOCGIAs on tbtdg.MADOCGIA equals tbdg.MADOCGIA
+                             join tbnv in db.NHANVIENs on tbtdg.MANV equals tbnv.MANV
+                             where tbtdg.MANV.Contains(txtTim_thedocgia.Text)
+                             select new
+                             {
+                                 tbtdg.MATHE,
+                                 tbnv.MANV,
+                                 tbdg.MADOCGIA,
+                                 tbtdg.NGAYLAP,
+                                 tbtdg.NGAYHETHAN
+                             };
+                dgvTheDocGia.DataSource = search;
+            }
+            else
+            {
+                THEDOCGIA tdg = new THEDOCGIA();
+                var search = from tbtdg in db.THEDOCGIAs
+                             join tbdg in db.DOCGIAs on tbtdg.MADOCGIA equals tbdg.MADOCGIA
+                             join tbnv in db.NHANVIENs on tbtdg.MANV equals tbnv.MANV
+                             where tbtdg.MATHE.Contains(txtTim_thedocgia.Text)
+                             select new
+                             {
+                                 tbtdg.MATHE,
+                                 tbnv.MANV,
+                                 tbdg.MADOCGIA,
+                                 tbtdg.NGAYLAP,
+                                 tbtdg.NGAYHETHAN
+                             };
+                dgvTheDocGia.DataSource = search;
             }
         }
     }

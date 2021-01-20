@@ -45,7 +45,7 @@ namespace QuanLyThuVien
         private void btnthemsuadg_Click(object sender, EventArgs e)
         {
             if (txtTen_docgia.Text == "" || txtDiachi_docgia.Text == "" || txtEmail_docgia.Text == "" ||
-                lblEmail_docgia.Text != "")
+                lblEmail_docgia.Text != "" || mskSdt_docgia.Text.Length != 10 )
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
             }
@@ -210,6 +210,6 @@ namespace QuanLyThuVien
             {
                 this.lblEmail_docgia.Text = "";
             }
-        }
+        }      
     }
 }

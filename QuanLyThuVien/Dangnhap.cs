@@ -26,7 +26,8 @@ namespace QuanLyThuVien
        
         private void btnfrmdangnhap_Click(object sender, EventArgs e)
         {
-            var dangnhap = db.TAIKHOANs.Where(x => x.TENTAIKHOAN == txtId_dangnhap.Text).ToList().Where(x=> x.MATKHAU == txtPass_dangnhap.Text).FirstOrDefault();
+            var tk = db.TAIKHOANs.Where(x => x.TENTAIKHOAN == txtId_dangnhap.Text).ToList().Where(x=> x.MATKHAU == txtPass_dangnhap.Text).FirstOrDefault();
+            var mk = db.TAIKHOANs.Where(x => x.MATKHAU == txtPass_dangnhap.Text).ToList().Where(x => x.TENTAIKHOAN == txtId_dangnhap.Text).FirstOrDefault();
             if (txtId_dangnhap.Text.Trim() == "" || txtPass_dangnhap.Text.Trim() == "")
             {
                 MessageBox.Show("Vui Lòng Nhập Mật khẩu và tài khoản");
@@ -34,7 +35,7 @@ namespace QuanLyThuVien
 
             else
             {
-                if (dangnhap != null)
+                if (tk != null && mk != null)
                 {
                     MessageBox.Show("Đăng nhập thành công",
                     "Thông báo",

@@ -31,15 +31,15 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTacgia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.masktg = new System.Windows.Forms.MaskedTextBox();
+            this.mskMa_tacgia = new System.Windows.Forms.MaskedTextBox();
+            this.btnxoatg = new System.Windows.Forms.Button();
+            this.btnthemsuatg = new System.Windows.Forms.Button();
+            this.txtTen_tacgia = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvtacgia = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnxoatg = new System.Windows.Forms.Button();
-            this.btnthemsuatg = new System.Windows.Forms.Button();
-            this.txttentg = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cboTim_tacgia = new System.Windows.Forms.ComboBox();
             this.txtTim_tacgia = new System.Windows.Forms.TextBox();
@@ -52,10 +52,10 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.masktg);
+            this.groupBox1.Controls.Add(this.mskMa_tacgia);
             this.groupBox1.Controls.Add(this.btnxoatg);
             this.groupBox1.Controls.Add(this.btnthemsuatg);
-            this.groupBox1.Controls.Add(this.txttentg);
+            this.groupBox1.Controls.Add(this.txtTen_tacgia);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -64,15 +64,66 @@ namespace QuanLyThuVien
             this.groupBox1.Size = new System.Drawing.Size(622, 727);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tác Giả";
+            this.groupBox1.Text = "Thông Tin";
             // 
-            // masktg
+            // mskMa_tacgia
             // 
-            this.masktg.Location = new System.Drawing.Point(243, 202);
-            this.masktg.Mask = "TG0000";
-            this.masktg.Name = "masktg";
-            this.masktg.Size = new System.Drawing.Size(329, 35);
-            this.masktg.TabIndex = 21;
+            this.mskMa_tacgia.Location = new System.Drawing.Point(243, 202);
+            this.mskMa_tacgia.Name = "mskMa_tacgia";
+            this.mskMa_tacgia.ReadOnly = true;
+            this.mskMa_tacgia.Size = new System.Drawing.Size(140, 35);
+            this.mskMa_tacgia.TabIndex = 21;
+            // 
+            // btnxoatg
+            // 
+            this.btnxoatg.Image = ((System.Drawing.Image)(resources.GetObject("btnxoatg.Image")));
+            this.btnxoatg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnxoatg.Location = new System.Drawing.Point(406, 381);
+            this.btnxoatg.Name = "btnxoatg";
+            this.btnxoatg.Size = new System.Drawing.Size(85, 49);
+            this.btnxoatg.TabIndex = 2;
+            this.btnxoatg.Text = "Xoá";
+            this.btnxoatg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnxoatg.UseVisualStyleBackColor = true;
+            this.btnxoatg.Click += new System.EventHandler(this.btnxoatg_Click);
+            // 
+            // btnthemsuatg
+            // 
+            this.btnthemsuatg.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuatg.Image")));
+            this.btnthemsuatg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnthemsuatg.Location = new System.Drawing.Point(205, 381);
+            this.btnthemsuatg.Name = "btnthemsuatg";
+            this.btnthemsuatg.Size = new System.Drawing.Size(162, 49);
+            this.btnthemsuatg.TabIndex = 2;
+            this.btnthemsuatg.Text = "Thêm / Sửa";
+            this.btnthemsuatg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnthemsuatg.UseVisualStyleBackColor = true;
+            this.btnthemsuatg.Click += new System.EventHandler(this.btnthemsuatg_Click);
+            // 
+            // txtTen_tacgia
+            // 
+            this.txtTen_tacgia.Location = new System.Drawing.Point(243, 277);
+            this.txtTen_tacgia.Name = "txtTen_tacgia";
+            this.txtTen_tacgia.Size = new System.Drawing.Size(329, 35);
+            this.txtTen_tacgia.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(93, 277);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 30);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên Tác Giả";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(101, 203);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã Tác Giả";
             // 
             // dgvtacgia
             // 
@@ -106,57 +157,6 @@ namespace QuanLyThuVien
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            // 
-            // btnxoatg
-            // 
-            this.btnxoatg.Image = ((System.Drawing.Image)(resources.GetObject("btnxoatg.Image")));
-            this.btnxoatg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxoatg.Location = new System.Drawing.Point(397, 475);
-            this.btnxoatg.Name = "btnxoatg";
-            this.btnxoatg.Size = new System.Drawing.Size(85, 49);
-            this.btnxoatg.TabIndex = 2;
-            this.btnxoatg.Text = "Xoá";
-            this.btnxoatg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnxoatg.UseVisualStyleBackColor = true;
-            this.btnxoatg.Click += new System.EventHandler(this.btnxoatg_Click);
-            // 
-            // btnthemsuatg
-            // 
-            this.btnthemsuatg.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuatg.Image")));
-            this.btnthemsuatg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthemsuatg.Location = new System.Drawing.Point(196, 475);
-            this.btnthemsuatg.Name = "btnthemsuatg";
-            this.btnthemsuatg.Size = new System.Drawing.Size(162, 49);
-            this.btnthemsuatg.TabIndex = 2;
-            this.btnthemsuatg.Text = "Thêm / Sửa";
-            this.btnthemsuatg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnthemsuatg.UseVisualStyleBackColor = true;
-            this.btnthemsuatg.Click += new System.EventHandler(this.btnthemsuatg_Click);
-            // 
-            // txttentg
-            // 
-            this.txttentg.Location = new System.Drawing.Point(243, 277);
-            this.txttentg.Name = "txttentg";
-            this.txttentg.Size = new System.Drawing.Size(329, 35);
-            this.txttentg.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 277);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 30);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên Tác Giả";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 203);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã Tác Giả";
             // 
             // groupBox3
             // 
@@ -230,13 +230,13 @@ namespace QuanLyThuVien
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnxoatg;
         private System.Windows.Forms.Button btnthemsuatg;
-        private System.Windows.Forms.TextBox txttentg;
+        private System.Windows.Forms.TextBox txtTen_tacgia;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvtacgia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.MaskedTextBox masktg;
+        private System.Windows.Forms.MaskedTextBox mskMa_tacgia;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cboTim_tacgia;
         private System.Windows.Forms.TextBox txtTim_tacgia;
