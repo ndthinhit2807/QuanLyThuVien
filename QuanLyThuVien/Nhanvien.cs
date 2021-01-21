@@ -23,7 +23,9 @@ namespace QuanLyThuVien
         void DataGridView()
         {
             dgvNhanvien.DataSource = db.NHANVIENs.ToList();
-            
+            autotang();
+            lbltestns.Text = "Ngày sinh nhỏ hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -36,10 +38,25 @@ namespace QuanLyThuVien
             nv.GIOITINHNV = cboGioitinh_nhanvien.Text.Trim();
             nv.DIENTHOAINV = mskSdt_nhanvien.Text.Trim();
             nv.EMAILNV = txtEmail_nhanvien.Text.Trim();
-            if (txtTen_nhanvien.Text == "" || txtDiachi_nhanvien.Text == "" || txtEmail_nhanvien.Text == "" ||
-                lblEmail_nhanvien.Text != "" || mskSdt_nhanvien.Text.Length != 10) 
+            if (txtTen_nhanvien.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);               
+                MessageBox.Show("Vui lòng nhập tên nhân viên", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (lbltestns.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập ngày sinh", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (txtDiachi_nhanvien.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (mskSdt_nhanvien.Text == "" || lbltestsdt.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (txtEmail_nhanvien.Text == "" || lbltestemail.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập email", "Thông báo", MessageBoxButtons.OK);
             }
             else
             {
@@ -88,7 +105,9 @@ namespace QuanLyThuVien
             cboGioitinh_nhanvien.SelectedIndex = 0;
             dgvNhanvien.DataSource = db.NHANVIENs.ToList();
             autotang();
-            lblEmail_nhanvien.Text = "";
+            lbltestemail.Text = "";
+            lbltestns.Text = "";
+            lbltestsdt.Text = "";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -163,11 +182,11 @@ namespace QuanLyThuVien
             Regex reg = new Regex(match);
             if (!reg.IsMatch(this.txtEmail_nhanvien.Text))
             {
-                this.lblEmail_nhanvien.Text = "Email không hợp lệ";
+                this.lbltestemail.Text = "Email không hợp lệ";
             }
             else
             {
-                this.lblEmail_nhanvien.Text = "";
+                this.lbltestemail.Text = "";
             }          
         }
 
@@ -205,6 +224,44 @@ namespace QuanLyThuVien
             txtTen_nhanvien.Clear();
             txtDiachi_nhanvien.Clear();
             txtMa_nhanvien.Clear();
+            txtEmail_nhanvien.Clear();
+        }
+
+        private void dtmNgaysinh_nhanvien_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtmNgaysinh_nhanvien.Value.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") || dtmNgaysinh_nhanvien.Value > DateTime.Now)
+            {
+                lbltestns.Text = "Ngày sinh nhỏ hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                lbltestns.Text = "";
+            }
+        }
+        private void mskSdt_nhanvien_KeyUp(object sender, KeyEventArgs e)
+        {
+            string dauso = "0";
+            if (mskSdt_nhanvien.Text.Length != 10 || mskSdt_nhanvien.Text.IndexOf(dauso) != 0)
+            {
+                lbltestsdt.Text = "Nhập đúng định dạng";
+            }
+            else
+            {
+                lbltestsdt.Text = "";
+            }
+        }
+
+        private void mskSdt_nhanvien_Click(object sender, EventArgs e)
+        {
+            mskSdt_nhanvien.Select(0, 0);
+        }
+
+        private void btnLammoi_nhanvien_Click_1(object sender, EventArgs e)
+        {
+            DataGridView();
+            txtTen_nhanvien.Clear();
+            txtDiachi_nhanvien.Clear();
+            mskSdt_nhanvien.Clear();
             txtEmail_nhanvien.Clear();
         }
     }

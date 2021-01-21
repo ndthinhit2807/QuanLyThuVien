@@ -27,6 +27,10 @@ namespace QuanLyThuVien
             cboGioitinh_docgia.SelectedIndex = 0;
             autotang();
             lblEmail_docgia.Text = "";
+            lbltestns.Text = "Ngày sinh nhỏ hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
+            lbltestsdt.Text = "";
+
+           
         }
 
         private void frmDocgia_Load(object sender, EventArgs e)
@@ -44,12 +48,24 @@ namespace QuanLyThuVien
 
         private void btnthemsuadg_Click(object sender, EventArgs e)
         {
-            if (txtTen_docgia.Text == "" || txtDiachi_docgia.Text == "" || txtEmail_docgia.Text == "" ||
-                lblEmail_docgia.Text != "" || mskSdt_docgia.Text.Length != 10 )
+            if (txtTen_docgia.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng nhập tên độc giả", "Thông báo", MessageBoxButtons.OK);
             }
-            else
+            else if (lbltestns.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập ngày sinh", "Thông báo", MessageBoxButtons.OK);
+            }else if (txtDiachi_docgia.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (mskSdt_docgia.Text == "" || lbltestsdt.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại", "Thông báo", MessageBoxButtons.OK);
+            }else if (txtEmail_docgia.Text == "" || lblEmail_docgia.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập email", "Thông báo", MessageBoxButtons.OK);
+            }else
             {
                 try
                 {
@@ -84,8 +100,7 @@ namespace QuanLyThuVien
                         testdg.GIOITINH = dg.GIOITINH;
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
                         db.SubmitChanges();
-                        DataGridView();
-                        mskMa_docgia.Clear();
+                        DataGridView();                       
                         txtTen_docgia.Clear();
                         txtDiachi_docgia.Clear();
                         mskSdt_docgia.Clear();
@@ -210,6 +225,45 @@ namespace QuanLyThuVien
             {
                 this.lblEmail_docgia.Text = "";
             }
-        }      
+        }
+
+        private void dtmNgaysinh_docgia_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtmNgaysinh_docgia.Value.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") || dtmNgaysinh_docgia.Value > DateTime.Now)
+            {
+                lbltestns.Text = "Ngày sinh nhỏ hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                lbltestns.Text = "";
+            }
+        }
+
+        private void mskSdt_docgia_Click(object sender, EventArgs e)
+        {
+            mskSdt_docgia.Select(0, 0);
+        }
+
+        private void btnLammoi_docgia_Click(object sender, EventArgs e)
+        {
+            DataGridView();
+            txtTen_docgia.Clear();
+            txtDiachi_docgia.Clear();
+            mskSdt_docgia.Clear();
+            txtEmail_docgia.Clear();
+        }
+
+        private void mskSdt_docgia_KeyUp(object sender, KeyEventArgs e)
+        {
+            string dauso = "0";
+            if (mskSdt_docgia.Text.Length != 10 || mskSdt_docgia.Text.IndexOf(dauso) != 0)
+            {
+                lbltestsdt.Text = "Nhập đúng định dạng";
+            }
+            else
+            {
+                lbltestsdt.Text = "";
+            }
+        }
     }
 }

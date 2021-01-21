@@ -31,6 +31,11 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDausach));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbltestnxb_dausach = new System.Windows.Forms.Label();
+            this.btnLammoi_dausach = new System.Windows.Forms.Button();
+            this.lblTentl_dausach = new System.Windows.Forms.Label();
+            this.lblTentg_dausach = new System.Windows.Forms.Label();
+            this.lblTennxb_dausach = new System.Windows.Forms.Label();
             this.mskMa_dausach = new System.Windows.Forms.MaskedTextBox();
             this.cboTacgia_dausach = new System.Windows.Forms.ComboBox();
             this.cboNxb_dausach = new System.Windows.Forms.ComboBox();
@@ -49,17 +54,13 @@ namespace QuanLyThuVien
             this.txtTim_dausach = new System.Windows.Forms.TextBox();
             this.cboTim_dausach = new System.Windows.Forms.ComboBox();
             this.dgvds = new System.Windows.Forms.DataGridView();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.lblTennxb_dausach = new System.Windows.Forms.Label();
-            this.lblTentg_dausach = new System.Windows.Forms.Label();
-            this.lblTentl_dausach = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLammoi_dausach = new System.Windows.Forms.Button();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvds)).BeginInit();
@@ -69,6 +70,7 @@ namespace QuanLyThuVien
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.lbltestnxb_dausach);
             this.groupBox1.Controls.Add(this.btnLammoi_dausach);
             this.groupBox1.Controls.Add(this.lblTentl_dausach);
             this.groupBox1.Controls.Add(this.lblTentg_dausach);
@@ -94,6 +96,56 @@ namespace QuanLyThuVien
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
+            // 
+            // lbltestnxb_dausach
+            // 
+            this.lbltestnxb_dausach.AutoSize = true;
+            this.lbltestnxb_dausach.ForeColor = System.Drawing.Color.Red;
+            this.lbltestnxb_dausach.Location = new System.Drawing.Point(249, 493);
+            this.lbltestnxb_dausach.Name = "lbltestnxb_dausach";
+            this.lbltestnxb_dausach.Size = new System.Drawing.Size(89, 30);
+            this.lbltestnxb_dausach.TabIndex = 28;
+            this.lbltestnxb_dausach.Text = "Test nxb";
+            // 
+            // btnLammoi_dausach
+            // 
+            this.btnLammoi_dausach.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_dausach.Image")));
+            this.btnLammoi_dausach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_dausach.Location = new System.Drawing.Point(440, 600);
+            this.btnLammoi_dausach.Name = "btnLammoi_dausach";
+            this.btnLammoi_dausach.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_dausach.TabIndex = 27;
+            this.btnLammoi_dausach.Text = "Làm Mới";
+            this.btnLammoi_dausach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_dausach.UseVisualStyleBackColor = true;
+            this.btnLammoi_dausach.Click += new System.EventHandler(this.btnLammoi_dausach_Click_1);
+            // 
+            // lblTentl_dausach
+            // 
+            this.lblTentl_dausach.AutoSize = true;
+            this.lblTentl_dausach.Location = new System.Drawing.Point(249, 268);
+            this.lblTentl_dausach.Name = "lblTentl_dausach";
+            this.lblTentl_dausach.Size = new System.Drawing.Size(72, 30);
+            this.lblTentl_dausach.TabIndex = 6;
+            this.lblTentl_dausach.Text = "Tên TL";
+            // 
+            // lblTentg_dausach
+            // 
+            this.lblTentg_dausach.AutoSize = true;
+            this.lblTentg_dausach.Location = new System.Drawing.Point(249, 344);
+            this.lblTentg_dausach.Name = "lblTentg_dausach";
+            this.lblTentg_dausach.Size = new System.Drawing.Size(75, 30);
+            this.lblTentg_dausach.TabIndex = 6;
+            this.lblTentg_dausach.Text = "Tên TG";
+            // 
+            // lblTennxb_dausach
+            // 
+            this.lblTennxb_dausach.AutoSize = true;
+            this.lblTennxb_dausach.Location = new System.Drawing.Point(249, 418);
+            this.lblTennxb_dausach.Name = "lblTennxb_dausach";
+            this.lblTennxb_dausach.Size = new System.Drawing.Size(91, 30);
+            this.lblTennxb_dausach.TabIndex = 6;
+            this.lblTennxb_dausach.Text = "Tên NXB";
             // 
             // mskMa_dausach
             // 
@@ -169,6 +221,7 @@ namespace QuanLyThuVien
             this.txtNamxb_dausach.Name = "txtNamxb_dausach";
             this.txtNamxb_dausach.Size = new System.Drawing.Size(137, 35);
             this.txtNamxb_dausach.TabIndex = 1;
+            this.txtNamxb_dausach.TextChanged += new System.EventHandler(this.txtNamxb_dausach_TextChanged);
             this.txtNamxb_dausach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNamxb_dausach_KeyPress);
             // 
             // txtTen_dausach
@@ -190,30 +243,30 @@ namespace QuanLyThuVien
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(131, 306);
+            this.label4.Location = new System.Drawing.Point(98, 306);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 30);
+            this.label4.Size = new System.Drawing.Size(127, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Thể Loại";
+            this.label4.Text = "Mã Thể Loại";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(81, 453);
+            this.label5.Location = new System.Drawing.Point(136, 453);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 30);
+            this.label5.Size = new System.Drawing.Size(89, 30);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Nhà Xuất Bản";
+            this.label5.Text = "Mã NXB";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 384);
+            this.label2.Location = new System.Drawing.Point(110, 384);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 30);
+            this.label2.Size = new System.Drawing.Size(115, 30);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Tác Giả";
+            this.label2.Text = "Mã Tác Giả";
             // 
             // label3
             // 
@@ -290,44 +343,6 @@ namespace QuanLyThuVien
             this.dgvds.TabIndex = 1;
             this.dgvds.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvds_CellClick);
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(873, 23);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(208, 65);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "Đầu Sách";
-            // 
-            // lblTennxb_dausach
-            // 
-            this.lblTennxb_dausach.AutoSize = true;
-            this.lblTennxb_dausach.Location = new System.Drawing.Point(249, 418);
-            this.lblTennxb_dausach.Name = "lblTennxb_dausach";
-            this.lblTennxb_dausach.Size = new System.Drawing.Size(91, 30);
-            this.lblTennxb_dausach.TabIndex = 6;
-            this.lblTennxb_dausach.Text = "Tên NXB";
-            // 
-            // lblTentg_dausach
-            // 
-            this.lblTentg_dausach.AutoSize = true;
-            this.lblTentg_dausach.Location = new System.Drawing.Point(249, 344);
-            this.lblTentg_dausach.Name = "lblTentg_dausach";
-            this.lblTentg_dausach.Size = new System.Drawing.Size(75, 30);
-            this.lblTentg_dausach.TabIndex = 6;
-            this.lblTentg_dausach.Text = "Tên TG";
-            // 
-            // lblTentl_dausach
-            // 
-            this.lblTentl_dausach.AutoSize = true;
-            this.lblTentl_dausach.Location = new System.Drawing.Point(249, 268);
-            this.lblTentl_dausach.Name = "lblTentl_dausach";
-            this.lblTentl_dausach.Size = new System.Drawing.Size(72, 30);
-            this.lblTentl_dausach.TabIndex = 6;
-            this.lblTentl_dausach.Text = "Tên TL";
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "MASACH";
@@ -376,18 +391,16 @@ namespace QuanLyThuVien
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // btnLammoi_dausach
+            // labelControl1
             // 
-            this.btnLammoi_dausach.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_dausach.Image")));
-            this.btnLammoi_dausach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLammoi_dausach.Location = new System.Drawing.Point(440, 600);
-            this.btnLammoi_dausach.Name = "btnLammoi_dausach";
-            this.btnLammoi_dausach.Size = new System.Drawing.Size(148, 52);
-            this.btnLammoi_dausach.TabIndex = 27;
-            this.btnLammoi_dausach.Text = "Làm Mới";
-            this.btnLammoi_dausach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLammoi_dausach.UseVisualStyleBackColor = true;
-            this.btnLammoi_dausach.Click += new System.EventHandler(this.btnLammoi_dausach_Click);
+            this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(873, 23);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(208, 65);
+            this.labelControl1.TabIndex = 5;
+            this.labelControl1.Text = "Đầu Sách";
             // 
             // frmDausach
             // 
@@ -444,5 +457,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Button btnLammoi_dausach;
+        private System.Windows.Forms.Label lbltestnxb_dausach;
     }
 }

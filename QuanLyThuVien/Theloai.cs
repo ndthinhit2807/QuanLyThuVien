@@ -28,7 +28,7 @@ namespace QuanLyThuVien
         {
             if (txtTen_theloai.Text == "" )
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng nhập tên thể loại", "Thông báo", MessageBoxButtons.OK);
             }
             else
             {
@@ -144,6 +144,11 @@ namespace QuanLyThuVien
                     mskMa_theloai.Text = "TL" + stt.ToString();
                 }
             }
+        }
+
+        private void btnLammoi_theloai_Click(object sender, EventArgs e)
+        {
+            DataGridView();
         }
     }
 }

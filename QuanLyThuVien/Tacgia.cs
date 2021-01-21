@@ -25,6 +25,7 @@ namespace QuanLyThuVien
         {
             dgvtacgia.DataSource = db.TACGIAs.ToList();
             autotang();
+            cboTim_tacgia.SelectedIndex = 0;
         }
 
 
@@ -33,7 +34,7 @@ namespace QuanLyThuVien
         {
             if (txtTen_tacgia.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng nhập tên tác giả", "Thông báo", MessageBoxButtons.OK);
             }
             else
             {
@@ -149,6 +150,11 @@ namespace QuanLyThuVien
                     mskMa_tacgia.Text = "TG" + stt.ToString();
                 }
             }
+        }
+
+        private void btnLammoi_tacgia_Click(object sender, EventArgs e)
+        {
+            loadtacgia();
         }
     }
 }

@@ -41,8 +41,8 @@ namespace QuanLyThuVien
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.procSachDuocMuonNhieuTableAdapter = new QuanLyThuVien.datasetreport1TableAdapters.procSachDuocMuonNhieuTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.procSachDuocMuonNhieuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datasetreport1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CTPMBindingSource)).BeginInit();
@@ -67,9 +67,9 @@ namespace QuanLyThuVien
             // 
             this.btnTao_thongke.Image = ((System.Drawing.Image)(resources.GetObject("btnTao_thongke.Image")));
             this.btnTao_thongke.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTao_thongke.Location = new System.Drawing.Point(1118, 32);
+            this.btnTao_thongke.Location = new System.Drawing.Point(1131, 27);
             this.btnTao_thongke.Name = "btnTao_thongke";
-            this.btnTao_thongke.Size = new System.Drawing.Size(185, 38);
+            this.btnTao_thongke.Size = new System.Drawing.Size(185, 48);
             this.btnTao_thongke.TabIndex = 1;
             this.btnTao_thongke.Text = "Tạo Thống Kê";
             this.btnTao_thongke.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,15 +126,6 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thống Kê";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(517, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 30);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Từ";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -143,6 +134,15 @@ namespace QuanLyThuVien
             this.label2.Size = new System.Drawing.Size(51, 30);
             this.label2.TabIndex = 3;
             this.label2.Text = "Đến";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(517, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 30);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Từ";
             // 
             // Thongke
             // 

@@ -31,8 +31,10 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanvien));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbltestns = new System.Windows.Forms.Label();
+            this.lbltestsdt = new System.Windows.Forms.Label();
             this.mskSdt_nhanvien = new System.Windows.Forms.MaskedTextBox();
-            this.lblEmail_nhanvien = new System.Windows.Forms.Label();
+            this.lbltestemail = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,6 +62,7 @@ namespace QuanLyThuVien
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnLammoi_nhanvien = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanvien)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -68,8 +71,11 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnLammoi_nhanvien);
+            this.groupBox1.Controls.Add(this.lbltestns);
+            this.groupBox1.Controls.Add(this.lbltestsdt);
             this.groupBox1.Controls.Add(this.mskSdt_nhanvien);
-            this.groupBox1.Controls.Add(this.lblEmail_nhanvien);
+            this.groupBox1.Controls.Add(this.lbltestemail);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label1);
@@ -93,6 +99,26 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // lbltestns
+            // 
+            this.lbltestns.AutoSize = true;
+            this.lbltestns.ForeColor = System.Drawing.Color.Red;
+            this.lbltestns.Location = new System.Drawing.Point(210, 276);
+            this.lbltestns.Name = "lbltestns";
+            this.lbltestns.Size = new System.Drawing.Size(83, 30);
+            this.lbltestns.TabIndex = 16;
+            this.lbltestns.Text = "Test sdt";
+            // 
+            // lbltestsdt
+            // 
+            this.lbltestsdt.AutoSize = true;
+            this.lbltestsdt.ForeColor = System.Drawing.Color.Red;
+            this.lbltestsdt.Location = new System.Drawing.Point(210, 415);
+            this.lbltestsdt.Name = "lbltestsdt";
+            this.lbltestsdt.Size = new System.Drawing.Size(83, 30);
+            this.lbltestsdt.TabIndex = 16;
+            this.lbltestsdt.Text = "Test sdt";
+            // 
             // mskSdt_nhanvien
             // 
             this.mskSdt_nhanvien.Location = new System.Drawing.Point(215, 446);
@@ -100,16 +126,18 @@ namespace QuanLyThuVien
             this.mskSdt_nhanvien.Name = "mskSdt_nhanvien";
             this.mskSdt_nhanvien.Size = new System.Drawing.Size(140, 35);
             this.mskSdt_nhanvien.TabIndex = 6;
+            this.mskSdt_nhanvien.Click += new System.EventHandler(this.mskSdt_nhanvien_Click);
+            this.mskSdt_nhanvien.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskSdt_nhanvien_KeyUp);
             // 
-            // lblEmail_nhanvien
+            // lbltestemail
             // 
-            this.lblEmail_nhanvien.AutoSize = true;
-            this.lblEmail_nhanvien.ForeColor = System.Drawing.Color.Red;
-            this.lblEmail_nhanvien.Location = new System.Drawing.Point(210, 484);
-            this.lblEmail_nhanvien.Name = "lblEmail_nhanvien";
-            this.lblEmail_nhanvien.Size = new System.Drawing.Size(68, 30);
-            this.lblEmail_nhanvien.TabIndex = 20;
-            this.lblEmail_nhanvien.Text = "label6";
+            this.lbltestemail.AutoSize = true;
+            this.lbltestemail.ForeColor = System.Drawing.Color.Red;
+            this.lbltestemail.Location = new System.Drawing.Point(210, 484);
+            this.lbltestemail.Name = "lbltestemail";
+            this.lbltestemail.Size = new System.Drawing.Size(105, 30);
+            this.lbltestemail.TabIndex = 20;
+            this.lbltestemail.Text = "Test email";
             // 
             // label2
             // 
@@ -179,7 +207,7 @@ namespace QuanLyThuVien
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(187, 598);
+            this.btnThem.Location = new System.Drawing.Point(107, 605);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(165, 52);
             this.btnThem.TabIndex = 8;
@@ -193,7 +221,7 @@ namespace QuanLyThuVien
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(395, 598);
+            this.btnXoa.Location = new System.Drawing.Point(296, 605);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(91, 52);
             this.btnXoa.TabIndex = 9;
@@ -224,6 +252,7 @@ namespace QuanLyThuVien
             this.dtmNgaysinh_nhanvien.Size = new System.Drawing.Size(140, 35);
             this.dtmNgaysinh_nhanvien.TabIndex = 4;
             this.dtmNgaysinh_nhanvien.Value = new System.DateTime(2021, 1, 9, 0, 0, 0, 0);
+            this.dtmNgaysinh_nhanvien.ValueChanged += new System.EventHandler(this.dtmNgaysinh_nhanvien_ValueChanged);
             // 
             // txtEmail_nhanvien
             // 
@@ -378,6 +407,19 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Nhân Viên";
             // 
+            // btnLammoi_nhanvien
+            // 
+            this.btnLammoi_nhanvien.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_nhanvien.Image")));
+            this.btnLammoi_nhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_nhanvien.Location = new System.Drawing.Point(411, 605);
+            this.btnLammoi_nhanvien.Name = "btnLammoi_nhanvien";
+            this.btnLammoi_nhanvien.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_nhanvien.TabIndex = 28;
+            this.btnLammoi_nhanvien.Text = "Làm Mới";
+            this.btnLammoi_nhanvien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_nhanvien.UseVisualStyleBackColor = true;
+            this.btnLammoi_nhanvien.Click += new System.EventHandler(this.btnLammoi_nhanvien_Click_1);
+            // 
             // frmNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,8 +471,11 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.Label lblEmail_nhanvien;
+        private System.Windows.Forms.Label lbltestemail;
         private System.Windows.Forms.MaskedTextBox mskSdt_nhanvien;
         private System.Windows.Forms.TextBox txtMa_nhanvien;
+        private System.Windows.Forms.Label lbltestsdt;
+        private System.Windows.Forms.Label lbltestns;
+        private System.Windows.Forms.Button btnLammoi_nhanvien;
     }
 }

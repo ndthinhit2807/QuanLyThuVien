@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNxb));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbltestsdt_nxb = new System.Windows.Forms.Label();
             this.mskSdt_nxb = new System.Windows.Forms.MaskedTextBox();
             this.mskMa_nxb = new System.Windows.Forms.MaskedTextBox();
             this.txtDiachi_nxb = new System.Windows.Forms.TextBox();
@@ -50,6 +51,7 @@ namespace QuanLyThuVien
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnLammoi_nxb = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvnhaxuatban)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -58,6 +60,8 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnLammoi_nxb);
+            this.groupBox1.Controls.Add(this.lbltestsdt_nxb);
             this.groupBox1.Controls.Add(this.mskSdt_nxb);
             this.groupBox1.Controls.Add(this.mskMa_nxb);
             this.groupBox1.Controls.Add(this.txtDiachi_nxb);
@@ -76,17 +80,29 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // lbltestsdt_nxb
+            // 
+            this.lbltestsdt_nxb.AutoSize = true;
+            this.lbltestsdt_nxb.ForeColor = System.Drawing.Color.Red;
+            this.lbltestsdt_nxb.Location = new System.Drawing.Point(236, 314);
+            this.lbltestsdt_nxb.Name = "lbltestsdt_nxb";
+            this.lbltestsdt_nxb.Size = new System.Drawing.Size(86, 30);
+            this.lbltestsdt_nxb.TabIndex = 15;
+            this.lbltestsdt_nxb.Text = "Test sdt";
+            // 
             // mskSdt_nxb
             // 
-            this.mskSdt_nxb.Location = new System.Drawing.Point(224, 403);
+            this.mskSdt_nxb.Location = new System.Drawing.Point(241, 347);
             this.mskSdt_nxb.Mask = "0000000000";
             this.mskSdt_nxb.Name = "mskSdt_nxb";
             this.mskSdt_nxb.Size = new System.Drawing.Size(140, 36);
             this.mskSdt_nxb.TabIndex = 4;
+            this.mskSdt_nxb.Click += new System.EventHandler(this.mskSdt_nxb_Click);
+            this.mskSdt_nxb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskSdt_nxb_KeyPress);
             // 
             // mskMa_nxb
             // 
-            this.mskMa_nxb.Location = new System.Drawing.Point(224, 214);
+            this.mskMa_nxb.Location = new System.Drawing.Point(241, 128);
             this.mskMa_nxb.Name = "mskMa_nxb";
             this.mskMa_nxb.ReadOnly = true;
             this.mskMa_nxb.Size = new System.Drawing.Size(140, 36);
@@ -94,14 +110,14 @@ namespace QuanLyThuVien
             // 
             // txtDiachi_nxb
             // 
-            this.txtDiachi_nxb.Location = new System.Drawing.Point(224, 340);
+            this.txtDiachi_nxb.Location = new System.Drawing.Point(241, 274);
             this.txtDiachi_nxb.Name = "txtDiachi_nxb";
             this.txtDiachi_nxb.Size = new System.Drawing.Size(329, 36);
             this.txtDiachi_nxb.TabIndex = 3;
             // 
             // txtTen_nxb
             // 
-            this.txtTen_nxb.Location = new System.Drawing.Point(224, 277);
+            this.txtTen_nxb.Location = new System.Drawing.Point(241, 201);
             this.txtTen_nxb.Name = "txtTen_nxb";
             this.txtTen_nxb.Size = new System.Drawing.Size(329, 36);
             this.txtTen_nxb.TabIndex = 2;
@@ -109,7 +125,7 @@ namespace QuanLyThuVien
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(118, 217);
+            this.label4.Location = new System.Drawing.Point(135, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 30);
             this.label4.TabIndex = 1;
@@ -118,7 +134,7 @@ namespace QuanLyThuVien
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(115, 280);
+            this.label3.Location = new System.Drawing.Point(132, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 30);
             this.label3.TabIndex = 14;
@@ -127,7 +143,7 @@ namespace QuanLyThuVien
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(158, 409);
+            this.label2.Location = new System.Drawing.Point(175, 350);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 30);
             this.label2.TabIndex = 14;
@@ -136,7 +152,7 @@ namespace QuanLyThuVien
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 343);
+            this.label1.Location = new System.Drawing.Point(98, 277);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 30);
             this.label1.TabIndex = 14;
@@ -147,7 +163,7 @@ namespace QuanLyThuVien
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(407, 499);
+            this.btnXoa.Location = new System.Drawing.Point(297, 443);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(91, 52);
             this.btnXoa.TabIndex = 6;
@@ -162,7 +178,7 @@ namespace QuanLyThuVien
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(199, 499);
+            this.btnThem.Location = new System.Drawing.Point(103, 443);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(165, 52);
             this.btnThem.TabIndex = 5;
@@ -270,6 +286,19 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 21;
             this.labelControl1.Text = "Nhà Xuất Bản";
             // 
+            // btnLammoi_nxb
+            // 
+            this.btnLammoi_nxb.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_nxb.Image")));
+            this.btnLammoi_nxb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_nxb.Location = new System.Drawing.Point(417, 443);
+            this.btnLammoi_nxb.Name = "btnLammoi_nxb";
+            this.btnLammoi_nxb.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_nxb.TabIndex = 28;
+            this.btnLammoi_nxb.Text = "Làm Mới";
+            this.btnLammoi_nxb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_nxb.UseVisualStyleBackColor = true;
+            this.btnLammoi_nxb.Click += new System.EventHandler(this.btnLammoi_nxb_Click);
+            // 
             // frmNxb
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,5 +342,7 @@ namespace QuanLyThuVien
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.MaskedTextBox mskSdt_nxb;
+        private System.Windows.Forms.Label lbltestsdt_nxb;
+        private System.Windows.Forms.Button btnLammoi_nxb;
     }
 }

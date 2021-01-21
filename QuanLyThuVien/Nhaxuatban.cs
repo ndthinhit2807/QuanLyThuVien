@@ -14,7 +14,9 @@ namespace QuanLyThuVien
         void DataGridView()
         {
             dgvnhaxuatban.DataSource = db.NHAXUATBANs.ToList();
+            
         }
+        
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -24,44 +26,52 @@ namespace QuanLyThuVien
             nxb.DIACHINXB = txtDiachi_nxb.Text.Trim();
             nxb.DIENTHOAIXB = mskSdt_nxb.Text.Trim();
          
-                if (mskMa_nxb.Text == "" || txtDiachi_nxb.Text == "" || mskSdt_nxb.Text.Length != 10)
+            if (txtTen_nxb.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên nhà xuất bản", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (txtDiachi_nxb.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ nhà xuất bản", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (lbltestsdt_nxb.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại nhà xuất bản", "Thông báo", MessageBoxButtons.OK);
+            }
+            else 
+            {
+                try
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
+                    var testNXb = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == nxb.MANXB);
+                    if (testNXb == null)
+                    {
+                        db.NHAXUATBANs.InsertOnSubmit(nxb);
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_nxb.Clear();
+                        txtTen_nxb.Clear();
+                        txtDiachi_nxb.Clear();
+                        mskSdt_nxb.Clear();
+                    }
+                    else
+                    {
+                        testNXb.TENNXB = txtTen_nxb.Text.Trim();
+                        testNXb.DIACHINXB = txtDiachi_nxb.Text.Trim();
+                        testNXb.DIENTHOAIXB = mskSdt_nxb.Text.Trim();
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_nxb.Clear();
+                        txtTen_nxb.Clear();
+                        txtDiachi_nxb.Clear();
+                        mskSdt_nxb.Clear();
+                    }
+                    db.SubmitChanges();
+                    DataGridView();
+                    autotang();
                 }
-                else
+                catch 
                 {
-                    try
-                    {
-                        var testNXb = db.NHAXUATBANs.FirstOrDefault(p => p.MANXB == nxb.MANXB);
-                        if (testNXb == null)
-                        {
-                            db.NHAXUATBANs.InsertOnSubmit(nxb);
-                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                            mskMa_nxb.Clear();
-                            txtTen_nxb.Clear();
-                            txtDiachi_nxb.Clear();
-                            mskSdt_nxb.Clear();
-                        }
-                        else
-                        {
-                            testNXb.TENNXB = txtTen_nxb.Text.Trim();
-                            testNXb.DIACHINXB = txtDiachi_nxb.Text.Trim();
-                            testNXb.DIENTHOAIXB = mskSdt_nxb.Text.Trim();
-                            MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                            mskMa_nxb.Clear();
-                            txtTen_nxb.Clear();
-                            txtDiachi_nxb.Clear();
-                            mskSdt_nxb.Clear();
-                        }
-                        db.SubmitChanges();
-                        DataGridView();
-                        autotang();
-                    }
-                    catch 
-                    {
-                        MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }   
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }   
             
         }
         private void Nhaxuatban_Load(object sender, EventArgs e)
@@ -70,6 +80,7 @@ namespace QuanLyThuVien
             dgvnhaxuatban.DataSource = show;
             cboTim_nxb.SelectedIndex = 0;
             autotang();
+            lbltestsdt_nxb.Text = "";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -156,6 +167,29 @@ namespace QuanLyThuVien
         }
 
         private void btnLammoi_nhanvien_Click(object sender, EventArgs e)
+        {
+            DataGridView();
+        }
+
+        private void mskSdt_nxb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string dauso = "0";
+            if(mskSdt_nxb.Text.Length != 10 || mskSdt_nxb.Text.IndexOf(dauso) != 0)
+            {
+                lbltestsdt_nxb.Text = "Nhập đúng định dạng";
+            }
+            else
+            {
+                lbltestsdt_nxb.Text = "";
+            }
+        }
+
+        private void mskSdt_nxb_Click(object sender, EventArgs e)
+        {
+            mskSdt_nxb.Select(0, 0);
+        }
+
+        private void btnLammoi_nxb_Click(object sender, EventArgs e)
         {
             DataGridView();
         }

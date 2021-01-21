@@ -44,6 +44,7 @@ namespace QuanLyThuVien
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnLammoi_theloai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheloai)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -52,6 +53,7 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnLammoi_theloai);
             this.groupBox1.Controls.Add(this.mskMa_theloai);
             this.groupBox1.Controls.Add(this.txtTen_theloai);
             this.groupBox1.Controls.Add(this.label3);
@@ -104,7 +106,7 @@ namespace QuanLyThuVien
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(214, 419);
+            this.btnThem.Location = new System.Drawing.Point(138, 413);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(149, 53);
             this.btnThem.TabIndex = 4;
@@ -118,7 +120,7 @@ namespace QuanLyThuVien
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(386, 419);
+            this.btnXoa.Location = new System.Drawing.Point(322, 413);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(82, 53);
             this.btnXoa.TabIndex = 5;
@@ -207,6 +209,19 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Thể Loại";
             // 
+            // btnLammoi_theloai
+            // 
+            this.btnLammoi_theloai.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_theloai.Image")));
+            this.btnLammoi_theloai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_theloai.Location = new System.Drawing.Point(439, 412);
+            this.btnLammoi_theloai.Name = "btnLammoi_theloai";
+            this.btnLammoi_theloai.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_theloai.TabIndex = 28;
+            this.btnLammoi_theloai.Text = "Làm Mới";
+            this.btnLammoi_theloai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_theloai.UseVisualStyleBackColor = true;
+            this.btnLammoi_theloai.Click += new System.EventHandler(this.btnLammoi_theloai_Click);
+            // 
             // frmTheloai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,5 +260,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.MaskedTextBox mskMa_theloai;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Button btnLammoi_theloai;
     }
 }

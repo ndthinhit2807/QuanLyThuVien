@@ -39,6 +39,8 @@ namespace QuanLyThuVien
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbltestns = new System.Windows.Forms.Label();
+            this.lbltestsdt = new System.Windows.Forms.Label();
             this.mskSdt_docgia = new System.Windows.Forms.MaskedTextBox();
             this.lblEmail_docgia = new System.Windows.Forms.Label();
             this.dtmNgaysinh_docgia = new System.Windows.Forms.DateTimePicker();
@@ -60,6 +62,7 @@ namespace QuanLyThuVien
             this.cboTim_docgia = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnLammoi_docgia = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdg)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -143,6 +146,9 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnLammoi_docgia);
+            this.groupBox1.Controls.Add(this.lbltestns);
+            this.groupBox1.Controls.Add(this.lbltestsdt);
             this.groupBox1.Controls.Add(this.mskSdt_docgia);
             this.groupBox1.Controls.Add(this.lblEmail_docgia);
             this.groupBox1.Controls.Add(this.dtmNgaysinh_docgia);
@@ -168,6 +174,26 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // lbltestns
+            // 
+            this.lbltestns.AutoSize = true;
+            this.lbltestns.ForeColor = System.Drawing.Color.Red;
+            this.lbltestns.Location = new System.Drawing.Point(220, 276);
+            this.lbltestns.Name = "lbltestns";
+            this.lbltestns.Size = new System.Drawing.Size(144, 30);
+            this.lbltestns.TabIndex = 23;
+            this.lbltestns.Text = "Test ngay sinh";
+            // 
+            // lbltestsdt
+            // 
+            this.lbltestsdt.AutoSize = true;
+            this.lbltestsdt.ForeColor = System.Drawing.Color.Red;
+            this.lbltestsdt.Location = new System.Drawing.Point(220, 414);
+            this.lbltestsdt.Name = "lbltestsdt";
+            this.lbltestsdt.Size = new System.Drawing.Size(83, 30);
+            this.lbltestsdt.TabIndex = 23;
+            this.lbltestsdt.Text = "Test sdt";
+            // 
             // mskSdt_docgia
             // 
             this.mskSdt_docgia.Location = new System.Drawing.Point(225, 447);
@@ -175,6 +201,8 @@ namespace QuanLyThuVien
             this.mskSdt_docgia.Name = "mskSdt_docgia";
             this.mskSdt_docgia.Size = new System.Drawing.Size(140, 35);
             this.mskSdt_docgia.TabIndex = 22;
+            this.mskSdt_docgia.Click += new System.EventHandler(this.mskSdt_docgia_Click);
+            this.mskSdt_docgia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.mskSdt_docgia_KeyUp);
             // 
             // lblEmail_docgia
             // 
@@ -182,9 +210,9 @@ namespace QuanLyThuVien
             this.lblEmail_docgia.ForeColor = System.Drawing.Color.Red;
             this.lblEmail_docgia.Location = new System.Drawing.Point(220, 485);
             this.lblEmail_docgia.Name = "lblEmail_docgia";
-            this.lblEmail_docgia.Size = new System.Drawing.Size(68, 30);
+            this.lblEmail_docgia.Size = new System.Drawing.Size(105, 30);
             this.lblEmail_docgia.TabIndex = 21;
-            this.lblEmail_docgia.Text = "label6";
+            this.lblEmail_docgia.Text = "Test email";
             // 
             // dtmNgaysinh_docgia
             // 
@@ -194,6 +222,7 @@ namespace QuanLyThuVien
             this.dtmNgaysinh_docgia.Name = "dtmNgaysinh_docgia";
             this.dtmNgaysinh_docgia.Size = new System.Drawing.Size(140, 35);
             this.dtmNgaysinh_docgia.TabIndex = 3;
+            this.dtmNgaysinh_docgia.ValueChanged += new System.EventHandler(this.dtmNgaysinh_docgia_ValueChanged);
             // 
             // cboGioitinh_docgia
             // 
@@ -219,7 +248,7 @@ namespace QuanLyThuVien
             // 
             this.btnxoadg.Image = ((System.Drawing.Image)(resources.GetObject("btnxoadg.Image")));
             this.btnxoadg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxoadg.Location = new System.Drawing.Point(384, 596);
+            this.btnxoadg.Location = new System.Drawing.Point(304, 605);
             this.btnxoadg.Name = "btnxoadg";
             this.btnxoadg.Size = new System.Drawing.Size(91, 52);
             this.btnxoadg.TabIndex = 8;
@@ -232,7 +261,7 @@ namespace QuanLyThuVien
             // 
             this.btnthemsuadg.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuadg.Image")));
             this.btnthemsuadg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthemsuadg.Location = new System.Drawing.Point(197, 596);
+            this.btnthemsuadg.Location = new System.Drawing.Point(111, 605);
             this.btnthemsuadg.Name = "btnthemsuadg";
             this.btnthemsuadg.Size = new System.Drawing.Size(165, 52);
             this.btnthemsuadg.TabIndex = 7;
@@ -372,6 +401,19 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 12;
             this.labelControl1.Text = "Độc Giả";
             // 
+            // btnLammoi_docgia
+            // 
+            this.btnLammoi_docgia.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_docgia.Image")));
+            this.btnLammoi_docgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_docgia.Location = new System.Drawing.Point(423, 605);
+            this.btnLammoi_docgia.Name = "btnLammoi_docgia";
+            this.btnLammoi_docgia.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_docgia.TabIndex = 28;
+            this.btnLammoi_docgia.Text = "Làm Mới";
+            this.btnLammoi_docgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_docgia.UseVisualStyleBackColor = true;
+            this.btnLammoi_docgia.Click += new System.EventHandler(this.btnLammoi_docgia_Click);
+            // 
             // frmDocgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,5 +468,8 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label lblEmail_docgia;
         private System.Windows.Forms.MaskedTextBox mskSdt_docgia;
+        private System.Windows.Forms.Label lbltestsdt;
+        private System.Windows.Forms.Label lbltestns;
+        private System.Windows.Forms.Button btnLammoi_docgia;
     }
 }

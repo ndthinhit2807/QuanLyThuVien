@@ -54,14 +54,20 @@ namespace QuanLyThuVien
 
                 autotang();
 
+            lbltestnxb_dausach.Text = "";
+
                 
         }
 
         private void btnthemsuads_Click(object sender, EventArgs e)
         {
-            if (txtNamxb_dausach.Text == "" || txtTen_dausach.Text == "" )
+            if (txtTen_dausach.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng nhập tên sách", "Thông báo", MessageBoxButtons.OK);
+                
+            }else if (txtNamxb_dausach.Text == "" || lbltestnxb_dausach.Text != "" )
+            {
+                MessageBox.Show("Vui lòng nhập năm xuất bản", "Thông báo", MessageBoxButtons.OK);
             }
             else
             {
@@ -104,7 +110,7 @@ namespace QuanLyThuVien
                 {
                     MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
-            }
+             }
         }
 
         private void btnxoads_Click(object sender, EventArgs e)
@@ -211,11 +217,10 @@ namespace QuanLyThuVien
 
         private void txtNamxb_dausach_KeyPress(object sender, KeyPressEventArgs e)
         {
-            DateTime d1 = DateTime.Now;
+            
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
-
             }
         }
 
@@ -267,6 +272,23 @@ namespace QuanLyThuVien
             cboTheloai_dausach.ValueMember = "MATHELOAI";
             cboTheloai_dausach.DisplayMember = "MATHELOAI";
 
+        }
+
+        private void txtNamxb_dausach_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(txtNamxb_dausach.Text) > DateTime.Now.Year)
+            {
+                lbltestnxb_dausach.Text = "Năm xuất bản nhỏ hơn: " + DateTime.Now.Year;
+            }
+            else
+            {
+                lbltestnxb_dausach.Text = "";
+            }
+        }
+
+        private void btnLammoi_dausach_Click_1(object sender, EventArgs e)
+        {
+            loaddausach();
         }
     }
 }
