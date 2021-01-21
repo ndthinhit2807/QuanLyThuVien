@@ -171,7 +171,7 @@ namespace QuanLyThuVien
             // mskSdt_docgia
             // 
             this.mskSdt_docgia.Location = new System.Drawing.Point(225, 447);
-            this.mskSdt_docgia.Mask = "000000000";
+            this.mskSdt_docgia.Mask = "0000000000";
             this.mskSdt_docgia.Name = "mskSdt_docgia";
             this.mskSdt_docgia.Size = new System.Drawing.Size(140, 35);
             this.mskSdt_docgia.TabIndex = 22;

@@ -57,6 +57,7 @@ namespace QuanLyThuVien
             this.txtTim_thedocgia = new System.Windows.Forms.TextBox();
             this.cboTim_thedocgia = new System.Windows.Forms.ComboBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnLammoi_thedocgia = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheDocGia)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -65,6 +66,7 @@ namespace QuanLyThuVien
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Controls.Add(this.btnLammoi_thedocgia);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.mskMa_thedocgia);
@@ -116,7 +118,7 @@ namespace QuanLyThuVien
             // 
             this.btnXoa_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa_thedocgia.Image")));
             this.btnXoa_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa_thedocgia.Location = new System.Drawing.Point(401, 519);
+            this.btnXoa_thedocgia.Location = new System.Drawing.Point(303, 522);
             this.btnXoa_thedocgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa_thedocgia.Name = "btnXoa_thedocgia";
             this.btnXoa_thedocgia.Size = new System.Drawing.Size(91, 52);
@@ -130,7 +132,7 @@ namespace QuanLyThuVien
             // 
             this.btnThemsua_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnThemsua_thedocgia.Image")));
             this.btnThemsua_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThemsua_thedocgia.Location = new System.Drawing.Point(201, 519);
+            this.btnThemsua_thedocgia.Location = new System.Drawing.Point(103, 522);
             this.btnThemsua_thedocgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemsua_thedocgia.Name = "btnThemsua_thedocgia";
             this.btnThemsua_thedocgia.Size = new System.Drawing.Size(165, 52);
@@ -361,6 +363,19 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 20;
             this.labelControl1.Text = "Thẻ Độc Giả";
             // 
+            // btnLammoi_thedocgia
+            // 
+            this.btnLammoi_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_thedocgia.Image")));
+            this.btnLammoi_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_thedocgia.Location = new System.Drawing.Point(426, 522);
+            this.btnLammoi_thedocgia.Name = "btnLammoi_thedocgia";
+            this.btnLammoi_thedocgia.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_thedocgia.TabIndex = 27;
+            this.btnLammoi_thedocgia.Text = "Làm Mới";
+            this.btnLammoi_thedocgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_thedocgia.UseVisualStyleBackColor = true;
+            this.btnLammoi_thedocgia.Click += new System.EventHandler(this.btnLammoi_thedocgia_Click_1);
+            // 
             // frmTheDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,5 +428,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayhethan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLammoi_thedocgia;
     }
 }

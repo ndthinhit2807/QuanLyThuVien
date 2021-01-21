@@ -95,7 +95,7 @@ namespace QuanLyThuVien
                 }
                 catch
                 {
-                    MessageBox.Show("Nhập Đầy Đủ Thông Tin", "Thông Báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }

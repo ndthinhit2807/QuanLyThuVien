@@ -31,37 +31,44 @@ namespace QuanLyThuVien
 
         private void btnthemsuatg_Click(object sender, EventArgs e)
         {
-            TACGIA tg = new TACGIA();
-
-            tg.MATACGIA = mskMa_tacgia.Text.Trim();
-            tg.TENTACGIA = txtTen_tacgia.Text.Trim();
-            try
+            if (txtTen_tacgia.Text == "")
             {
-                var tacgia = db.TACGIAs.FirstOrDefault(p => p.MATACGIA == tg.MATACGIA);
-                if (tacgia == null)
-                {
-                    db.TACGIAs.InsertOnSubmit(tg);
-
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_tacgia.Clear();
-                    txtTen_tacgia.Clear();
-                }
-                else
-                {
-                    tg = db.TACGIAs.Where(p => p.MATACGIA == mskMa_tacgia.Text).Single();
-                    tg.MATACGIA = mskMa_tacgia.Text.Trim();
-                    tg.TENTACGIA = txtTen_tacgia.Text.Trim();
-                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_tacgia.Clear();
-                    txtTen_tacgia.Clear();
-                }
-                db.SubmitChanges();
-                loadtacgia();
-                autotang();
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
             }
-            catch
+            else
             {
-                MessageBox.Show("Nhập Đầy Đủ Thông Tin", "Thông Báo", MessageBoxButtons.OK);
+                TACGIA tg = new TACGIA();
+
+                tg.MATACGIA = mskMa_tacgia.Text.Trim();
+                tg.TENTACGIA = txtTen_tacgia.Text.Trim();
+                try
+                {
+                    var tacgia = db.TACGIAs.FirstOrDefault(p => p.MATACGIA == tg.MATACGIA);
+                    if (tacgia == null)
+                    {
+                        db.TACGIAs.InsertOnSubmit(tg);
+
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_tacgia.Clear();
+                        txtTen_tacgia.Clear();
+                    }
+                    else
+                    {
+                        tg = db.TACGIAs.Where(p => p.MATACGIA == mskMa_tacgia.Text).Single();
+                        tg.MATACGIA = mskMa_tacgia.Text.Trim();
+                        tg.TENTACGIA = txtTen_tacgia.Text.Trim();
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_tacgia.Clear();
+                        txtTen_tacgia.Clear();
+                    }
+                    db.SubmitChanges();
+                    loadtacgia();
+                    autotang();
+                }
+                catch
+                {
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

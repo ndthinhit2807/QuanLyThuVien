@@ -102,7 +102,7 @@ namespace QuanLyThuVien
             }
             catch
             {
-                MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK);
+                MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -219,6 +219,18 @@ namespace QuanLyThuVien
                              };
                 dgvTheDocGia.DataSource = search;
             }
+        }
+
+        private void btnLammoi_thedocgia_Click_1(object sender, EventArgs e)
+        {
+            loadtdg();
+            cboManv_thedocgia.DataSource = db.NHANVIENs;
+            cboManv_thedocgia.ValueMember = "MANV";
+            cboManv_thedocgia.DisplayMember = "MANV";
+
+            cboMadocgia_thedocgia.DataSource = db.DOCGIAs;
+            cboMadocgia_thedocgia.ValueMember = "MADOCGIA";
+            cboMadocgia_thedocgia.DisplayMember = "MADOCGIA";
         }
     }
 }

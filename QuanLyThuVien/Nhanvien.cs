@@ -77,7 +77,7 @@ namespace QuanLyThuVien
                 }
                 catch
                 {
-                    MessageBox.Show("Lỗi", "Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }

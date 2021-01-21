@@ -81,7 +81,7 @@ namespace QuanLyThuVien
             }
             catch
             {
-                MessageBox.Show("Nhập Đầy Đủ Thông Tin", "Thông Báo", MessageBoxButtons.OK);
+                MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -108,53 +108,60 @@ namespace QuanLyThuVien
         
         private void btnthemsua_ctpm_Click(object sender, EventArgs e)
         {
-
-            try
+            if (txtsoluong_ctpm.Text == "")
             {
-                CTPM ctpm = new CTPM();
-
-
-                ctpm.MAPHIEUMUON = cbomapmt_ctpm.SelectedValue.ToString();
-                ctpm.MASACH = cbomasach_ctpm.SelectedValue.ToString();
-
-                ctpm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
-                //ctpm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
-                ctpm.SOLUONG = txtsoluong_ctpm.Text;
-                ctpm.TINHTRANG = cbotinhtrang.Text;
-
-
-                var testctpm = db.CTPMs.FirstOrDefault(p => p.MAPHIEUMUON == ctpm.MAPHIEUMUON);
-                if (testctpm == null)
-                {
-                    db.CTPMs.InsertOnSubmit(ctpm);
-                    db.SubmitChanges();
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                    loadctpm();
-                    mskMa_phieumuontra.Clear();
-
-
-                }
-                else
-                {
-                    //  testctpm.PHIEUMUONTRA.MANV = cbomanvtra_ctpm.SelectedValue.ToString();
-                    testctpm.MASACH = cbomasach_ctpm.SelectedValue.ToString();
-
-                    testctpm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
-                    //testctpm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
-                    testctpm.SOLUONG = txtsoluong_ctpm.Text;
-                    testctpm.TINHTRANG = cbotinhtrang.Text;
-                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                    db.SubmitChanges();
-                    loadctpm();
-                    mskMa_phieumuontra.Clear();
-
-                }
-                autotang();
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và đúng định dạng", "Thông báo", MessageBoxButtons.OK);
             }
-            catch
+            else
             {
-                MessageBox.Show("Nhập Đầy Đủ Thông Tin", "Thông Báo", MessageBoxButtons.OK);
+                try
+                {
+                    CTPM ctpm = new CTPM();
+
+
+                    ctpm.MAPHIEUMUON = cbomapmt_ctpm.SelectedValue.ToString();
+                    ctpm.MASACH = cbomasach_ctpm.SelectedValue.ToString();
+
+                    ctpm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
+                    //ctpm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
+                    ctpm.SOLUONG = txtsoluong_ctpm.Text;
+                    ctpm.TINHTRANG = cbotinhtrang.Text;
+
+
+                    var testctpm = db.CTPMs.FirstOrDefault(p => p.MAPHIEUMUON == ctpm.MAPHIEUMUON);
+                    if (testctpm == null)
+                    {
+                        db.CTPMs.InsertOnSubmit(ctpm);
+                        db.SubmitChanges();
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        loadctpm();
+                        mskMa_phieumuontra.Clear();
+
+
+                    }
+                    else
+                    {
+                        //  testctpm.PHIEUMUONTRA.MANV = cbomanvtra_ctpm.SelectedValue.ToString();
+                        testctpm.MASACH = cbomasach_ctpm.SelectedValue.ToString();
+
+                        testctpm.HANTRA = Convert.ToDateTime(dtmhantra.Value);
+                        //testctpm.NGAYTRA = Convert.ToDateTime(dtmngaytra.Value);
+                        testctpm.SOLUONG = txtsoluong_ctpm.Text;
+                        testctpm.TINHTRANG = cbotinhtrang.Text;
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        db.SubmitChanges();
+                        loadctpm();
+                        mskMa_phieumuontra.Clear();
+
+                    }
+                    autotang();
+                }
+                catch
+                {
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
 
         private void btnxoa_ctpm_Click(object sender, EventArgs e)
@@ -417,6 +424,26 @@ namespace QuanLyThuVien
                              };
                 dgvpmt.DataSource = finddg;
             }
+        }
+
+        private void cbomasach_ctpm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var intensach = db.DAUSACHes.FirstOrDefault(k => k.MASACH == cbomasach_ctpm.Text);
+            if (intensach != null)
+            {
+                lblTensach_ctpm.Text = intensach.TENSACH.ToString();
+            }
+        }
+
+        private void txtsoluong_ctpm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void btnTailai_ctpm_Click(object sender, EventArgs e)
+        {
+            loadctpm();
         }
     }
 }

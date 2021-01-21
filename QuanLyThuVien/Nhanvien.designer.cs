@@ -96,11 +96,10 @@ namespace QuanLyThuVien
             // mskSdt_nhanvien
             // 
             this.mskSdt_nhanvien.Location = new System.Drawing.Point(215, 446);
-            this.mskSdt_nhanvien.Mask = "000000000";
+            this.mskSdt_nhanvien.Mask = "0000000000";
             this.mskSdt_nhanvien.Name = "mskSdt_nhanvien";
             this.mskSdt_nhanvien.Size = new System.Drawing.Size(140, 35);
             this.mskSdt_nhanvien.TabIndex = 6;
-            this.mskSdt_nhanvien.Text = "0";
             // 
             // lblEmail_nhanvien
             // 

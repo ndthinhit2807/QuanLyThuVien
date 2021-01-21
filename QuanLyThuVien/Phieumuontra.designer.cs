@@ -53,6 +53,10 @@ namespace QuanLyThuVien
             this.txtTim_pmt = new System.Windows.Forms.TextBox();
             this.cboTim_pmt = new System.Windows.Forms.ComboBox();
             this.dgvpmt = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnHuy_ctpm = new System.Windows.Forms.Button();
@@ -89,10 +93,8 @@ namespace QuanLyThuVien
             this.dtmngaytra = new System.Windows.Forms.DateTimePicker();
             this.cbotinhtrang = new System.Windows.Forms.ComboBox();
             this.dtmhantra = new System.Windows.Forms.DateTimePicker();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTensach_ctpm = new System.Windows.Forms.Label();
+            this.btnTailai_ctpm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -372,6 +374,32 @@ namespace QuanLyThuVien
             this.dgvpmt.Size = new System.Drawing.Size(1256, 603);
             this.dgvpmt.TabIndex = 4;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MAPHIEUMUON";
+            this.Column1.HeaderText = "Mã Phiếu Mượn Trả";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MANV";
+            this.Column2.FillWeight = 80F;
+            this.Column2.HeaderText = "Mã Nhân Viên";
+            this.Column2.Name = "Column2";
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "MATHE";
+            this.Column15.FillWeight = 65F;
+            this.Column15.HeaderText = "Mã Thẻ";
+            this.Column15.Name = "Column15";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "NGAYLAP";
+            this.Column6.HeaderText = "Ngày Lập";
+            this.Column6.Name = "Column6";
+            // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.groupBox4);
@@ -382,6 +410,8 @@ namespace QuanLyThuVien
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.lblTensach_ctpm);
+            this.groupBox4.Controls.Add(this.btnTailai_ctpm);
             this.groupBox4.Controls.Add(this.btnHuy_ctpm);
             this.groupBox4.Controls.Add(this.btnLuu_ctpm);
             this.groupBox4.Controls.Add(this.groupBox1);
@@ -409,25 +439,31 @@ namespace QuanLyThuVien
             this.groupBox4.Size = new System.Drawing.Size(1918, 815);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Tìm Kiếm";
+            this.groupBox4.Text = "Thông Tin";
             // 
             // btnHuy_ctpm
             // 
-            this.btnHuy_ctpm.Location = new System.Drawing.Point(811, 267);
+            this.btnHuy_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy_ctpm.Image")));
+            this.btnHuy_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHuy_ctpm.Location = new System.Drawing.Point(778, 262);
             this.btnHuy_ctpm.Name = "btnHuy_ctpm";
-            this.btnHuy_ctpm.Size = new System.Drawing.Size(75, 38);
+            this.btnHuy_ctpm.Size = new System.Drawing.Size(96, 52);
             this.btnHuy_ctpm.TabIndex = 18;
             this.btnHuy_ctpm.Text = "Huỷ";
+            this.btnHuy_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHuy_ctpm.UseVisualStyleBackColor = true;
             this.btnHuy_ctpm.Click += new System.EventHandler(this.btnHuy_ctpm_Click);
             // 
             // btnLuu_ctpm
             // 
-            this.btnLuu_ctpm.Location = new System.Drawing.Point(730, 270);
+            this.btnLuu_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu_ctpm.Image")));
+            this.btnLuu_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLuu_ctpm.Location = new System.Drawing.Point(645, 262);
             this.btnLuu_ctpm.Name = "btnLuu_ctpm";
-            this.btnLuu_ctpm.Size = new System.Drawing.Size(75, 38);
+            this.btnLuu_ctpm.Size = new System.Drawing.Size(101, 52);
             this.btnLuu_ctpm.TabIndex = 18;
             this.btnLuu_ctpm.Text = "Lưu";
+            this.btnLuu_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLuu_ctpm.UseVisualStyleBackColor = true;
             this.btnLuu_ctpm.Click += new System.EventHandler(this.btnLuu_ctpm_Click);
             // 
@@ -435,12 +471,12 @@ namespace QuanLyThuVien
             // 
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(885, 238);
+            this.groupBox1.Location = new System.Drawing.Point(992, 248);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(617, 81);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Tìm Kiếm";
             // 
             // textBox2
             // 
@@ -466,44 +502,51 @@ namespace QuanLyThuVien
             // 
             // txtsoluong_ctpm
             // 
-            this.txtsoluong_ctpm.Location = new System.Drawing.Point(541, 174);
+            this.txtsoluong_ctpm.Location = new System.Drawing.Point(645, 171);
             this.txtsoluong_ctpm.Name = "txtsoluong_ctpm";
-            this.txtsoluong_ctpm.Size = new System.Drawing.Size(329, 35);
+            this.txtsoluong_ctpm.Size = new System.Drawing.Size(140, 35);
             this.txtsoluong_ctpm.TabIndex = 7;
+            this.txtsoluong_ctpm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsoluong_ctpm_KeyPress);
             // 
             // btnthemsua_ctpm
             // 
-            this.btnthemsua_ctpm.Location = new System.Drawing.Point(144, 269);
+            this.btnthemsua_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsua_ctpm.Image")));
+            this.btnthemsua_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnthemsua_ctpm.Location = new System.Drawing.Point(1290, 73);
             this.btnthemsua_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnthemsua_ctpm.Name = "btnthemsua_ctpm";
-            this.btnthemsua_ctpm.Size = new System.Drawing.Size(151, 38);
+            this.btnthemsua_ctpm.Size = new System.Drawing.Size(165, 52);
             this.btnthemsua_ctpm.TabIndex = 5;
             this.btnthemsua_ctpm.Text = "Thêm / Sửa";
+            this.btnthemsua_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnthemsua_ctpm.UseVisualStyleBackColor = true;
             this.btnthemsua_ctpm.Click += new System.EventHandler(this.btnthemsua_ctpm_Click);
             // 
             // cbomapmt_ctpm
             // 
+            this.cbomapmt_ctpm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbomapmt_ctpm.FormattingEnabled = true;
-            this.cbomapmt_ctpm.Location = new System.Drawing.Point(537, 49);
+            this.cbomapmt_ctpm.Location = new System.Drawing.Point(641, 46);
             this.cbomapmt_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbomapmt_ctpm.Name = "cbomapmt_ctpm";
-            this.cbomapmt_ctpm.Size = new System.Drawing.Size(329, 38);
+            this.cbomapmt_ctpm.Size = new System.Drawing.Size(140, 38);
             this.cbomapmt_ctpm.TabIndex = 1;
             // 
             // cbomasach_ctpm
             // 
+            this.cbomasach_ctpm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbomasach_ctpm.FormattingEnabled = true;
-            this.cbomasach_ctpm.Location = new System.Drawing.Point(1226, 49);
+            this.cbomasach_ctpm.Location = new System.Drawing.Point(1015, 50);
             this.cbomasach_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbomasach_ctpm.Name = "cbomasach_ctpm";
-            this.cbomasach_ctpm.Size = new System.Drawing.Size(329, 38);
+            this.cbomasach_ctpm.Size = new System.Drawing.Size(140, 38);
             this.cbomasach_ctpm.TabIndex = 1;
+            this.cbomasach_ctpm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbomasach_ctpm_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1109, 53);
+            this.label4.Location = new System.Drawing.Point(898, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 30);
             this.label4.TabIndex = 0;
@@ -609,7 +652,7 @@ namespace QuanLyThuVien
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(309, 53);
+            this.label1.Location = new System.Drawing.Point(413, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 30);
             this.label1.TabIndex = 0;
@@ -617,19 +660,22 @@ namespace QuanLyThuVien
             // 
             // btntrasach_ctpm
             // 
-            this.btntrasach_ctpm.Location = new System.Drawing.Point(552, 267);
+            this.btntrasach_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btntrasach_ctpm.Image")));
+            this.btntrasach_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btntrasach_ctpm.Location = new System.Drawing.Point(478, 262);
             this.btntrasach_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntrasach_ctpm.Name = "btntrasach_ctpm";
-            this.btntrasach_ctpm.Size = new System.Drawing.Size(155, 38);
+            this.btntrasach_ctpm.Size = new System.Drawing.Size(131, 52);
             this.btntrasach_ctpm.TabIndex = 5;
             this.btntrasach_ctpm.Text = "Trả Sách";
+            this.btntrasach_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btntrasach_ctpm.UseVisualStyleBackColor = true;
             this.btntrasach_ctpm.Click += new System.EventHandler(this.btntrasach_ctpm_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(395, 115);
+            this.label6.Location = new System.Drawing.Point(499, 112);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 30);
             this.label6.TabIndex = 0;
@@ -637,19 +683,22 @@ namespace QuanLyThuVien
             // 
             // btngiahan_ctpm
             // 
-            this.btngiahan_ctpm.Location = new System.Drawing.Point(418, 270);
+            this.btngiahan_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btngiahan_ctpm.Image")));
+            this.btngiahan_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btngiahan_ctpm.Location = new System.Drawing.Point(331, 262);
             this.btngiahan_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btngiahan_ctpm.Name = "btngiahan_ctpm";
-            this.btngiahan_ctpm.Size = new System.Drawing.Size(112, 38);
+            this.btngiahan_ctpm.Size = new System.Drawing.Size(130, 52);
             this.btngiahan_ctpm.TabIndex = 5;
             this.btngiahan_ctpm.Text = "Gia Hạn";
+            this.btngiahan_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btngiahan_ctpm.UseVisualStyleBackColor = true;
             this.btngiahan_ctpm.Click += new System.EventHandler(this.btngiahan_ctpm_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1118, 115);
+            this.label2.Location = new System.Drawing.Point(907, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 30);
             this.label2.TabIndex = 0;
@@ -657,19 +706,22 @@ namespace QuanLyThuVien
             // 
             // btnxoa_ctpm
             // 
-            this.btnxoa_ctpm.Location = new System.Drawing.Point(328, 270);
+            this.btnxoa_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnxoa_ctpm.Image")));
+            this.btnxoa_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnxoa_ctpm.Location = new System.Drawing.Point(1331, 151);
             this.btnxoa_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnxoa_ctpm.Name = "btnxoa_ctpm";
-            this.btnxoa_ctpm.Size = new System.Drawing.Size(64, 38);
+            this.btnxoa_ctpm.Size = new System.Drawing.Size(94, 52);
             this.btnxoa_ctpm.TabIndex = 5;
             this.btnxoa_ctpm.Text = "Xoá";
+            this.btnxoa_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnxoa_ctpm.UseVisualStyleBackColor = true;
             this.btnxoa_ctpm.Click += new System.EventHandler(this.btnxoa_ctpm_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1107, 176);
+            this.label3.Location = new System.Drawing.Point(896, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 30);
             this.label3.TabIndex = 0;
@@ -678,7 +730,7 @@ namespace QuanLyThuVien
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(404, 176);
+            this.label11.Location = new System.Drawing.Point(508, 173);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(101, 30);
             this.label11.TabIndex = 0;
@@ -686,10 +738,12 @@ namespace QuanLyThuVien
             // 
             // dtmngaytra
             // 
-            this.dtmngaytra.Location = new System.Drawing.Point(1226, 174);
+            this.dtmngaytra.CustomFormat = "dd/MM/yyyy";
+            this.dtmngaytra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtmngaytra.Location = new System.Drawing.Point(1015, 175);
             this.dtmngaytra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtmngaytra.Name = "dtmngaytra";
-            this.dtmngaytra.Size = new System.Drawing.Size(329, 35);
+            this.dtmngaytra.Size = new System.Drawing.Size(140, 35);
             this.dtmngaytra.TabIndex = 2;
             // 
             // cbotinhtrang
@@ -698,45 +752,43 @@ namespace QuanLyThuVien
             this.cbotinhtrang.Items.AddRange(new object[] {
             "Mới",
             "Cũ"});
-            this.cbotinhtrang.Location = new System.Drawing.Point(537, 111);
+            this.cbotinhtrang.Location = new System.Drawing.Point(641, 108);
             this.cbotinhtrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbotinhtrang.Name = "cbotinhtrang";
-            this.cbotinhtrang.Size = new System.Drawing.Size(329, 38);
+            this.cbotinhtrang.Size = new System.Drawing.Size(140, 38);
             this.cbotinhtrang.TabIndex = 1;
             // 
             // dtmhantra
             // 
-            this.dtmhantra.Location = new System.Drawing.Point(1226, 113);
+            this.dtmhantra.CustomFormat = "dd/MM/yyyy";
+            this.dtmhantra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtmhantra.Location = new System.Drawing.Point(1015, 114);
             this.dtmhantra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtmhantra.Name = "dtmhantra";
-            this.dtmhantra.Size = new System.Drawing.Size(329, 35);
+            this.dtmhantra.Size = new System.Drawing.Size(140, 35);
             this.dtmhantra.TabIndex = 2;
             // 
-            // Column1
+            // lblTensach_ctpm
             // 
-            this.Column1.DataPropertyName = "MAPHIEUMUON";
-            this.Column1.HeaderText = "Mã Phiếu Mượn Trả";
-            this.Column1.Name = "Column1";
+            this.lblTensach_ctpm.AutoSize = true;
+            this.lblTensach_ctpm.Location = new System.Drawing.Point(1010, 18);
+            this.lblTensach_ctpm.Name = "lblTensach_ctpm";
+            this.lblTensach_ctpm.Size = new System.Drawing.Size(68, 30);
+            this.lblTensach_ctpm.TabIndex = 19;
+            this.lblTensach_ctpm.Text = "label5";
             // 
-            // Column2
+            // btnTailai_ctpm
             // 
-            this.Column2.DataPropertyName = "MANV";
-            this.Column2.FillWeight = 80F;
-            this.Column2.HeaderText = "Mã Nhân Viên";
-            this.Column2.Name = "Column2";
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "MATHE";
-            this.Column15.FillWeight = 65F;
-            this.Column15.HeaderText = "Mã Thẻ";
-            this.Column15.Name = "Column15";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "NGAYLAP";
-            this.Column6.HeaderText = "Ngày Lập";
-            this.Column6.Name = "Column6";
+            this.btnTailai_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnTailai_ctpm.Image")));
+            this.btnTailai_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTailai_ctpm.Location = new System.Drawing.Point(890, 262);
+            this.btnTailai_ctpm.Name = "btnTailai_ctpm";
+            this.btnTailai_ctpm.Size = new System.Drawing.Size(96, 52);
+            this.btnTailai_ctpm.TabIndex = 18;
+            this.btnTailai_ctpm.Text = "Huỷ";
+            this.btnTailai_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTailai_ctpm.UseVisualStyleBackColor = true;
+            this.btnTailai_ctpm.Click += new System.EventHandler(this.btnTailai_ctpm_Click);
             // 
             // frmPhieumuontra
             // 
@@ -833,5 +885,7 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Label lblTensach_ctpm;
+        private System.Windows.Forms.Button btnTailai_ctpm;
     }
 }
