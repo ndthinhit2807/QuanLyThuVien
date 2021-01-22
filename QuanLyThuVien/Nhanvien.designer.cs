@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanvien));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi_nhanvien = new System.Windows.Forms.Button();
             this.lbltestns = new System.Windows.Forms.Label();
             this.lbltestsdt = new System.Windows.Forms.Label();
             this.mskSdt_nhanvien = new System.Windows.Forms.MaskedTextBox();
@@ -62,7 +63,6 @@ namespace QuanLyThuVien
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnLammoi_nhanvien = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanvien)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -99,15 +99,28 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // btnLammoi_nhanvien
+            // 
+            this.btnLammoi_nhanvien.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_nhanvien.Image")));
+            this.btnLammoi_nhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_nhanvien.Location = new System.Drawing.Point(411, 605);
+            this.btnLammoi_nhanvien.Name = "btnLammoi_nhanvien";
+            this.btnLammoi_nhanvien.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_nhanvien.TabIndex = 28;
+            this.btnLammoi_nhanvien.Text = "Làm Mới";
+            this.btnLammoi_nhanvien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_nhanvien.UseVisualStyleBackColor = true;
+            this.btnLammoi_nhanvien.Click += new System.EventHandler(this.btnLammoi_nhanvien_Click_1);
+            // 
             // lbltestns
             // 
             this.lbltestns.AutoSize = true;
             this.lbltestns.ForeColor = System.Drawing.Color.Red;
             this.lbltestns.Location = new System.Drawing.Point(210, 276);
             this.lbltestns.Name = "lbltestns";
-            this.lbltestns.Size = new System.Drawing.Size(83, 30);
+            this.lbltestns.Size = new System.Drawing.Size(76, 30);
             this.lbltestns.TabIndex = 16;
-            this.lbltestns.Text = "Test sdt";
+            this.lbltestns.Text = "Test ns";
             // 
             // lbltestsdt
             // 
@@ -406,19 +419,6 @@ namespace QuanLyThuVien
             this.labelControl1.Size = new System.Drawing.Size(236, 65);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Nhân Viên";
-            // 
-            // btnLammoi_nhanvien
-            // 
-            this.btnLammoi_nhanvien.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_nhanvien.Image")));
-            this.btnLammoi_nhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLammoi_nhanvien.Location = new System.Drawing.Point(411, 605);
-            this.btnLammoi_nhanvien.Name = "btnLammoi_nhanvien";
-            this.btnLammoi_nhanvien.Size = new System.Drawing.Size(148, 52);
-            this.btnLammoi_nhanvien.TabIndex = 28;
-            this.btnLammoi_nhanvien.Text = "Làm Mới";
-            this.btnLammoi_nhanvien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLammoi_nhanvien.UseVisualStyleBackColor = true;
-            this.btnLammoi_nhanvien.Click += new System.EventHandler(this.btnLammoi_nhanvien_Click_1);
             // 
             // frmNhanvien
             // 
