@@ -153,7 +153,7 @@ namespace QuanLyThuVien
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Thongke";
-            this.Text = "XtraForm1";
+            this.Text = "Z";
             this.Load += new System.EventHandler(this.XtraForm1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.procSachDuocMuonNhieuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datasetreport1)).EndInit();

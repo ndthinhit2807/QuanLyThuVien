@@ -39,12 +39,12 @@ namespace QuanLyThuVien
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvtacgia = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cboTim_tacgia = new System.Windows.Forms.ComboBox();
             this.txtTim_tacgia = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtacgia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -157,6 +157,22 @@ namespace QuanLyThuVien
             this.dgvtacgia.TabIndex = 1;
             this.dgvtacgia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtacgia_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MATACGIA";
+            this.Column1.HeaderText = "Mã Tác Giả";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TENTACGIA";
+            this.Column2.HeaderText = "Tên Tác Giả";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -197,27 +213,11 @@ namespace QuanLyThuVien
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(957, 12);
+            this.labelControl1.Location = new System.Drawing.Point(981, 32);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(160, 65);
             this.labelControl1.TabIndex = 7;
             this.labelControl1.Text = "Tác Giả";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TENTACGIA";
-            this.Column2.HeaderText = "Tên Tác Giả";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MATACGIA";
-            this.Column1.HeaderText = "Mã Tác Giả";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // frmTacgia
             // 

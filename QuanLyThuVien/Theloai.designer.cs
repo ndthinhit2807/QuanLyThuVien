@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTheloai));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi_theloai = new System.Windows.Forms.Button();
             this.mskMa_theloai = new System.Windows.Forms.MaskedTextBox();
             this.txtTen_theloai = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@ namespace QuanLyThuVien
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnLammoi_theloai = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheloai)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -67,6 +67,19 @@ namespace QuanLyThuVien
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
+            // 
+            // btnLammoi_theloai
+            // 
+            this.btnLammoi_theloai.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_theloai.Image")));
+            this.btnLammoi_theloai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_theloai.Location = new System.Drawing.Point(439, 412);
+            this.btnLammoi_theloai.Name = "btnLammoi_theloai";
+            this.btnLammoi_theloai.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_theloai.TabIndex = 28;
+            this.btnLammoi_theloai.Text = "Làm Mới";
+            this.btnLammoi_theloai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_theloai.UseVisualStyleBackColor = true;
+            this.btnLammoi_theloai.Click += new System.EventHandler(this.btnLammoi_theloai_Click);
             // 
             // mskMa_theloai
             // 
@@ -203,24 +216,11 @@ namespace QuanLyThuVien
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(842, 32);
+            this.labelControl1.Location = new System.Drawing.Point(884, 22);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(190, 65);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Thể Loại";
-            // 
-            // btnLammoi_theloai
-            // 
-            this.btnLammoi_theloai.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_theloai.Image")));
-            this.btnLammoi_theloai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLammoi_theloai.Location = new System.Drawing.Point(439, 412);
-            this.btnLammoi_theloai.Name = "btnLammoi_theloai";
-            this.btnLammoi_theloai.Size = new System.Drawing.Size(148, 52);
-            this.btnLammoi_theloai.TabIndex = 28;
-            this.btnLammoi_theloai.Text = "Làm Mới";
-            this.btnLammoi_theloai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLammoi_theloai.UseVisualStyleBackColor = true;
-            this.btnLammoi_theloai.Click += new System.EventHandler(this.btnLammoi_theloai_Click);
             // 
             // frmTheloai
             // 
