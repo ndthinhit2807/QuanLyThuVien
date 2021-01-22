@@ -31,7 +31,6 @@ namespace QuanLyThuVien
         {
             this.xtraGioithieu = new DevExpress.XtraTab.XtraTabPage();
             this.panelGioiThieu = new System.Windows.Forms.Panel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.prgKiemTra = new System.Windows.Forms.ProgressBar();
             this.btnCapnhat = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -63,7 +62,6 @@ namespace QuanLyThuVien
             // 
             // panelGioiThieu
             // 
-            this.panelGioiThieu.Controls.Add(this.progressBar1);
             this.panelGioiThieu.Controls.Add(this.prgKiemTra);
             this.panelGioiThieu.Controls.Add(this.btnCapnhat);
             this.panelGioiThieu.Controls.Add(this.linkLabel1);
@@ -77,15 +75,6 @@ namespace QuanLyThuVien
             this.panelGioiThieu.Name = "panelGioiThieu";
             this.panelGioiThieu.Size = new System.Drawing.Size(1533, 958);
             this.panelGioiThieu.TabIndex = 4;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressBar1.Location = new System.Drawing.Point(983, 326);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(256, 27);
-            this.progressBar1.TabIndex = 9;
-            this.progressBar1.Visible = false;
             // 
             // prgKiemTra
             // 
@@ -295,7 +284,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
