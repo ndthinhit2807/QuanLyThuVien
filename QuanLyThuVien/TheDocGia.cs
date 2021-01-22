@@ -23,6 +23,7 @@ namespace QuanLyThuVien
         {
             cboTim_thedocgia.SelectedIndex = 0; //combobox tìm kiếm mặc định là mã độc giả
             loadtdg();
+            label3.Text = "Ngày hết hạn lớn hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
         }
         //Load không bị thừa dữ liẹu 
         void loadtdg()

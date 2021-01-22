@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTacgia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi_tacgia = new System.Windows.Forms.Button();
             this.mskMa_tacgia = new System.Windows.Forms.MaskedTextBox();
             this.btnxoatg = new System.Windows.Forms.Button();
             this.btnthemsuatg = new System.Windows.Forms.Button();
@@ -38,13 +39,12 @@ namespace QuanLyThuVien
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvtacgia = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cboTim_tacgia = new System.Windows.Forms.ComboBox();
             this.txtTim_tacgia = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnLammoi_tacgia = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtacgia)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -67,6 +67,19 @@ namespace QuanLyThuVien
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
+            // 
+            // btnLammoi_tacgia
+            // 
+            this.btnLammoi_tacgia.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_tacgia.Image")));
+            this.btnLammoi_tacgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_tacgia.Location = new System.Drawing.Point(432, 380);
+            this.btnLammoi_tacgia.Name = "btnLammoi_tacgia";
+            this.btnLammoi_tacgia.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_tacgia.TabIndex = 28;
+            this.btnLammoi_tacgia.Text = "Làm Mới";
+            this.btnLammoi_tacgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_tacgia.UseVisualStyleBackColor = true;
+            this.btnLammoi_tacgia.Click += new System.EventHandler(this.btnLammoi_tacgia_Click);
             // 
             // mskMa_tacgia
             // 
@@ -144,22 +157,6 @@ namespace QuanLyThuVien
             this.dgvtacgia.TabIndex = 1;
             this.dgvtacgia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtacgia_CellClick);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MATACGIA";
-            this.Column1.HeaderText = "Mã Tác Giả";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TENTACGIA";
-            this.Column2.HeaderText = "Tên Tác Giả";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -193,6 +190,7 @@ namespace QuanLyThuVien
             this.txtTim_tacgia.Name = "txtTim_tacgia";
             this.txtTim_tacgia.Size = new System.Drawing.Size(343, 35);
             this.txtTim_tacgia.TabIndex = 11;
+            this.txtTim_tacgia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTim_tacgia_KeyUp_1);
             // 
             // labelControl1
             // 
@@ -205,18 +203,21 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 7;
             this.labelControl1.Text = "Tác Giả";
             // 
-            // btnLammoi_tacgia
+            // Column2
             // 
-            this.btnLammoi_tacgia.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_tacgia.Image")));
-            this.btnLammoi_tacgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLammoi_tacgia.Location = new System.Drawing.Point(432, 380);
-            this.btnLammoi_tacgia.Name = "btnLammoi_tacgia";
-            this.btnLammoi_tacgia.Size = new System.Drawing.Size(148, 52);
-            this.btnLammoi_tacgia.TabIndex = 28;
-            this.btnLammoi_tacgia.Text = "Làm Mới";
-            this.btnLammoi_tacgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLammoi_tacgia.UseVisualStyleBackColor = true;
-            this.btnLammoi_tacgia.Click += new System.EventHandler(this.btnLammoi_tacgia_Click);
+            this.Column2.DataPropertyName = "TENTACGIA";
+            this.Column2.HeaderText = "Tên Tác Giả";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MATACGIA";
+            this.Column1.HeaderText = "Mã Tác Giả";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // frmTacgia
             // 
@@ -249,13 +250,13 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvtacgia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.MaskedTextBox mskMa_tacgia;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cboTim_tacgia;
         private System.Windows.Forms.TextBox txtTim_tacgia;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.Button btnLammoi_tacgia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

@@ -13,7 +13,11 @@ namespace QuanLyThuVien
         }
         void DataGridView()
         {
+            autotang();
             dgvnhaxuatban.DataSource = db.NHAXUATBANs.ToList();
+            txtTen_nxb.Clear();
+            txtDiachi_nxb.Clear();
+            mskSdt_nxb.Clear();
             
         }
         

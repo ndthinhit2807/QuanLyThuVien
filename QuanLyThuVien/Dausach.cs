@@ -56,6 +56,8 @@ namespace QuanLyThuVien
 
             lbltestnxb_dausach.Text = "";
 
+            txtNamxb_dausach.Text = "2000";
+
                 
         }
 
@@ -276,6 +278,10 @@ namespace QuanLyThuVien
 
         private void txtNamxb_dausach_TextChanged(object sender, EventArgs e)
         {
+            if (txtNamxb_dausach.Text == "")
+            {
+                txtNamxb_dausach.Text = "2000";
+            }
             if (int.Parse(txtNamxb_dausach.Text) > DateTime.Now.Year)
             {
                 lbltestnxb_dausach.Text = "Năm xuất bản nhỏ hơn: " + DateTime.Now.Year;
@@ -284,6 +290,7 @@ namespace QuanLyThuVien
             {
                 lbltestnxb_dausach.Text = "";
             }
+
         }
 
         private void btnLammoi_dausach_Click_1(object sender, EventArgs e)

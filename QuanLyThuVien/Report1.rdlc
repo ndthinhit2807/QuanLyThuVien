@@ -24,7 +24,7 @@
               <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.47917in</Width>
+              <Width>1.33334in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -220,7 +220,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tổng Só Lần Mượn</Value>
+                              <Value>Tổng Số Lần Mượn</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -482,14 +482,15 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.42584in</Top>
-        <Left>2.9675in</Left>
+        <Top>2.99479in</Top>
+        <Left>6.10292in</Left>
         <Height>0.5in</Height>
-        <Width>7.66667in</Width>
+        <Width>7.52084in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <TextAlign>Center</TextAlign>
         </Style>
       </Tablix>
       <Textbox Name="Textbox4">
@@ -503,6 +504,7 @@
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontSize>30pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -510,10 +512,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>0.57167in</Top>
-        <Left>5.38417in</Left>
+        <Top>0.93229in</Top>
+        <Left>8.51959in</Left>
         <Height>0.64583in</Height>
-        <Width>2.77083in</Width>
+        <Width>3.0625in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -543,8 +545,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.57813in</Top>
-        <Left>4.5925in</Left>
+        <Top>1.63367in</Top>
+        <Left>7.89459in</Left>
         <Height>0.64583in</Height>
         <Width>4.27083in</Width>
         <ZIndex>2</ZIndex>
@@ -558,11 +560,71 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox20">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ngày tạo thống kê</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox20</rd:DefaultName>
+        <Top>2.59895in</Top>
+        <Left>6.10292in</Left>
+        <Height>0.25in</Height>
+        <Width>1.25in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="MASACH1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=CDate(now).ToString("dd/MM/yyyy")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>MASACH1</rd:DefaultName>
+        <Top>2.59895in</Top>
+        <Left>7.4675in</Left>
+        <Height>0.25in</Height>
+        <Width>1in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.26042in</Height>
+    <Height>8.75in</Height>
     <Style />
   </Body>
-  <Width>12.625in</Width>
+  <Width>20in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

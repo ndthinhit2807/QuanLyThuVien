@@ -663,6 +663,7 @@ namespace QuanLyThuVien
             this.dgvctpm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvctpm.Size = new System.Drawing.Size(1883, 469);
             this.dgvctpm.TabIndex = 4;
+            this.dgvctpm.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvctpm_CellClick);
             // 
             // Column4
             // 

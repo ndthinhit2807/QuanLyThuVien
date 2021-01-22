@@ -106,23 +106,7 @@ namespace QuanLyThuVien
             txtTen_tacgia.Text = dgvtacgia.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
-        private void txtTimkiemtg_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (cboTim_tacgia.Text == "Mã")
-            {
-                var findmatg = (from s in db.TACGIAs
-                                  where s.MATACGIA.Contains(txtTim_tacgia.Text)
-                                  select s).ToList();
-                dgvtacgia.DataSource = findmatg;
-            }
-            else
-            {
-                var findntentg = (from s in db.TACGIAs
-                              where s.TENTACGIA.Contains(txtTim_tacgia.Text)
-                              select s).ToList();
-                dgvtacgia.DataSource = findntentg;
-            }
-        }
+       
 
         public void autotang()
         {
@@ -155,6 +139,25 @@ namespace QuanLyThuVien
         private void btnLammoi_tacgia_Click(object sender, EventArgs e)
         {
             loadtacgia();
+        }
+        
+
+        private void txtTim_tacgia_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (cboTim_tacgia.Text == "Mã")
+            {
+                var findmatg = (from s in db.TACGIAs
+                                where s.MATACGIA.Contains(txtTim_tacgia.Text)
+                                select s).ToList();
+                dgvtacgia.DataSource = findmatg;
+            }
+            else
+            {
+                var findntentg = (from s in db.TACGIAs
+                                  where s.TENTACGIA.Contains(txtTim_tacgia.Text)
+                                  select s).ToList();
+                dgvtacgia.DataSource = findntentg;
+            }
         }
     }
 }

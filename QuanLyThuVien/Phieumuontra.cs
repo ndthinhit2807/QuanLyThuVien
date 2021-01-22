@@ -598,5 +598,18 @@ namespace QuanLyThuVien
         {
             loadpmt();
         }
+
+        private void dgvctpm_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cbomapmt_ctpm.Text = dgvctpm.Rows[e.RowIndex].Cells[0].Value.ToString();
+            cbomasach_ctpm.Text = dgvctpm.Rows[e.RowIndex].Cells[5].Value.ToString();
+            cbotinhtrang.Text = dgvctpm.Rows[e.RowIndex].Cells[7].Value.ToString();
+            txtsoluong_ctpm.Text = dgvctpm.Rows[e.RowIndex].Cells[8].Value.ToString();
+            dtmhantra.Text = dgvctpm.Rows[e.RowIndex].Cells[10].Value.ToString();
+            dtmngaytra.Text = dgvctpm.Rows[e.RowIndex].Cells[11].Value.ToString();
+            label5.Text = "";
+            label13.Text = "";
+
+        }
     }
 }
