@@ -151,7 +151,7 @@ namespace QuanLyThuVien
             TabCreating(this.xtraTabControl1, "Đầu Sách", dausach);
         }
 
-     
+
 
         private void btnnhanvien_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -189,6 +189,11 @@ namespace QuanLyThuVien
                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                frmDangnhap login = new frmDangnhap();
+                login.Show();
             }
         }
     }

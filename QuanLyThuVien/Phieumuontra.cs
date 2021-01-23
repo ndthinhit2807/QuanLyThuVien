@@ -47,6 +47,7 @@ namespace QuanLyThuVien
             cboTim_pmt.SelectedIndex = 0;
 
             lbltestnl.Text = "";
+            dtmngaylap_phieumuontra.Value = DateTime.Now;
         }
 
         private void btnthemsuapmt_Click(object sender, EventArgs e)
