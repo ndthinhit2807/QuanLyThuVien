@@ -296,6 +296,8 @@ namespace QuanLyThuVien
         private void btnLammoi_dausach_Click_1(object sender, EventArgs e)
         {
             loaddausach();
+            txtTen_dausach.Clear();
+            
         }
     }
 }

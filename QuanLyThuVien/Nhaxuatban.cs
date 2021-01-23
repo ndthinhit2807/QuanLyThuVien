@@ -175,19 +175,6 @@ namespace QuanLyThuVien
             DataGridView();
         }
 
-        private void mskSdt_nxb_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            string dauso = "0";
-            if(mskSdt_nxb.Text.Length != 10 || mskSdt_nxb.Text.IndexOf(dauso) != 0)
-            {
-                lbltestsdt_nxb.Text = "Nhập đúng định dạng";
-            }
-            else
-            {
-                lbltestsdt_nxb.Text = "";
-            }
-        }
-
         private void mskSdt_nxb_Click(object sender, EventArgs e)
         {
             mskSdt_nxb.Select(0, 0);
@@ -196,6 +183,19 @@ namespace QuanLyThuVien
         private void btnLammoi_nxb_Click(object sender, EventArgs e)
         {
             DataGridView();
+        }
+
+        private void mskSdt_nxb_KeyUp(object sender, KeyEventArgs e)
+        {
+            string dauso = "0";
+            if (mskSdt_nxb.Text.Length != 10 || mskSdt_nxb.Text.IndexOf(dauso) != 0)
+            {
+                lbltestsdt_nxb.Text = "Nhập đúng định dạng";
+            }
+            else
+            {
+                lbltestsdt_nxb.Text = "";
+            }
         }
     }
 }

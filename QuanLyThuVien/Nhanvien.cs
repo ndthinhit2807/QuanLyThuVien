@@ -25,6 +25,7 @@ namespace QuanLyThuVien
             dgvNhanvien.DataSource = db.NHANVIENs.ToList();
             autotang();
             lbltestns.Text = "Ngày sinh nhỏ hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
+            dtmNgaysinh_nhanvien.Value = DateTime.Now;
 
         }
 

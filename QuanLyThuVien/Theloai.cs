@@ -149,6 +149,7 @@ namespace QuanLyThuVien
         private void btnLammoi_theloai_Click(object sender, EventArgs e)
         {
             DataGridView();
+            txtTen_theloai.Clear();
         }
     }
 }

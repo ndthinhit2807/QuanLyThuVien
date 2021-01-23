@@ -139,6 +139,7 @@ namespace QuanLyThuVien
         private void btnLammoi_tacgia_Click(object sender, EventArgs e)
         {
             loadtacgia();
+            txtTen_tacgia.Clear();
         }
         
 
