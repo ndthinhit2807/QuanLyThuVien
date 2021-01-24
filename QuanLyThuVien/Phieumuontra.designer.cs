@@ -65,7 +65,6 @@ namespace QuanLyThuVien
             this.label13 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbltestsl = new System.Windows.Forms.Label();
-            this.btnTailai_ctpm = new System.Windows.Forms.Button();
             this.btnHuy_ctpm = new System.Windows.Forms.Button();
             this.btnLuu_ctpm = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -440,7 +439,6 @@ namespace QuanLyThuVien
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.lbltestsl);
-            this.groupBox4.Controls.Add(this.btnTailai_ctpm);
             this.groupBox4.Controls.Add(this.btnHuy_ctpm);
             this.groupBox4.Controls.Add(this.btnLuu_ctpm);
             this.groupBox4.Controls.Add(this.groupBox1);
@@ -513,24 +511,11 @@ namespace QuanLyThuVien
             this.lbltestsl.TabIndex = 19;
             this.lbltestsl.Text = "Test";
             // 
-            // btnTailai_ctpm
-            // 
-            this.btnTailai_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnTailai_ctpm.Image")));
-            this.btnTailai_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTailai_ctpm.Location = new System.Drawing.Point(873, 262);
-            this.btnTailai_ctpm.Name = "btnTailai_ctpm";
-            this.btnTailai_ctpm.Size = new System.Drawing.Size(96, 52);
-            this.btnTailai_ctpm.TabIndex = 18;
-            this.btnTailai_ctpm.Text = "Huỷ";
-            this.btnTailai_ctpm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTailai_ctpm.UseVisualStyleBackColor = true;
-            this.btnTailai_ctpm.Click += new System.EventHandler(this.btnTailai_ctpm_Click);
-            // 
             // btnHuy_ctpm
             // 
             this.btnHuy_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy_ctpm.Image")));
             this.btnHuy_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuy_ctpm.Location = new System.Drawing.Point(756, 262);
+            this.btnHuy_ctpm.Location = new System.Drawing.Point(864, 265);
             this.btnHuy_ctpm.Name = "btnHuy_ctpm";
             this.btnHuy_ctpm.Size = new System.Drawing.Size(96, 52);
             this.btnHuy_ctpm.TabIndex = 18;
@@ -543,7 +528,7 @@ namespace QuanLyThuVien
             // 
             this.btnLuu_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu_ctpm.Image")));
             this.btnLuu_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuu_ctpm.Location = new System.Drawing.Point(634, 262);
+            this.btnLuu_ctpm.Location = new System.Drawing.Point(742, 265);
             this.btnLuu_ctpm.Name = "btnLuu_ctpm";
             this.btnLuu_ctpm.Size = new System.Drawing.Size(101, 52);
             this.btnLuu_ctpm.TabIndex = 18;
@@ -762,7 +747,7 @@ namespace QuanLyThuVien
             // 
             this.btntrasach_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btntrasach_ctpm.Image")));
             this.btntrasach_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btntrasach_ctpm.Location = new System.Drawing.Point(482, 262);
+            this.btntrasach_ctpm.Location = new System.Drawing.Point(590, 265);
             this.btntrasach_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntrasach_ctpm.Name = "btntrasach_ctpm";
             this.btntrasach_ctpm.Size = new System.Drawing.Size(131, 52);
@@ -785,7 +770,7 @@ namespace QuanLyThuVien
             // 
             this.btngiahan_ctpm.Image = ((System.Drawing.Image)(resources.GetObject("btngiahan_ctpm.Image")));
             this.btngiahan_ctpm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btngiahan_ctpm.Location = new System.Drawing.Point(331, 262);
+            this.btngiahan_ctpm.Location = new System.Drawing.Point(439, 265);
             this.btngiahan_ctpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btngiahan_ctpm.Name = "btngiahan_ctpm";
             this.btngiahan_ctpm.Size = new System.Drawing.Size(130, 52);
@@ -961,7 +946,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Label lblTennv_phieumuontra;
         private System.Windows.Forms.Label lblTendg_phieumuontra;
         private System.Windows.Forms.Button btnLammoi_pmt;
-        private System.Windows.Forms.Button btnTailai_ctpm;
         private System.Windows.Forms.Label lbltestnl;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
