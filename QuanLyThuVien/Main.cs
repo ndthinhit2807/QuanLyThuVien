@@ -186,14 +186,13 @@ namespace QuanLyThuVien
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát?", "Thông Báo",
-                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                e.Cancel = true;
+                Application.ExitThread();
             }
             else
             {
-                frmDangnhap login = new frmDangnhap();
-                login.Show();
+                e.Cancel = true;
             }
         }
     }
