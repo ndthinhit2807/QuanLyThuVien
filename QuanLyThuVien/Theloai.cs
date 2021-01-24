@@ -96,7 +96,7 @@ namespace QuanLyThuVien
         {
             int numrow;
             numrow = e.RowIndex;
-            mskMa_theloai.Text = dgvTheloai.Rows[numrow].Cells[0].Value.ToString();
+             mskMa_theloai.Text = dgvTheloai.Rows[numrow].Cells[0].Value.ToString();
             txtTen_theloai.Text = dgvTheloai.Rows[numrow].Cells[1].Value.ToString();
         }
 
