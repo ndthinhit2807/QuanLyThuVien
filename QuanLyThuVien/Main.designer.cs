@@ -382,6 +382,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 158);
             this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
             this.xtraTabControl1.Size = new System.Drawing.Size(1916, 855);
             this.xtraTabControl1.TabIndex = 5;
             this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
@@ -413,6 +414,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản Lý Thư Viện";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();

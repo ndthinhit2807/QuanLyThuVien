@@ -23,6 +23,8 @@ namespace QuanLyThuVien
         {
             cboTim_thedocgia.SelectedIndex = 0; //combobox tìm kiếm mặc định là mã độc giả
             loadtdg();
+            label3.Text = "Ngày hết hạn lớn hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
+            dtmNgaylap_thedocgia.Value = DateTime.Now;
         }
         //Load không bị thừa dữ liẹu 
         void loadtdg()
@@ -50,6 +52,9 @@ namespace QuanLyThuVien
                 cboMadocgia_thedocgia.DisplayMember = "MADOCGIA";
 
                 autotang();
+
+                label3.Text = "";
+                label13.Text = "";
             }
         }
 
@@ -60,49 +65,67 @@ namespace QuanLyThuVien
             cboMadocgia_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[2].Value.ToString();
             dtmNgaylap_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[3].Value.ToString();
             dtmHethan_thedocgia.Text = dgvTheDocGia.Rows[e.RowIndex].Cells[4].Value.ToString();
+            label13.Text = "";
+            label3.Text = "";
 
         }
 
         private void btnthemsua_thedocgia_Click(object sender, EventArgs e)
         {
-            try
+            if (label13.Text != "")
             {
-                THEDOCGIA tdg = new THEDOCGIA();
-                tdg.MATHE = mskMa_thedocgia.Text.Trim();
-                tdg.MANV = cboManv_thedocgia.SelectedValue.ToString();
-                tdg.MADOCGIA = cboMadocgia_thedocgia.SelectedValue.ToString();
-                tdg.NGAYLAP = Convert.ToDateTime(dtmNgaylap_thedocgia.Value);
-                tdg.NGAYHETHAN = Convert.ToDateTime(dtmHethan_thedocgia.Value);
-                var test_tdg = db.THEDOCGIAs.FirstOrDefault(p => p.MATHE == tdg.MATHE || p.MADOCGIA == tdg.MADOCGIA);
-                if (test_tdg == null)
+                MessageBox.Show("Vui lòng nhập ngày lập", "Thông báo", MessageBoxButtons.OK);
+            }
+            else if (label3.Text != "")
+            {
+                MessageBox.Show("Vui lòng nhập ngày hết hạn", "Thông báo", MessageBoxButtons.OK);
+            }
+            else
+            {
+
+                try
                 {
-                    db.THEDOCGIAs.InsertOnSubmit(tdg);
-                    db.SubmitChanges();
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_thedocgia.Clear();
-                    loadtdg();
-                    autotang();
-                }
-                else
-                {
-                    tdg = db.THEDOCGIAs.Where(p => p.MATHE == mskMa_thedocgia.Text).Single();
+                    THEDOCGIA tdg = new THEDOCGIA();
                     tdg.MATHE = mskMa_thedocgia.Text.Trim();
                     tdg.MANV = cboManv_thedocgia.SelectedValue.ToString();
                     tdg.MADOCGIA = cboMadocgia_thedocgia.SelectedValue.ToString();
                     tdg.NGAYLAP = Convert.ToDateTime(dtmNgaylap_thedocgia.Value);
                     tdg.NGAYHETHAN = Convert.ToDateTime(dtmHethan_thedocgia.Value);
-                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_thedocgia.Clear();
-                    db.SubmitChanges();
-                    loadtdg();
-                    autotang();
-                }
+                    var test_tdg = db.THEDOCGIAs.FirstOrDefault(p => p.MATHE == tdg.MATHE || p.MADOCGIA == tdg.MADOCGIA);
+                    if (test_tdg == null)
+                    {
+                        db.THEDOCGIAs.InsertOnSubmit(tdg);
+                        db.SubmitChanges();
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_thedocgia.Clear();
+                        loadtdg();
+                        autotang();
+                    }
+                    else if (test_tdg != null)
+                    {
+                        tdg = db.THEDOCGIAs.Where(p => p.MATHE == mskMa_thedocgia.Text).Single();
+                        tdg.MATHE = mskMa_thedocgia.Text.Trim();
+                        tdg.MANV = cboManv_thedocgia.SelectedValue.ToString();
+                        tdg.MADOCGIA = cboMadocgia_thedocgia.SelectedValue.ToString();
+                        tdg.NGAYLAP = Convert.ToDateTime(dtmNgaylap_thedocgia.Value);
+                        tdg.NGAYHETHAN = Convert.ToDateTime(dtmHethan_thedocgia.Value);
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_thedocgia.Clear();
+                        db.SubmitChanges();
+                        loadtdg();
+                        autotang();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Độc giả đã có thẻ độc giả", "Thông báo", MessageBoxButtons.OK);
+                    }
                
                 
-            }
-            catch
-            {
-                MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK);
+                }
+                catch
+                {
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -219,6 +242,47 @@ namespace QuanLyThuVien
                              };
                 dgvTheDocGia.DataSource = search;
             }
+        }
+
+        private void btnLammoi_thedocgia_Click_1(object sender, EventArgs e)
+        {
+            loadtdg();
+            cboManv_thedocgia.DataSource = db.NHANVIENs;
+            cboManv_thedocgia.ValueMember = "MANV";
+            cboManv_thedocgia.DisplayMember = "MANV";
+
+            cboMadocgia_thedocgia.DataSource = db.DOCGIAs;
+            cboMadocgia_thedocgia.ValueMember = "MADOCGIA";
+            cboMadocgia_thedocgia.DisplayMember = "MADOCGIA";
+        }
+
+        private void dtmNgaylap_thedocgia_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtmNgaylap_thedocgia.Value.ToString("dd/MM/yyyy") != DateTime.Now.ToString("dd/MM/yyyy"))
+            {
+                label13.Text = "Ngày lập bằng: " + DateTime.Now.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                label13.Text = "";
+            }
+        }
+
+        private void dtmHethan_thedocgia_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtmHethan_thedocgia.Value < DateTime.Now)
+            {
+                label3.Text = "Ngày hết hạn lớn hơn: " + DateTime.Now.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                label3.Text = "";
+            }
+        }
+
+        private void btnLammoi_thedocgia_Click_2(object sender, EventArgs e)
+        {
+            loadtdg();
         }
     }
 }

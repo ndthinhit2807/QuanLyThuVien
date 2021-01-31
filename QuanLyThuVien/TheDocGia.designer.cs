@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTheDocGia));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi_thedocgia = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.mskMa_thedocgia = new System.Windows.Forms.MaskedTextBox();
@@ -57,6 +58,8 @@ namespace QuanLyThuVien
             this.txtTim_thedocgia = new System.Windows.Forms.TextBox();
             this.cboTim_thedocgia = new System.Windows.Forms.ComboBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheDocGia)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -65,6 +68,9 @@ namespace QuanLyThuVien
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.btnLammoi_thedocgia);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.mskMa_thedocgia);
@@ -87,10 +93,23 @@ namespace QuanLyThuVien
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông Tin";
             // 
+            // btnLammoi_thedocgia
+            // 
+            this.btnLammoi_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_thedocgia.Image")));
+            this.btnLammoi_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_thedocgia.Location = new System.Drawing.Point(426, 522);
+            this.btnLammoi_thedocgia.Name = "btnLammoi_thedocgia";
+            this.btnLammoi_thedocgia.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_thedocgia.TabIndex = 27;
+            this.btnLammoi_thedocgia.Text = "Làm Mới";
+            this.btnLammoi_thedocgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_thedocgia.UseVisualStyleBackColor = true;
+            this.btnLammoi_thedocgia.Click += new System.EventHandler(this.btnLammoi_thedocgia_Click_2);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 178);
+            this.label2.Location = new System.Drawing.Point(273, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 30);
             this.label2.TabIndex = 25;
@@ -99,7 +118,7 @@ namespace QuanLyThuVien
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(337, 252);
+            this.label1.Location = new System.Drawing.Point(273, 235);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 30);
             this.label1.TabIndex = 24;
@@ -107,8 +126,9 @@ namespace QuanLyThuVien
             // 
             // mskMa_thedocgia
             // 
-            this.mskMa_thedocgia.Location = new System.Drawing.Point(339, 139);
+            this.mskMa_thedocgia.Location = new System.Drawing.Point(275, 122);
             this.mskMa_thedocgia.Name = "mskMa_thedocgia";
+            this.mskMa_thedocgia.ReadOnly = true;
             this.mskMa_thedocgia.Size = new System.Drawing.Size(140, 35);
             this.mskMa_thedocgia.TabIndex = 23;
             // 
@@ -116,7 +136,7 @@ namespace QuanLyThuVien
             // 
             this.btnXoa_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa_thedocgia.Image")));
             this.btnXoa_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa_thedocgia.Location = new System.Drawing.Point(401, 519);
+            this.btnXoa_thedocgia.Location = new System.Drawing.Point(303, 522);
             this.btnXoa_thedocgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa_thedocgia.Name = "btnXoa_thedocgia";
             this.btnXoa_thedocgia.Size = new System.Drawing.Size(91, 52);
@@ -130,7 +150,7 @@ namespace QuanLyThuVien
             // 
             this.btnThemsua_thedocgia.Image = ((System.Drawing.Image)(resources.GetObject("btnThemsua_thedocgia.Image")));
             this.btnThemsua_thedocgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThemsua_thedocgia.Location = new System.Drawing.Point(201, 519);
+            this.btnThemsua_thedocgia.Location = new System.Drawing.Point(103, 522);
             this.btnThemsua_thedocgia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemsua_thedocgia.Name = "btnThemsua_thedocgia";
             this.btnThemsua_thedocgia.Size = new System.Drawing.Size(165, 52);
@@ -146,16 +166,17 @@ namespace QuanLyThuVien
             this.dtmNgaylap_thedocgia.CustomFormat = "dd/MM/yyyy";
             this.dtmNgaylap_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtmNgaylap_thedocgia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtmNgaylap_thedocgia.Location = new System.Drawing.Point(339, 361);
+            this.dtmNgaylap_thedocgia.Location = new System.Drawing.Point(275, 344);
             this.dtmNgaylap_thedocgia.Name = "dtmNgaylap_thedocgia";
             this.dtmNgaylap_thedocgia.Size = new System.Drawing.Size(140, 35);
             this.dtmNgaylap_thedocgia.TabIndex = 1;
+            this.dtmNgaylap_thedocgia.ValueChanged += new System.EventHandler(this.dtmNgaylap_thedocgia_ValueChanged);
             // 
             // lblMaNV
             // 
             this.lblMaNV.AutoSize = true;
             this.lblMaNV.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaNV.Location = new System.Drawing.Point(169, 215);
+            this.lblMaNV.Location = new System.Drawing.Point(105, 198);
             this.lblMaNV.Name = "lblMaNV";
             this.lblMaNV.Size = new System.Drawing.Size(147, 30);
             this.lblMaNV.TabIndex = 10;
@@ -166,7 +187,7 @@ namespace QuanLyThuVien
             // 
             this.lblMaDocGia.AutoSize = true;
             this.lblMaDocGia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaDocGia.Location = new System.Drawing.Point(196, 289);
+            this.lblMaDocGia.Location = new System.Drawing.Point(132, 272);
             this.lblMaDocGia.Name = "lblMaDocGia";
             this.lblMaDocGia.Size = new System.Drawing.Size(122, 30);
             this.lblMaDocGia.TabIndex = 10;
@@ -179,7 +200,7 @@ namespace QuanLyThuVien
             this.cboManv_thedocgia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboManv_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboManv_thedocgia.FormattingEnabled = true;
-            this.cboManv_thedocgia.Location = new System.Drawing.Point(339, 211);
+            this.cboManv_thedocgia.Location = new System.Drawing.Point(275, 194);
             this.cboManv_thedocgia.Name = "cboManv_thedocgia";
             this.cboManv_thedocgia.Size = new System.Drawing.Size(140, 38);
             this.cboManv_thedocgia.TabIndex = 3;
@@ -189,7 +210,7 @@ namespace QuanLyThuVien
             // 
             this.lblNgayLap.AutoSize = true;
             this.lblNgayLap.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayLap.Location = new System.Drawing.Point(217, 363);
+            this.lblNgayLap.Location = new System.Drawing.Point(153, 346);
             this.lblNgayLap.Name = "lblNgayLap";
             this.lblNgayLap.Size = new System.Drawing.Size(101, 30);
             this.lblNgayLap.TabIndex = 11;
@@ -201,7 +222,7 @@ namespace QuanLyThuVien
             this.cboMadocgia_thedocgia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMadocgia_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMadocgia_thedocgia.FormattingEnabled = true;
-            this.cboMadocgia_thedocgia.Location = new System.Drawing.Point(339, 285);
+            this.cboMadocgia_thedocgia.Location = new System.Drawing.Point(275, 268);
             this.cboMadocgia_thedocgia.Name = "cboMadocgia_thedocgia";
             this.cboMadocgia_thedocgia.Size = new System.Drawing.Size(140, 38);
             this.cboMadocgia_thedocgia.TabIndex = 3;
@@ -211,7 +232,7 @@ namespace QuanLyThuVien
             // 
             this.lblNgayHetHan.AutoSize = true;
             this.lblNgayHetHan.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayHetHan.Location = new System.Drawing.Point(171, 437);
+            this.lblNgayHetHan.Location = new System.Drawing.Point(107, 420);
             this.lblNgayHetHan.Name = "lblNgayHetHan";
             this.lblNgayHetHan.Size = new System.Drawing.Size(145, 30);
             this.lblNgayHetHan.TabIndex = 13;
@@ -221,7 +242,7 @@ namespace QuanLyThuVien
             // 
             this.lblMathe.AutoSize = true;
             this.lblMathe.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMathe.Location = new System.Drawing.Point(235, 141);
+            this.lblMathe.Location = new System.Drawing.Point(171, 124);
             this.lblMathe.Name = "lblMathe";
             this.lblMathe.Size = new System.Drawing.Size(83, 30);
             this.lblMathe.TabIndex = 12;
@@ -233,10 +254,11 @@ namespace QuanLyThuVien
             this.dtmHethan_thedocgia.CustomFormat = "dd/MM/yyyy";
             this.dtmHethan_thedocgia.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtmHethan_thedocgia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtmHethan_thedocgia.Location = new System.Drawing.Point(339, 435);
+            this.dtmHethan_thedocgia.Location = new System.Drawing.Point(275, 418);
             this.dtmHethan_thedocgia.Name = "dtmHethan_thedocgia";
             this.dtmHethan_thedocgia.Size = new System.Drawing.Size(140, 35);
             this.dtmHethan_thedocgia.TabIndex = 2;
+            this.dtmHethan_thedocgia.ValueChanged += new System.EventHandler(this.dtmHethan_thedocgia_ValueChanged);
             // 
             // dgvTheDocGia
             // 
@@ -361,6 +383,26 @@ namespace QuanLyThuVien
             this.labelControl1.TabIndex = 20;
             this.labelControl1.Text = "Thẻ Độc Giả";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(270, 311);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 30);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Test";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(270, 382);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 30);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Test";
+            // 
             // frmTheDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,5 +455,8 @@ namespace QuanLyThuVien
         private System.Windows.Forms.DataGridViewTextBoxColumn ngayhethan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLammoi_thedocgia;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label13;
     }
 }

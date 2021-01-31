@@ -29,7 +29,6 @@ namespace QuanLyThuVien
             prgKiemTra.Visible = true;
             prgKiemTra.Minimum = 0;
             prgKiemTra.Maximum = 5000;
-
             for (int i = 0; i < 5000; i++)
             {
                 prgKiemTra.Value = i;

@@ -33,9 +33,6 @@ namespace QuanLyThuVien
     partial void InsertCTPM(CTPM instance);
     partial void UpdateCTPM(CTPM instance);
     partial void DeleteCTPM(CTPM instance);
-    partial void InsertTHEDOCGIA(THEDOCGIA instance);
-    partial void UpdateTHEDOCGIA(THEDOCGIA instance);
-    partial void DeleteTHEDOCGIA(THEDOCGIA instance);
     partial void InsertDAUSACH(DAUSACH instance);
     partial void UpdateDAUSACH(DAUSACH instance);
     partial void DeleteDAUSACH(DAUSACH instance);
@@ -57,6 +54,9 @@ namespace QuanLyThuVien
     partial void InsertTAIKHOAN(TAIKHOAN instance);
     partial void UpdateTAIKHOAN(TAIKHOAN instance);
     partial void DeleteTAIKHOAN(TAIKHOAN instance);
+    partial void InsertTHEDOCGIA(THEDOCGIA instance);
+    partial void UpdateTHEDOCGIA(THEDOCGIA instance);
+    partial void DeleteTHEDOCGIA(THEDOCGIA instance);
     partial void InsertTHELOAI(THELOAI instance);
     partial void UpdateTHELOAI(THELOAI instance);
     partial void DeleteTHELOAI(THELOAI instance);
@@ -97,14 +97,6 @@ namespace QuanLyThuVien
 			get
 			{
 				return this.GetTable<CTPM>();
-			}
-		}
-		
-		public System.Data.Linq.Table<THEDOCGIA> THEDOCGIAs
-		{
-			get
-			{
-				return this.GetTable<THEDOCGIA>();
 			}
 		}
 		
@@ -161,6 +153,14 @@ namespace QuanLyThuVien
 			get
 			{
 				return this.GetTable<TAIKHOAN>();
+			}
+		}
+		
+		public System.Data.Linq.Table<THEDOCGIA> THEDOCGIAs
+		{
+			get
+			{
+				return this.GetTable<THEDOCGIA>();
 			}
 		}
 		
@@ -444,274 +444,6 @@ namespace QuanLyThuVien
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THEDOCGIA")]
-	public partial class THEDOCGIA : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MANV;
-		
-		private string _MATHE;
-		
-		private System.Nullable<System.DateTime> _NGAYLAP;
-		
-		private System.Nullable<System.DateTime> _NGAYHETHAN;
-		
-		private string _MADOCGIA;
-		
-		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
-		
-		private EntityRef<DOCGIA> _DOCGIA;
-		
-		private EntityRef<NHANVIEN> _NHANVIEN;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMANVChanging(string value);
-    partial void OnMANVChanged();
-    partial void OnMATHEChanging(string value);
-    partial void OnMATHEChanged();
-    partial void OnNGAYLAPChanging(System.Nullable<System.DateTime> value);
-    partial void OnNGAYLAPChanged();
-    partial void OnNGAYHETHANChanging(System.Nullable<System.DateTime> value);
-    partial void OnNGAYHETHANChanged();
-    partial void OnMADOCGIAChanging(string value);
-    partial void OnMADOCGIAChanged();
-    #endregion
-		
-		public THEDOCGIA()
-		{
-			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
-			this._DOCGIA = default(EntityRef<DOCGIA>);
-			this._NHANVIEN = default(EntityRef<NHANVIEN>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string MANV
-		{
-			get
-			{
-				return this._MANV;
-			}
-			set
-			{
-				if ((this._MANV != value))
-				{
-					if (this._NHANVIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMANVChanging(value);
-					this.SendPropertyChanging();
-					this._MANV = value;
-					this.SendPropertyChanged("MANV");
-					this.OnMANVChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHE", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MATHE
-		{
-			get
-			{
-				return this._MATHE;
-			}
-			set
-			{
-				if ((this._MATHE != value))
-				{
-					this.OnMATHEChanging(value);
-					this.SendPropertyChanging();
-					this._MATHE = value;
-					this.SendPropertyChanged("MATHE");
-					this.OnMATHEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYLAP", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NGAYLAP
-		{
-			get
-			{
-				return this._NGAYLAP;
-			}
-			set
-			{
-				if ((this._NGAYLAP != value))
-				{
-					this.OnNGAYLAPChanging(value);
-					this.SendPropertyChanging();
-					this._NGAYLAP = value;
-					this.SendPropertyChanged("NGAYLAP");
-					this.OnNGAYLAPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYHETHAN", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NGAYHETHAN
-		{
-			get
-			{
-				return this._NGAYHETHAN;
-			}
-			set
-			{
-				if ((this._NGAYHETHAN != value))
-				{
-					this.OnNGAYHETHANChanging(value);
-					this.SendPropertyChanging();
-					this._NGAYHETHAN = value;
-					this.SendPropertyChanged("NGAYHETHAN");
-					this.OnNGAYHETHANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MADOCGIA", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MADOCGIA
-		{
-			get
-			{
-				return this._MADOCGIA;
-			}
-			set
-			{
-				if ((this._MADOCGIA != value))
-				{
-					if (this._DOCGIA.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMADOCGIAChanging(value);
-					this.SendPropertyChanging();
-					this._MADOCGIA = value;
-					this.SendPropertyChanged("MADOCGIA");
-					this.OnMADOCGIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THEDOCGIA_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MATHE,MADOCGIA", OtherKey="MATHE,MADOCGIA")]
-		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
-		{
-			get
-			{
-				return this._PHIEUMUONTRAs;
-			}
-			set
-			{
-				this._PHIEUMUONTRAs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DOCGIA_THEDOCGIA", Storage="_DOCGIA", ThisKey="MADOCGIA", OtherKey="MADOCGIA", IsForeignKey=true)]
-		public DOCGIA DOCGIA
-		{
-			get
-			{
-				return this._DOCGIA.Entity;
-			}
-			set
-			{
-				DOCGIA previousValue = this._DOCGIA.Entity;
-				if (((previousValue != value) 
-							|| (this._DOCGIA.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DOCGIA.Entity = null;
-						previousValue.THEDOCGIAs.Remove(this);
-					}
-					this._DOCGIA.Entity = value;
-					if ((value != null))
-					{
-						value.THEDOCGIAs.Add(this);
-						this._MADOCGIA = value.MADOCGIA;
-					}
-					else
-					{
-						this._MADOCGIA = default(string);
-					}
-					this.SendPropertyChanged("DOCGIA");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_THEDOCGIA", Storage="_NHANVIEN", ThisKey="MANV", OtherKey="MANV", IsForeignKey=true)]
-		public NHANVIEN NHANVIEN
-		{
-			get
-			{
-				return this._NHANVIEN.Entity;
-			}
-			set
-			{
-				NHANVIEN previousValue = this._NHANVIEN.Entity;
-				if (((previousValue != value) 
-							|| (this._NHANVIEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NHANVIEN.Entity = null;
-						previousValue.THEDOCGIAs.Remove(this);
-					}
-					this._NHANVIEN.Entity = value;
-					if ((value != null))
-					{
-						value.THEDOCGIAs.Add(this);
-						this._MANV = value.MANV;
-					}
-					else
-					{
-						this._MANV = default(string);
-					}
-					this.SendPropertyChanged("NHANVIEN");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
-		{
-			this.SendPropertyChanging();
-			entity.THEDOCGIA = this;
-		}
-		
-		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
-		{
-			this.SendPropertyChanging();
-			entity.THEDOCGIA = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DAUSACH")]
 	public partial class DAUSACH : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -805,7 +537,7 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMXUATBAN", DbType="Char(5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMXUATBAN", DbType="VarChar(50)")]
 		public string NAMXUATBAN
 		{
 			get
@@ -1299,9 +1031,9 @@ namespace QuanLyThuVien
 		
 		private string _EMAILNV;
 		
-		private EntitySet<THEDOCGIA> _THEDOCGIAs;
-		
 		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
+		
+		private EntitySet<THEDOCGIA> _THEDOCGIAs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1325,8 +1057,8 @@ namespace QuanLyThuVien
 		
 		public NHANVIEN()
 		{
-			this._THEDOCGIAs = new EntitySet<THEDOCGIA>(new Action<THEDOCGIA>(this.attach_THEDOCGIAs), new Action<THEDOCGIA>(this.detach_THEDOCGIAs));
 			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
+			this._THEDOCGIAs = new EntitySet<THEDOCGIA>(new Action<THEDOCGIA>(this.attach_THEDOCGIAs), new Action<THEDOCGIA>(this.detach_THEDOCGIAs));
 			OnCreated();
 		}
 		
@@ -1470,19 +1202,6 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_THEDOCGIA", Storage="_THEDOCGIAs", ThisKey="MANV", OtherKey="MANV")]
-		public EntitySet<THEDOCGIA> THEDOCGIAs
-		{
-			get
-			{
-				return this._THEDOCGIAs;
-			}
-			set
-			{
-				this._THEDOCGIAs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MANV", OtherKey="MANV")]
 		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
 		{
@@ -1493,6 +1212,19 @@ namespace QuanLyThuVien
 			set
 			{
 				this._PHIEUMUONTRAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_THEDOCGIA", Storage="_THEDOCGIAs", ThisKey="MANV", OtherKey="MANV")]
+		public EntitySet<THEDOCGIA> THEDOCGIAs
+		{
+			get
+			{
+				return this._THEDOCGIAs;
+			}
+			set
+			{
+				this._THEDOCGIAs.Assign(value);
 			}
 		}
 		
@@ -1516,18 +1248,6 @@ namespace QuanLyThuVien
 			}
 		}
 		
-		private void attach_THEDOCGIAs(THEDOCGIA entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = this;
-		}
-		
-		private void detach_THEDOCGIAs(THEDOCGIA entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHANVIEN = null;
-		}
-		
 		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
 		{
 			this.SendPropertyChanging();
@@ -1535,6 +1255,18 @@ namespace QuanLyThuVien
 		}
 		
 		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHANVIEN = null;
+		}
+		
+		private void attach_THEDOCGIAs(THEDOCGIA entity)
+		{
+			this.SendPropertyChanging();
+			entity.NHANVIEN = this;
+		}
+		
+		private void detach_THEDOCGIAs(THEDOCGIA entity)
 		{
 			this.SendPropertyChanging();
 			entity.NHANVIEN = null;
@@ -2174,6 +1906,274 @@ namespace QuanLyThuVien
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THEDOCGIA")]
+	public partial class THEDOCGIA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MANV;
+		
+		private string _MATHE;
+		
+		private System.Nullable<System.DateTime> _NGAYLAP;
+		
+		private System.Nullable<System.DateTime> _NGAYHETHAN;
+		
+		private string _MADOCGIA;
+		
+		private EntitySet<PHIEUMUONTRA> _PHIEUMUONTRAs;
+		
+		private EntityRef<DOCGIA> _DOCGIA;
+		
+		private EntityRef<NHANVIEN> _NHANVIEN;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMANVChanging(string value);
+    partial void OnMANVChanged();
+    partial void OnMATHEChanging(string value);
+    partial void OnMATHEChanged();
+    partial void OnNGAYLAPChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYLAPChanged();
+    partial void OnNGAYHETHANChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYHETHANChanged();
+    partial void OnMADOCGIAChanging(string value);
+    partial void OnMADOCGIAChanged();
+    #endregion
+		
+		public THEDOCGIA()
+		{
+			this._PHIEUMUONTRAs = new EntitySet<PHIEUMUONTRA>(new Action<PHIEUMUONTRA>(this.attach_PHIEUMUONTRAs), new Action<PHIEUMUONTRA>(this.detach_PHIEUMUONTRAs));
+			this._DOCGIA = default(EntityRef<DOCGIA>);
+			this._NHANVIEN = default(EntityRef<NHANVIEN>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MANV
+		{
+			get
+			{
+				return this._MANV;
+			}
+			set
+			{
+				if ((this._MANV != value))
+				{
+					if (this._NHANVIEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMANVChanging(value);
+					this.SendPropertyChanging();
+					this._MANV = value;
+					this.SendPropertyChanged("MANV");
+					this.OnMANVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATHE", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MATHE
+		{
+			get
+			{
+				return this._MATHE;
+			}
+			set
+			{
+				if ((this._MATHE != value))
+				{
+					this.OnMATHEChanging(value);
+					this.SendPropertyChanging();
+					this._MATHE = value;
+					this.SendPropertyChanged("MATHE");
+					this.OnMATHEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYLAP", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYLAP
+		{
+			get
+			{
+				return this._NGAYLAP;
+			}
+			set
+			{
+				if ((this._NGAYLAP != value))
+				{
+					this.OnNGAYLAPChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYLAP = value;
+					this.SendPropertyChanged("NGAYLAP");
+					this.OnNGAYLAPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYHETHAN", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYHETHAN
+		{
+			get
+			{
+				return this._NGAYHETHAN;
+			}
+			set
+			{
+				if ((this._NGAYHETHAN != value))
+				{
+					this.OnNGAYHETHANChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYHETHAN = value;
+					this.SendPropertyChanged("NGAYHETHAN");
+					this.OnNGAYHETHANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MADOCGIA", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MADOCGIA
+		{
+			get
+			{
+				return this._MADOCGIA;
+			}
+			set
+			{
+				if ((this._MADOCGIA != value))
+				{
+					if (this._DOCGIA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMADOCGIAChanging(value);
+					this.SendPropertyChanging();
+					this._MADOCGIA = value;
+					this.SendPropertyChanged("MADOCGIA");
+					this.OnMADOCGIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THEDOCGIA_PHIEUMUONTRA", Storage="_PHIEUMUONTRAs", ThisKey="MATHE,MADOCGIA", OtherKey="MATHE,MADOCGIA")]
+		public EntitySet<PHIEUMUONTRA> PHIEUMUONTRAs
+		{
+			get
+			{
+				return this._PHIEUMUONTRAs;
+			}
+			set
+			{
+				this._PHIEUMUONTRAs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DOCGIA_THEDOCGIA", Storage="_DOCGIA", ThisKey="MADOCGIA", OtherKey="MADOCGIA", IsForeignKey=true)]
+		public DOCGIA DOCGIA
+		{
+			get
+			{
+				return this._DOCGIA.Entity;
+			}
+			set
+			{
+				DOCGIA previousValue = this._DOCGIA.Entity;
+				if (((previousValue != value) 
+							|| (this._DOCGIA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DOCGIA.Entity = null;
+						previousValue.THEDOCGIAs.Remove(this);
+					}
+					this._DOCGIA.Entity = value;
+					if ((value != null))
+					{
+						value.THEDOCGIAs.Add(this);
+						this._MADOCGIA = value.MADOCGIA;
+					}
+					else
+					{
+						this._MADOCGIA = default(string);
+					}
+					this.SendPropertyChanged("DOCGIA");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHANVIEN_THEDOCGIA", Storage="_NHANVIEN", ThisKey="MANV", OtherKey="MANV", IsForeignKey=true)]
+		public NHANVIEN NHANVIEN
+		{
+			get
+			{
+				return this._NHANVIEN.Entity;
+			}
+			set
+			{
+				NHANVIEN previousValue = this._NHANVIEN.Entity;
+				if (((previousValue != value) 
+							|| (this._NHANVIEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NHANVIEN.Entity = null;
+						previousValue.THEDOCGIAs.Remove(this);
+					}
+					this._NHANVIEN.Entity = value;
+					if ((value != null))
+					{
+						value.THEDOCGIAs.Add(this);
+						this._MANV = value.MANV;
+					}
+					else
+					{
+						this._MANV = default(string);
+					}
+					this.SendPropertyChanged("NHANVIEN");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		{
+			this.SendPropertyChanging();
+			entity.THEDOCGIA = this;
+		}
+		
+		private void detach_PHIEUMUONTRAs(PHIEUMUONTRA entity)
+		{
+			this.SendPropertyChanging();
+			entity.THEDOCGIA = null;
 		}
 	}
 	

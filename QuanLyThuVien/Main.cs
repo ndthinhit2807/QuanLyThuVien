@@ -151,7 +151,7 @@ namespace QuanLyThuVien
             TabCreating(this.xtraTabControl1, "Đầu Sách", dausach);
         }
 
-     
+
 
         private void btnnhanvien_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -180,7 +180,20 @@ namespace QuanLyThuVien
         private void btnthongke_ItemClick(object sender, ItemClickEventArgs e)
         {
             Thongke xtra = new Thongke();
-            TabCreating(this.xtraTabControl1, "Trợ Giúp", xtra);
+            TabCreating(this.xtraTabControl1, "Thống kê", xtra);
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát?", "Thông Báo",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Application.ExitThread();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

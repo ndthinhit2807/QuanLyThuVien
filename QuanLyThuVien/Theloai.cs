@@ -26,33 +26,40 @@ namespace QuanLyThuVien
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            THELOAI theloai = new THELOAI();
-            theloai.MATHELOAI = mskMa_theloai.Text.Trim();
-            theloai.TENTHELOAI = txtTen_theloai.Text.Trim();
-            try
+            if (txtTen_theloai.Text == "" )
             {
-                var testTheloai = db.THELOAIs.FirstOrDefault(p => p.MATHELOAI == theloai.MATHELOAI);
-                if(testTheloai == null)
-                {
-                    db.THELOAIs.InsertOnSubmit(theloai);
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_theloai.Clear();
-                    txtTen_theloai.Clear();
-                }
-                else
-                {
-                    testTheloai.TENTHELOAI = theloai.TENTHELOAI;
-                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_theloai.Clear();
-                    txtTen_theloai.Clear();
-                }
-                db.SubmitChanges();
-                DataGridView();
-                autotang();
+                MessageBox.Show("Vui lòng nhập tên thể loại", "Thông báo", MessageBoxButtons.OK);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                THELOAI theloai = new THELOAI();
+                theloai.MATHELOAI = mskMa_theloai.Text.Trim();
+                theloai.TENTHELOAI = txtTen_theloai.Text.Trim();
+                try
+                {
+                    var testTheloai = db.THELOAIs.FirstOrDefault(p => p.MATHELOAI == theloai.MATHELOAI);
+                    if (testTheloai == null)
+                    {
+                        db.THELOAIs.InsertOnSubmit(theloai);
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_theloai.Clear();
+                        txtTen_theloai.Clear();
+                    }
+                    else
+                    {
+                        testTheloai.TENTHELOAI = theloai.TENTHELOAI;
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_theloai.Clear();
+                        txtTen_theloai.Clear();
+                    }
+                    db.SubmitChanges();
+                    DataGridView();
+                    autotang();
+                }
+                catch 
+                {
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -89,7 +96,7 @@ namespace QuanLyThuVien
         {
             int numrow;
             numrow = e.RowIndex;
-            mskMa_theloai.Text = dgvTheloai.Rows[numrow].Cells[0].Value.ToString();
+             mskMa_theloai.Text = dgvTheloai.Rows[numrow].Cells[0].Value.ToString();
             txtTen_theloai.Text = dgvTheloai.Rows[numrow].Cells[1].Value.ToString();
         }
 
@@ -137,6 +144,12 @@ namespace QuanLyThuVien
                     mskMa_theloai.Text = "TL" + stt.ToString();
                 }
             }
+        }
+
+        private void btnLammoi_theloai_Click(object sender, EventArgs e)
+        {
+            DataGridView();
+            txtTen_theloai.Clear();
         }
     }
 }

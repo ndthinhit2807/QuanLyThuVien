@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTacgia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi_tacgia = new System.Windows.Forms.Button();
             this.mskMa_tacgia = new System.Windows.Forms.MaskedTextBox();
             this.btnxoatg = new System.Windows.Forms.Button();
             this.btnthemsuatg = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnLammoi_tacgia);
             this.groupBox1.Controls.Add(this.mskMa_tacgia);
             this.groupBox1.Controls.Add(this.btnxoatg);
             this.groupBox1.Controls.Add(this.btnthemsuatg);
@@ -66,6 +68,19 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // btnLammoi_tacgia
+            // 
+            this.btnLammoi_tacgia.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_tacgia.Image")));
+            this.btnLammoi_tacgia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_tacgia.Location = new System.Drawing.Point(432, 380);
+            this.btnLammoi_tacgia.Name = "btnLammoi_tacgia";
+            this.btnLammoi_tacgia.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_tacgia.TabIndex = 28;
+            this.btnLammoi_tacgia.Text = "Làm Mới";
+            this.btnLammoi_tacgia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_tacgia.UseVisualStyleBackColor = true;
+            this.btnLammoi_tacgia.Click += new System.EventHandler(this.btnLammoi_tacgia_Click);
+            // 
             // mskMa_tacgia
             // 
             this.mskMa_tacgia.Location = new System.Drawing.Point(243, 202);
@@ -78,7 +93,7 @@ namespace QuanLyThuVien
             // 
             this.btnxoatg.Image = ((System.Drawing.Image)(resources.GetObject("btnxoatg.Image")));
             this.btnxoatg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxoatg.Location = new System.Drawing.Point(406, 381);
+            this.btnxoatg.Location = new System.Drawing.Point(313, 380);
             this.btnxoatg.Name = "btnxoatg";
             this.btnxoatg.Size = new System.Drawing.Size(85, 49);
             this.btnxoatg.TabIndex = 2;
@@ -91,7 +106,7 @@ namespace QuanLyThuVien
             // 
             this.btnthemsuatg.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuatg.Image")));
             this.btnthemsuatg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthemsuatg.Location = new System.Drawing.Point(205, 381);
+            this.btnthemsuatg.Location = new System.Drawing.Point(117, 380);
             this.btnthemsuatg.Name = "btnthemsuatg";
             this.btnthemsuatg.Size = new System.Drawing.Size(162, 49);
             this.btnthemsuatg.TabIndex = 2;
@@ -191,13 +206,14 @@ namespace QuanLyThuVien
             this.txtTim_tacgia.Name = "txtTim_tacgia";
             this.txtTim_tacgia.Size = new System.Drawing.Size(343, 35);
             this.txtTim_tacgia.TabIndex = 11;
+            this.txtTim_tacgia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTim_tacgia_KeyUp_1);
             // 
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(957, 12);
+            this.labelControl1.Location = new System.Drawing.Point(981, 32);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(160, 65);
             this.labelControl1.TabIndex = 7;
@@ -234,12 +250,13 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvtacgia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.MaskedTextBox mskMa_tacgia;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cboTim_tacgia;
         private System.Windows.Forms.TextBox txtTim_tacgia;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Button btnLammoi_tacgia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

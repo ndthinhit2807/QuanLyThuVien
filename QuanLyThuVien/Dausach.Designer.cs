@@ -31,6 +31,11 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDausach));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbltestnxb_dausach = new System.Windows.Forms.Label();
+            this.btnLammoi_dausach = new System.Windows.Forms.Button();
+            this.lblTentl_dausach = new System.Windows.Forms.Label();
+            this.lblTentg_dausach = new System.Windows.Forms.Label();
+            this.lblTennxb_dausach = new System.Windows.Forms.Label();
             this.mskMa_dausach = new System.Windows.Forms.MaskedTextBox();
             this.cboTacgia_dausach = new System.Windows.Forms.ComboBox();
             this.cboNxb_dausach = new System.Windows.Forms.ComboBox();
@@ -65,6 +70,11 @@ namespace QuanLyThuVien
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.lbltestnxb_dausach);
+            this.groupBox1.Controls.Add(this.btnLammoi_dausach);
+            this.groupBox1.Controls.Add(this.lblTentl_dausach);
+            this.groupBox1.Controls.Add(this.lblTentg_dausach);
+            this.groupBox1.Controls.Add(this.lblTennxb_dausach);
             this.groupBox1.Controls.Add(this.mskMa_dausach);
             this.groupBox1.Controls.Add(this.cboTacgia_dausach);
             this.groupBox1.Controls.Add(this.cboNxb_dausach);
@@ -87,49 +97,103 @@ namespace QuanLyThuVien
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
             // 
+            // lbltestnxb_dausach
+            // 
+            this.lbltestnxb_dausach.AutoSize = true;
+            this.lbltestnxb_dausach.ForeColor = System.Drawing.Color.Red;
+            this.lbltestnxb_dausach.Location = new System.Drawing.Point(249, 493);
+            this.lbltestnxb_dausach.Name = "lbltestnxb_dausach";
+            this.lbltestnxb_dausach.Size = new System.Drawing.Size(89, 30);
+            this.lbltestnxb_dausach.TabIndex = 28;
+            this.lbltestnxb_dausach.Text = "Test nxb";
+            // 
+            // btnLammoi_dausach
+            // 
+            this.btnLammoi_dausach.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_dausach.Image")));
+            this.btnLammoi_dausach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_dausach.Location = new System.Drawing.Point(440, 600);
+            this.btnLammoi_dausach.Name = "btnLammoi_dausach";
+            this.btnLammoi_dausach.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_dausach.TabIndex = 27;
+            this.btnLammoi_dausach.Text = "Làm Mới";
+            this.btnLammoi_dausach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_dausach.UseVisualStyleBackColor = true;
+            this.btnLammoi_dausach.Click += new System.EventHandler(this.btnLammoi_dausach_Click_1);
+            // 
+            // lblTentl_dausach
+            // 
+            this.lblTentl_dausach.AutoSize = true;
+            this.lblTentl_dausach.Location = new System.Drawing.Point(249, 268);
+            this.lblTentl_dausach.Name = "lblTentl_dausach";
+            this.lblTentl_dausach.Size = new System.Drawing.Size(72, 30);
+            this.lblTentl_dausach.TabIndex = 6;
+            this.lblTentl_dausach.Text = "Tên TL";
+            // 
+            // lblTentg_dausach
+            // 
+            this.lblTentg_dausach.AutoSize = true;
+            this.lblTentg_dausach.Location = new System.Drawing.Point(249, 344);
+            this.lblTentg_dausach.Name = "lblTentg_dausach";
+            this.lblTentg_dausach.Size = new System.Drawing.Size(75, 30);
+            this.lblTentg_dausach.TabIndex = 6;
+            this.lblTentg_dausach.Text = "Tên TG";
+            // 
+            // lblTennxb_dausach
+            // 
+            this.lblTennxb_dausach.AutoSize = true;
+            this.lblTennxb_dausach.Location = new System.Drawing.Point(249, 418);
+            this.lblTennxb_dausach.Name = "lblTennxb_dausach";
+            this.lblTennxb_dausach.Size = new System.Drawing.Size(91, 30);
+            this.lblTennxb_dausach.TabIndex = 6;
+            this.lblTennxb_dausach.Text = "Tên NXB";
+            // 
             // mskMa_dausach
             // 
             this.mskMa_dausach.Location = new System.Drawing.Point(254, 156);
             this.mskMa_dausach.Name = "mskMa_dausach";
+            this.mskMa_dausach.ReadOnly = true;
             this.mskMa_dausach.Size = new System.Drawing.Size(137, 35);
             this.mskMa_dausach.TabIndex = 5;
             // 
             // cboTacgia_dausach
             // 
-            this.cboTacgia_dausach.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboTacgia_dausach.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cboTacgia_dausach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTacgia_dausach.FormattingEnabled = true;
-            this.cboTacgia_dausach.Location = new System.Drawing.Point(252, 272);
+            this.cboTacgia_dausach.Location = new System.Drawing.Point(251, 380);
             this.cboTacgia_dausach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboTacgia_dausach.Name = "cboTacgia_dausach";
-            this.cboTacgia_dausach.Size = new System.Drawing.Size(329, 38);
+            this.cboTacgia_dausach.Size = new System.Drawing.Size(137, 38);
             this.cboTacgia_dausach.TabIndex = 3;
+            this.cboTacgia_dausach.SelectedIndexChanged += new System.EventHandler(this.cboTacgia_dausach_SelectedIndexChanged);
             // 
             // cboNxb_dausach
             // 
             this.cboNxb_dausach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNxb_dausach.FormattingEnabled = true;
-            this.cboNxb_dausach.Location = new System.Drawing.Point(252, 330);
+            this.cboNxb_dausach.Location = new System.Drawing.Point(252, 449);
             this.cboNxb_dausach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboNxb_dausach.Name = "cboNxb_dausach";
-            this.cboNxb_dausach.Size = new System.Drawing.Size(329, 38);
+            this.cboNxb_dausach.Size = new System.Drawing.Size(137, 38);
             this.cboNxb_dausach.TabIndex = 3;
+            this.cboNxb_dausach.SelectedIndexChanged += new System.EventHandler(this.cboNxb_dausach_SelectedIndexChanged);
             // 
             // cboTheloai_dausach
             // 
             this.cboTheloai_dausach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTheloai_dausach.FormattingEnabled = true;
-            this.cboTheloai_dausach.Location = new System.Drawing.Point(252, 390);
+            this.cboTheloai_dausach.Location = new System.Drawing.Point(251, 302);
             this.cboTheloai_dausach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboTheloai_dausach.Name = "cboTheloai_dausach";
-            this.cboTheloai_dausach.Size = new System.Drawing.Size(329, 38);
+            this.cboTheloai_dausach.Size = new System.Drawing.Size(137, 38);
             this.cboTheloai_dausach.TabIndex = 3;
+            this.cboTheloai_dausach.SelectedIndexChanged += new System.EventHandler(this.cboTheloai_dausach_SelectedIndexChanged);
             // 
             // btnxoads
             // 
             this.btnxoads.Image = ((System.Drawing.Image)(resources.GetObject("btnxoads.Image")));
             this.btnxoads.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxoads.Location = new System.Drawing.Point(402, 618);
+            this.btnxoads.Location = new System.Drawing.Point(312, 600);
             this.btnxoads.Name = "btnxoads";
             this.btnxoads.Size = new System.Drawing.Size(91, 52);
             this.btnxoads.TabIndex = 2;
@@ -142,7 +206,7 @@ namespace QuanLyThuVien
             // 
             this.btnthemsuads.Image = ((System.Drawing.Image)(resources.GetObject("btnthemsuads.Image")));
             this.btnthemsuads.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthemsuads.Location = new System.Drawing.Point(194, 618);
+            this.btnthemsuads.Location = new System.Drawing.Point(104, 600);
             this.btnthemsuads.Name = "btnthemsuads";
             this.btnthemsuads.Size = new System.Drawing.Size(165, 52);
             this.btnthemsuads.TabIndex = 2;
@@ -153,14 +217,16 @@ namespace QuanLyThuVien
             // 
             // txtNamxb_dausach
             // 
-            this.txtNamxb_dausach.Location = new System.Drawing.Point(254, 454);
+            this.txtNamxb_dausach.Location = new System.Drawing.Point(254, 526);
             this.txtNamxb_dausach.Name = "txtNamxb_dausach";
             this.txtNamxb_dausach.Size = new System.Drawing.Size(137, 35);
             this.txtNamxb_dausach.TabIndex = 1;
+            this.txtNamxb_dausach.TextChanged += new System.EventHandler(this.txtNamxb_dausach_TextChanged);
+            this.txtNamxb_dausach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNamxb_dausach_KeyPress);
             // 
             // txtTen_dausach
             // 
-            this.txtTen_dausach.Location = new System.Drawing.Point(252, 215);
+            this.txtTen_dausach.Location = new System.Drawing.Point(252, 230);
             this.txtTen_dausach.Name = "txtTen_dausach";
             this.txtTen_dausach.Size = new System.Drawing.Size(329, 35);
             this.txtTen_dausach.TabIndex = 1;
@@ -168,7 +234,7 @@ namespace QuanLyThuVien
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(73, 456);
+            this.label6.Location = new System.Drawing.Point(86, 528);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(147, 30);
             this.label6.TabIndex = 0;
@@ -177,29 +243,30 @@ namespace QuanLyThuVien
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(131, 394);
+            this.label4.Location = new System.Drawing.Point(98, 306);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 30);
+            this.label4.Size = new System.Drawing.Size(127, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Thể Loại";
+            this.label4.Text = "Mã Thể Loại";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(79, 334);
+            this.label5.Location = new System.Drawing.Point(136, 453);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 30);
+            this.label5.Size = new System.Drawing.Size(89, 30);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Nhà Xuất Bản";
+            this.label5.Text = "Mã NXB";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 276);
+            this.label2.Location = new System.Drawing.Point(110, 384);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 30);
+            this.label2.Size = new System.Drawing.Size(115, 30);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Tác Giả";
+            this.label2.Text = "Mã Tác Giả";
             // 
             // label3
             // 
@@ -213,7 +280,7 @@ namespace QuanLyThuVien
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 217);
+            this.label1.Location = new System.Drawing.Point(86, 232);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 30);
             this.label1.TabIndex = 0;
@@ -294,24 +361,24 @@ namespace QuanLyThuVien
             // 
             // Column3
             // 
-            this.Column3.DataPropertyName = "TENTHELOAI";
-            this.Column3.HeaderText = "Tên Thể Loại";
+            this.Column3.DataPropertyName = "MATHELOAI";
+            this.Column3.HeaderText = "Mã Thể Loại";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "TENTACGIA";
-            this.Column4.HeaderText = "Tên Tác Giả";
+            this.Column4.DataPropertyName = "MATACGIA";
+            this.Column4.HeaderText = "Mã Tác Giả";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
-            this.Column5.DataPropertyName = "TENNXB";
-            this.Column5.HeaderText = "Tên NXB";
+            this.Column5.DataPropertyName = "MANXB";
+            this.Column5.HeaderText = "Mã NXB";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -377,14 +444,19 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.MaskedTextBox mskMa_dausach;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Label lblTentl_dausach;
+        private System.Windows.Forms.Label lblTentg_dausach;
+        private System.Windows.Forms.Label lblTennxb_dausach;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.MaskedTextBox mskMa_dausach;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Button btnLammoi_dausach;
+        private System.Windows.Forms.Label lbltestnxb_dausach;
     }
 }

@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangnhap));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnthoat = new System.Windows.Forms.Button();
             this.btnfrmdangnhap = new System.Windows.Forms.Button();
             this.txtPass_dangnhap = new DevExpress.XtraEditors.TextEdit();
@@ -47,6 +48,7 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnthoat);
             this.groupBox1.Controls.Add(this.btnfrmdangnhap);
             this.groupBox1.Controls.Add(this.txtPass_dangnhap);
@@ -54,21 +56,32 @@ namespace QuanLyThuVien
             this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(37, 25);
+            this.groupBox1.Location = new System.Drawing.Point(156, 75);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(465, 222);
+            this.groupBox1.Size = new System.Drawing.Size(698, 357);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Đăng Nhập";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(304, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "label1";
             // 
             // btnthoat
             // 
             this.btnthoat.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnthoat.Image = ((System.Drawing.Image)(resources.GetObject("btnthoat.Image")));
             this.btnthoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnthoat.Location = new System.Drawing.Point(278, 160);
+            this.btnthoat.Location = new System.Drawing.Point(400, 238);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(113, 46);
             this.btnthoat.TabIndex = 4;
@@ -83,7 +96,7 @@ namespace QuanLyThuVien
             this.btnfrmdangnhap.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnfrmdangnhap.Image = ((System.Drawing.Image)(resources.GetObject("btnfrmdangnhap.Image")));
             this.btnfrmdangnhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnfrmdangnhap.Location = new System.Drawing.Point(77, 160);
+            this.btnfrmdangnhap.Location = new System.Drawing.Point(195, 238);
             this.btnfrmdangnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfrmdangnhap.Name = "btnfrmdangnhap";
             this.btnfrmdangnhap.Size = new System.Drawing.Size(160, 46);
@@ -95,18 +108,19 @@ namespace QuanLyThuVien
             // 
             // txtPass_dangnhap
             // 
-            this.txtPass_dangnhap.Location = new System.Drawing.Point(189, 112);
+            this.txtPass_dangnhap.Location = new System.Drawing.Point(301, 161);
             this.txtPass_dangnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPass_dangnhap.Name = "txtPass_dangnhap";
             this.txtPass_dangnhap.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass_dangnhap.Properties.Appearance.Options.UseFont = true;
             this.txtPass_dangnhap.Properties.UseSystemPasswordChar = true;
+            this.txtPass_dangnhap.Properties.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPass_dangnhap_Properties_KeyUp);
             this.txtPass_dangnhap.Size = new System.Drawing.Size(267, 36);
             this.txtPass_dangnhap.TabIndex = 2;
             // 
             // txtId_dangnhap
             // 
-            this.txtId_dangnhap.Location = new System.Drawing.Point(189, 66);
+            this.txtId_dangnhap.Location = new System.Drawing.Point(303, 104);
             this.txtId_dangnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtId_dangnhap.Name = "txtId_dangnhap";
             this.txtId_dangnhap.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,7 +132,7 @@ namespace QuanLyThuVien
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(22, 115);
+            this.labelControl2.Location = new System.Drawing.Point(134, 164);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(92, 30);
@@ -129,7 +143,7 @@ namespace QuanLyThuVien
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(20, 68);
+            this.labelControl1.Location = new System.Drawing.Point(134, 106);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(149, 30);
@@ -146,7 +160,7 @@ namespace QuanLyThuVien
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(537, 279);
+            this.pictureEdit1.Size = new System.Drawing.Size(1024, 512);
             this.pictureEdit1.TabIndex = 3;
             // 
             // frmDangnhap
@@ -154,13 +168,14 @@ namespace QuanLyThuVien
             this.AcceptButton = this.btnfrmdangnhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 279);
+            this.ClientSize = new System.Drawing.Size(1024, 512);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureEdit1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmDangnhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangnhap_FormClosing);
             this.Load += new System.EventHandler(this.frmDangnhap_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -180,5 +195,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.Button btnfrmdangnhap;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private System.Windows.Forms.Button btnthoat;
+        private System.Windows.Forms.Label label1;
     }
 }

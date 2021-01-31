@@ -31,6 +31,7 @@ namespace QuanLyThuVien
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTheloai));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLammoi_theloai = new System.Windows.Forms.Button();
             this.mskMa_theloai = new System.Windows.Forms.MaskedTextBox();
             this.txtTen_theloai = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@ namespace QuanLyThuVien
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.btnLammoi_theloai);
             this.groupBox1.Controls.Add(this.mskMa_theloai);
             this.groupBox1.Controls.Add(this.txtTen_theloai);
             this.groupBox1.Controls.Add(this.label3);
@@ -65,6 +67,19 @@ namespace QuanLyThuVien
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin";
+            // 
+            // btnLammoi_theloai
+            // 
+            this.btnLammoi_theloai.Image = ((System.Drawing.Image)(resources.GetObject("btnLammoi_theloai.Image")));
+            this.btnLammoi_theloai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLammoi_theloai.Location = new System.Drawing.Point(439, 412);
+            this.btnLammoi_theloai.Name = "btnLammoi_theloai";
+            this.btnLammoi_theloai.Size = new System.Drawing.Size(148, 52);
+            this.btnLammoi_theloai.TabIndex = 28;
+            this.btnLammoi_theloai.Text = "Làm Mới";
+            this.btnLammoi_theloai.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLammoi_theloai.UseVisualStyleBackColor = true;
+            this.btnLammoi_theloai.Click += new System.EventHandler(this.btnLammoi_theloai_Click);
             // 
             // mskMa_theloai
             // 
@@ -104,7 +119,7 @@ namespace QuanLyThuVien
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(214, 419);
+            this.btnThem.Location = new System.Drawing.Point(138, 413);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(149, 53);
             this.btnThem.TabIndex = 4;
@@ -118,7 +133,7 @@ namespace QuanLyThuVien
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(386, 419);
+            this.btnXoa.Location = new System.Drawing.Point(322, 413);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(82, 53);
             this.btnXoa.TabIndex = 5;
@@ -201,7 +216,7 @@ namespace QuanLyThuVien
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(842, 32);
+            this.labelControl1.Location = new System.Drawing.Point(884, 22);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(190, 65);
             this.labelControl1.TabIndex = 6;
@@ -245,5 +260,6 @@ namespace QuanLyThuVien
         private System.Windows.Forms.MaskedTextBox mskMa_theloai;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Button btnLammoi_theloai;
     }
 }

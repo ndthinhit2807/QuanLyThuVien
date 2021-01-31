@@ -25,43 +25,51 @@ namespace QuanLyThuVien
         {
             dgvtacgia.DataSource = db.TACGIAs.ToList();
             autotang();
+            cboTim_tacgia.SelectedIndex = 0;
         }
 
 
 
         private void btnthemsuatg_Click(object sender, EventArgs e)
         {
-            TACGIA tg = new TACGIA();
-
-            tg.MATACGIA = mskMa_tacgia.Text.Trim();
-            tg.TENTACGIA = txtTen_tacgia.Text.Trim();
-            try
+            if (txtTen_tacgia.Text == "")
             {
-                var tacgia = db.TACGIAs.FirstOrDefault(p => p.MATACGIA == tg.MATACGIA);
-                if (tacgia == null)
-                {
-                    db.TACGIAs.InsertOnSubmit(tg);
-
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_tacgia.Clear();
-                    txtTen_tacgia.Clear();
-                }
-                else
-                {
-                    tg = db.TACGIAs.Where(p => p.MATACGIA == mskMa_tacgia.Text).Single();
-                    tg.MATACGIA = mskMa_tacgia.Text.Trim();
-                    tg.TENTACGIA = txtTen_tacgia.Text.Trim();
-                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                    mskMa_tacgia.Clear();
-                    txtTen_tacgia.Clear();
-                }
-                db.SubmitChanges();
-                loadtacgia();
-                autotang();
+                MessageBox.Show("Vui lòng nhập tên tác giả", "Thông báo", MessageBoxButtons.OK);
             }
-            catch
+            else
             {
-                MessageBox.Show("Nhập Đầy Đủ Thông Tin", "Thông Báo", MessageBoxButtons.OK);
+                TACGIA tg = new TACGIA();
+
+                tg.MATACGIA = mskMa_tacgia.Text.Trim();
+                tg.TENTACGIA = txtTen_tacgia.Text.Trim();
+                try
+                {
+                    var tacgia = db.TACGIAs.FirstOrDefault(p => p.MATACGIA == tg.MATACGIA);
+                    if (tacgia == null)
+                    {
+                        db.TACGIAs.InsertOnSubmit(tg);
+
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_tacgia.Clear();
+                        txtTen_tacgia.Clear();
+                    }
+                    else
+                    {
+                        tg = db.TACGIAs.Where(p => p.MATACGIA == mskMa_tacgia.Text).Single();
+                        tg.MATACGIA = mskMa_tacgia.Text.Trim();
+                        tg.TENTACGIA = txtTen_tacgia.Text.Trim();
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
+                        mskMa_tacgia.Clear();
+                        txtTen_tacgia.Clear();
+                    }
+                    db.SubmitChanges();
+                    loadtacgia();
+                    autotang();
+                }
+                catch
+                {
+                    MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -98,23 +106,7 @@ namespace QuanLyThuVien
             txtTen_tacgia.Text = dgvtacgia.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
-        private void txtTimkiemtg_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (cboTim_tacgia.Text == "Mã")
-            {
-                var findmatg = (from s in db.TACGIAs
-                                  where s.MATACGIA.Contains(txtTim_tacgia.Text)
-                                  select s).ToList();
-                dgvtacgia.DataSource = findmatg;
-            }
-            else
-            {
-                var findntentg = (from s in db.TACGIAs
-                              where s.TENTACGIA.Contains(txtTim_tacgia.Text)
-                              select s).ToList();
-                dgvtacgia.DataSource = findntentg;
-            }
-        }
+       
 
         public void autotang()
         {
@@ -141,6 +133,31 @@ namespace QuanLyThuVien
                 {
                     mskMa_tacgia.Text = "TG" + stt.ToString();
                 }
+            }
+        }
+
+        private void btnLammoi_tacgia_Click(object sender, EventArgs e)
+        {
+            loadtacgia();
+            txtTen_tacgia.Clear();
+        }
+        
+
+        private void txtTim_tacgia_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (cboTim_tacgia.Text == "Mã")
+            {
+                var findmatg = (from s in db.TACGIAs
+                                where s.MATACGIA.Contains(txtTim_tacgia.Text)
+                                select s).ToList();
+                dgvtacgia.DataSource = findmatg;
+            }
+            else
+            {
+                var findntentg = (from s in db.TACGIAs
+                                  where s.TENTACGIA.Contains(txtTim_tacgia.Text)
+                                  select s).ToList();
+                dgvtacgia.DataSource = findntentg;
             }
         }
     }
