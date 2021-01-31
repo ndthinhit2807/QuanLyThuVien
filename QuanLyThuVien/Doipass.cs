@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,8 +41,10 @@ namespace QuanLyThuVien
                         db.SubmitChanges();                  
                         MessageBox.Show("Đổi mật khẩu thành công",
                         "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //FrmMain frm = new FrmMain();
-                        //frm.ShowDialog();
+                        txtid.Clear();
+                        txtpass.Clear();
+                        txtpassmoi.Clear();
+                        txtrepass.Clear();
                     }
                     else
                     {
@@ -54,44 +57,6 @@ namespace QuanLyThuVien
             }
         }
 
-        private void txtpass_KeyUp(object sender, KeyEventArgs e)
-        {
-            Regex rr = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$");
-            if (rr.IsMatch(txtpass.Text) == false)
-            {
-                label7.Text = "Mật khẩu ít nhất 8 chữ cái, bao gồm hoa, số và kí tự đặc biệt ";
-            }
-            else
-            {
-                label7.Text = "";
-            }
-        }
-
-        private void txtpassmoi_KeyUp(object sender, KeyEventArgs e)
-        {
-            Regex rr = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$");
-            if (rr.IsMatch(txtpassmoi.Text) == false)
-            {
-                label6.Text = "Mật khẩu ít nhất 8 chữ cái, bao gồm hoa, số và kí tự đặc biệt ";
-            }
-            else
-            {
-                label6.Text = "";
-            }
-        }
-
-        private void txtrepass_KeyUp(object sender, KeyEventArgs e)
-        {
-            Regex rr = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$");
-            if (rr.IsMatch(txtrepass.Text) == false)
-            {
-                label5.Text = "Mật khẩu ít nhất 8 chữ cái, bao gồm hoa, số và kí tự đặc biệt ";
-            }
-            else
-            {
-                label5.Text = "";
-            }
-        }
 
         private void frmDoipass_Load(object sender, EventArgs e)
         {
@@ -115,6 +80,50 @@ namespace QuanLyThuVien
                 txtpassmoi.UseSystemPasswordChar = true;
                 txtrepass.UseSystemPasswordChar = true;
             }
+        }
+
+        private void txtpass_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            Regex rr = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$");
+            if (rr.IsMatch(txtpass.Text) == false)
+            {
+                label7.Text = "Mật khẩu ít nhất 8 chữ cái, bao gồm hoa, số và kí tự đặc biệt ";
+            }
+            else
+            {
+                label7.Text = "";
+            }
+        }
+
+        private void txtpassmoi_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            Regex rr = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$");
+            if (rr.IsMatch(txtpassmoi.Text) == false)
+            {
+                label6.Text = "Mật khẩu ít nhất 8 chữ cái, bao gồm hoa, số và kí tự đặc biệt ";
+            }
+            else
+            {
+                label6.Text = "";
+            }
+        }
+
+        private void txtrepass_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            Regex rr = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$");
+            if (rr.IsMatch(txtrepass.Text) == false)
+            {
+                label5.Text = "Mật khẩu ít nhất 8 chữ cái, bao gồm hoa, số và kí tự đặc biệt ";
+            }
+            else
+            {
+                label5.Text = "";
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

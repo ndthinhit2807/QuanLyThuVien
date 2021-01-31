@@ -33,6 +33,9 @@ namespace QuanLyThuVien
             this.btnxacnhan = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtrepass = new System.Windows.Forms.TextBox();
+            this.txtpassmoi = new System.Windows.Forms.TextBox();
+            this.txtpass = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,9 +46,6 @@ namespace QuanLyThuVien
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtpass = new System.Windows.Forms.TextBox();
-            this.txtpassmoi = new System.Windows.Forms.TextBox();
-            this.txtrepass = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@ namespace QuanLyThuVien
             this.btnxacnhan.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnxacnhan.Image = ((System.Drawing.Image)(resources.GetObject("btnxacnhan.Image")));
             this.btnxacnhan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnxacnhan.Location = new System.Drawing.Point(246, 310);
+            this.btnxacnhan.Location = new System.Drawing.Point(274, 321);
             this.btnxacnhan.Name = "btnxacnhan";
             this.btnxacnhan.Size = new System.Drawing.Size(144, 48);
             this.btnxacnhan.TabIndex = 6;
@@ -93,17 +93,45 @@ namespace QuanLyThuVien
             this.groupBox1.Controls.Add(this.labelControl4);
             this.groupBox1.Controls.Add(this.btnxacnhan);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(554, 207);
+            this.groupBox1.Location = new System.Drawing.Point(490, 217);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(808, 394);
+            this.groupBox1.Size = new System.Drawing.Size(930, 428);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đổi Mật Khẩu";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtrepass
+            // 
+            this.txtrepass.Location = new System.Drawing.Point(477, 255);
+            this.txtrepass.Name = "txtrepass";
+            this.txtrepass.Size = new System.Drawing.Size(242, 35);
+            this.txtrepass.TabIndex = 4;
+            this.txtrepass.UseSystemPasswordChar = true;
+            this.txtrepass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtrepass_KeyUp_1);
+            // 
+            // txtpassmoi
+            // 
+            this.txtpassmoi.Location = new System.Drawing.Point(477, 188);
+            this.txtpassmoi.Name = "txtpassmoi";
+            this.txtpassmoi.Size = new System.Drawing.Size(242, 35);
+            this.txtpassmoi.TabIndex = 3;
+            this.txtpassmoi.UseSystemPasswordChar = true;
+            this.txtpassmoi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtpassmoi_KeyUp_1);
+            // 
+            // txtpass
+            // 
+            this.txtpass.Location = new System.Drawing.Point(477, 126);
+            this.txtpass.Name = "txtpass";
+            this.txtpass.Size = new System.Drawing.Size(242, 35);
+            this.txtpass.TabIndex = 2;
+            this.txtpass.UseSystemPasswordChar = true;
+            this.txtpass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtpass_KeyUp_1);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(448, 318);
+            this.checkBox1.Location = new System.Drawing.Point(476, 329);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(210, 34);
             this.checkBox1.TabIndex = 13;
@@ -116,7 +144,7 @@ namespace QuanLyThuVien
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(396, 89);
+            this.label7.Location = new System.Drawing.Point(473, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 21);
             this.label7.TabIndex = 12;
@@ -127,7 +155,7 @@ namespace QuanLyThuVien
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(396, 153);
+            this.label6.Location = new System.Drawing.Point(473, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 21);
             this.label6.TabIndex = 12;
@@ -138,7 +166,7 @@ namespace QuanLyThuVien
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(396, 216);
+            this.label5.Location = new System.Drawing.Point(473, 226);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 21);
             this.label5.TabIndex = 12;
@@ -146,16 +174,16 @@ namespace QuanLyThuVien
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(401, 50);
+            this.txtid.Location = new System.Drawing.Point(478, 60);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(241, 35);
-            this.txtid.TabIndex = 11;
+            this.txtid.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(225, 182);
+            this.label4.Location = new System.Drawing.Point(302, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 30);
             this.label4.TabIndex = 10;
@@ -165,7 +193,7 @@ namespace QuanLyThuVien
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(192, 116);
+            this.label3.Location = new System.Drawing.Point(269, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 30);
             this.label3.TabIndex = 10;
@@ -175,7 +203,7 @@ namespace QuanLyThuVien
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(134, 248);
+            this.label2.Location = new System.Drawing.Point(211, 258);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(234, 30);
             this.label2.TabIndex = 10;
@@ -185,7 +213,7 @@ namespace QuanLyThuVien
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(210, 50);
+            this.label1.Location = new System.Drawing.Point(287, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 30);
             this.label1.TabIndex = 10;
@@ -195,34 +223,10 @@ namespace QuanLyThuVien
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Segoe UI", 20F);
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(271, 10);
+            this.labelControl4.Location = new System.Drawing.Point(348, 20);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(0, 37);
             this.labelControl4.TabIndex = 7;
-            // 
-            // txtpass
-            // 
-            this.txtpass.Location = new System.Drawing.Point(400, 116);
-            this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(242, 35);
-            this.txtpass.TabIndex = 14;
-            this.txtpass.UseSystemPasswordChar = true;
-            // 
-            // txtpassmoi
-            // 
-            this.txtpassmoi.Location = new System.Drawing.Point(400, 178);
-            this.txtpassmoi.Name = "txtpassmoi";
-            this.txtpassmoi.Size = new System.Drawing.Size(242, 35);
-            this.txtpassmoi.TabIndex = 14;
-            this.txtpassmoi.UseSystemPasswordChar = true;
-            // 
-            // txtrepass
-            // 
-            this.txtrepass.Location = new System.Drawing.Point(400, 245);
-            this.txtrepass.Name = "txtrepass";
-            this.txtrepass.Size = new System.Drawing.Size(242, 35);
-            this.txtrepass.TabIndex = 14;
-            this.txtrepass.UseSystemPasswordChar = true;
             // 
             // frmDoipass
             // 

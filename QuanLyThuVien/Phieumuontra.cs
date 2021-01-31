@@ -607,7 +607,8 @@ namespace QuanLyThuVien
             cbotinhtrang.Text = dgvctpm.Rows[e.RowIndex].Cells[7].Value.ToString();
             txtsoluong_ctpm.Text = dgvctpm.Rows[e.RowIndex].Cells[8].Value.ToString();
             dtmhantra.Text = dgvctpm.Rows[e.RowIndex].Cells[10].Value.ToString();
-            dtmngaytra.Text = dgvctpm.Rows[e.RowIndex].Cells[11].Value.ToString();
+
+            
             label5.Text = "";
             label13.Text = "";
 
